@@ -1,0 +1,202 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\title{Chapter 1: The Real and Complex Number Systems}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{1.1 INTRODUCTION}
+Mathematical analysis studies concepts related in some way to real numbers, so we begin our study of analysis with a discussion of the real-number system.
+
+Several methods are used to introduce real numbers. One method starts with the positive integers \(1, 2, 3, \ldots\) as undefined concepts and uses them to build a larger system, the positive rational numbers (quotients of positive integers), their negatives, and zero. The rational numbers, in turn, are then used to construct the irrational numbers, real numbers like \(\sqrt{2}\) and \(\pi\) which are not rational. The rational and irrational numbers together constitute the real-number system.
+
+Although these matters are an important part of the foundations of mathematics, they will not be described in detail here. As a matter of fact, in most phases of analysis it is only the properties of real numbers that concern us, rather than the methods used to construct them. Therefore, we shall take the real numbers themselves as undefined objects satisfying certain axioms from which further properties will be derived. Since the reader is probably familiar with most of the properties of real numbers discussed in the next few pages, the presentation will be rather brief. Its purpose is to review the important features and persuade the reader that, if it were necessary to do so, all the properties could be traced back to the axioms. More detailed treatments can be found in the references at the end of this chapter.
+
+For convenience we use some elementary set notation and terminology. Let \(S\) denote a set (a collection of objects). The notation \(x \in S\) means that the object \(x\) is in the set \(S\), and we write \(x \notin S\) to indicate that \(x\) is not in \(S\). 
+A set \(S\) is said to be a subset of \(T\), and we write \(S \subseteq T\), if every object in \(S\) is also in \(T\). A set is called nonempty if it contains at least one object.
+
+We assume there exists a nonempty set \(\mathbb{R}\) of objects, called real numbers, which satisfy the ten axioms listed below. The axioms fall in a natural way into three groups which we refer to as the field axioms, the order axioms, and the completeness axiom (also called the least-upper-bound axiom or the axiom of continuity).
+
+\section*{1.2 THE FIELD AXIOMS}
+Along with the set \(\mathbb{R}\) of real numbers we assume the existence of two operations, called addition and multiplication, such that for every pair of real numbers \(x\) and \(y\) the sum \( x + y \) and the product \( xy \) are real numbers uniquely determined by \( x \) and \( y \) satisfying the following axioms. (In the axioms that appear below, \( x \), \( y \), \( z \) represent arbitrary real numbers unless something is said to the contrary.)
+
+\textbf{Axiom 1.} \( x + y = y + x \), \( xy = yx \) (commutative laws).
+
+\textbf{Axiom 2.} \( x + (y + z) = (x + y) + z \), \( x(yz) = (xy)z \) (associative laws).
+
+\textbf{Axiom 3.} \( x(y + z) = xy + xz \) (distributive law).
+
+\textbf{Axiom 4.} Given any two real numbers \( x \) and \( y \), there exists a real number \( z \) such that \( x + z = y \). This \( z \) is denoted by \( y - x \); the number \( x - x \) is denoted by 0. (It can be proved that 0 is independent of \( x \)). We write \(-x\) for \( 0 - x \) and call \(-x\) the negative of \( x \).
+
+\textbf{Axiom 5.} There exists at least one real number \( x \neq 0 \). If \( x \) and \( y \) are two real numbers with \( x \neq 0 \), then there exists a real number \( z \) such that \( xz = y \). This \( z \) is denoted by \( y/x \); the number \( x/x \) is denoted by 1 and can be shown to be independent of \( x \). We write \( x^{-1} \) for \( 1/x \) if \( x \neq 0 \) and call \( x^{-1} \) the reciprocal of \( x \).
+
+From these axioms all the usual laws of arithmetic can be derived; for example, \( -(-x) = x \), \( (x^{-1})^{-1} = x \), \( -(x - y) = y - x \), \( x - y = x + (-y) \), etc. (For a more detailed explanation, see Reference 1.1.)
+
+\section*{1.3 THE ORDER AXIOMS}
+We also assume the existence of a relation \( < \) which establishes an ordering among the real numbers and which satisfies the following axioms:
+
+\textbf{Axiom 6.} Exactly one of the relations \( x = y \), \( x < y \), \( x > y \) holds.
+
+NOTE. \( x > y \) means the same as \( y < x \).
+
+\textbf{Axiom 7.} If \( x < y \), then for every \( z \) we have \( x + z < y + z \).
+
+\textbf{Axiom 8.} If \( x > 0 \) and \( y > 0 \), then \( xy > 0 \).
+
+\textbf{Axiom 9.} If \( x > y \) and \( y > z \), then \( x > z \).
+
+NOTE. A real number \( x \) is called positive if \( x > 0 \), and negative if \( x < 0 \). We denote by \( \mathbb{R}^+ \) the set of all positive real numbers, and by \( \mathbb{R}^- \) the set of all negative real numbers.
+
+From these axioms we can derive the usual rules for operating with inequalities. For example, if we have \( x < y \), then \( xz < yz \) if \( z \) is positive, whereas \( xz > yz \) if \( z \) is negative. Also, if \( x > y \) and \( z > w \) where both \( y \) and \( w \) are positive, then \( xz > yw \). (For a complete discussion of these rules see Reference 1.1.)
+
+NOTE. The symbolism \( x \leq y \) is used as an abbreviation for the statement:
+\[``x < y \quad \text{or} \quad x = y."\]
+Thus we have \( 2 \leq 3 \) since \( 2 < 3 \); and \( 2 \leq 2 \) since \( 2 = 2 \). The symbol \(\geq\) is similarly used. A real number \( x \) is called nonnegative if \( x \geq 0 \). A pair of simultaneous inequalities such as \( x < y, \, y < z \) is usually written more briefly as \( x < y < z \).
+
+The following theorem, which is a simple consequence of the foregoing axioms, is often used in proofs in analysis.
+
+\textbf{Theorem 1.1.} Given real numbers \( a \) and \( b \) such that
+\[a \leq b + \varepsilon \quad \text{for every} \; \varepsilon > 0.\]
+Then \( a \leq b \).
+
+\textbf{Proof.} If \( b < a \), then inequality (1) is violated for \( \varepsilon = (a - b)/2 \) because
+\[b + \varepsilon = b + \frac{a - b}{2} = \frac{a + b}{2} < \frac{a + a}{2} = a.\]
+Therefore, by Axiom 6 we must have \( a \leq b \).
+
+Axiom 10, the completeness axiom, will be described in Section 1.11.
+
+\section*{1.4 GEOMETRIC REPRESENTATION OF REAL NUMBERS}
+The real numbers are often represented geometrically as points on a line (called the real line or the real axis). A point is selected to represent 0 and another to represent 1, as shown in Fig. 1.1. This choice determines the scale. Under an appropriate set of axioms for Euclidean geometry, each point on the real line corresponds to one and only one real number and, conversely, each real number is represented by one and only one point on the line. It is customary to refer to the point \( x \) rather than the point representing the real number \( x \).
+
+\[\begin{array}{ccc}
+ & 0 & 1 \\
+x & y & 
+\end{array}\]
+\textbf{Figure 1.1}
+
+The order relation has a simple geometric interpretation. If \( x < y \), the point \( x \) lies to the left of the point \( y \), as shown in Fig. 1.1. Positive numbers lie to the right of 0, and negative numbers to the left of 0. If \( a < b \), a point \( x \) satisfies the inequalities \( a < x < b \) if and only if \( x \) is between \( a \) and \( b \).
+
+\section*{1.5 INTERVALS}
+The set of all points between \( a \) and \( b \) is called an interval. Sometimes it is important to distinguish between intervals which include their endpoints and intervals which do not.
+
+NOTATION. The notation \(\{x : x \text{ satisfies } P\}\) will be used to designate the set of all real numbers \( x \) which satisfy property \( P \).
+
+\section*{1.6 INTEGERS}
+This section describes the integers, a special subset of \( \mathbb{R} \). Before we define the integers it is convenient to introduce first the notion of an inductive set.
+
+\textbf{Definition 1.3.} A set of real numbers is called an inductive set if it has the following two properties:
+a) The number \(1\) is in the set.
+b) For every \(x\) in the set, the number \(x + 1\) is also in the set.
+
+For example, \( \mathbb{R} \) is an inductive set. So is the set \( \mathbb{R}^+ \). Now we shall define the positive integers to be those real numbers which belong to every inductive set.
+
+\textbf{Definition 1.4.} A real number is called a positive integer if it belongs to every inductive set. The set of positive integers is denoted by \( \mathbb{Z}^+ \).
+
+The set \( \mathbb{Z}^+ \) is itself an inductive set. It contains the number \(1\), the number \(1 + 1\) (denoted by \(2\)), the number \(2 + 1\) (denoted by \(3\)), and so on. Since \( \mathbb{Z}^+ \) is a subset of every inductive set, we refer to \( \mathbb{Z}^+ \) as the smallest inductive set. This property of \( \mathbb{Z}^+ \) is sometimes called the principle of induction. We assume the reader is familiar with proofs by induction which are based on this principle. (See Reference 1.1.) Examples of such proofs are given in the next section.
+
+The negatives of the positive integers are called the negative integers. The positive integers, together with the negative integers and \(0\) (zero), form a set \( \mathbb{Z} \) which we call simply the set of integers.
+
+\section*{1.7 THE UNIQUE FACTORIZATION THEOREM FOR INTEGERS}
+If \(n\) and \(d\) are integers and if \(n = cd\) for some integer \(c\), we say \(d\) is a divisor of \(n\), or \(n\) is a multiple of \(d\), and we write \(d|n\) (read: \(d\) divides \(n\)). An integer \(n\) is called a prime if \( n > 1 \) and if the only positive divisors of \( n \) are 1 and \( n \). If \( n > 1 \) and \( n \) is not prime, then \( n \) is called composite. The integer 1 is neither prime nor composite.
+
+This section derives some elementary results on factorization of integers, culminating in the unique factorization theorem, also called the fundamental theorem of arithmetic.
+
+The fundamental theorem states that (1) every integer \( n > 1 \) can be represented as a product of prime factors, and (2) this factorization can be done in only one way, apart from the order of the factors. It is easy to prove part (1).
+
+\textbf{Theorem 1.5.} Every integer \( n > 1 \) is either a prime or a product of primes.
+
+\textbf{Proof.} We use induction on \( n \). The theorem holds trivially for \( n = 2 \). Assume it is true for every integer \( k \) with \( 1 < k < n \). If \( n \) is not prime it has a positive divisor \( d \) with \( 1 < d < n \). Hence \( n = cd \), where \( 1 < c < n \). Since both \( c \) and \( d \) are \( <n \), each is a prime or a product of primes; hence \( n \) is a product of primes.
+
+Before proving part (2), uniqueness of the factorization, we introduce some further concepts.
+
+If \( d|a \) and \( d|b \) we say \( d \) is a common divisor of \( a \) and \( b \). The next theorem shows that every pair of integers \( a \) and \( b \) has a common divisor which is a linear combination of \( a \) and \( b \).
+
+\textbf{Theorem 1.6.} Every pair of integers \( a \) and \( b \) has a common divisor \( d \) of the form
+\[d = ax + by\]
+where \( x \) and \( y \) are integers. Moreover, every common divisor of \( a \) and \( b \) divides this \( d \).
+
+\textbf{Proof.} First assume that \( a \geq 0 \), \( b \geq 0 \) and use induction on \( n = a + b \). If \( n = 0 \) then \( a = b = 0 \), and we can take \( d = 0 \) with \( x = y = 0 \). Assume, then, that the theorem has been proved for 0, 1, 2, ..., \( n - 1 \). By symmetry, we can assume \( a \geq b \). If \( b = 0 \) take \( d = a \), \( x = 1 \), \( y = 0 \). If \( b \geq 1 \) we can apply the induction hypothesis to \( a - b \) and \( b \), since their sum is \( a = n - b \leq n - 1 \). Hence there is a common divisor \( d \) of \( a - b \) and \( b \) of the form \( d = (a - b)x + by \). This \( d \) also divides \( (a - b) + b = a \), so \( d \) is a common divisor of \( a \) and \( b \) and we have \( d = ax + (y - x)b \), a linear combination of \( a \) and \( b \). To complete the proof we need to show that every common divisor divides \( d \). Since a common divisor divides \( a \) and \( b \), it also divides the linear combination \( ax + (y - x)b = d \). This completes the proof if \( a \geq 0 \) and \( b \geq 0 \). If one or both of \( a \) and \( b \) is negative, apply the result just proved to \( |a| \) and \( |b| \).
+
+NOTE. If \( d \) is a common divisor of \( a \) and \( b \) of the form \( d = ax + by \), then \( -d \) is also a divisor of the same form, \( -d = a(-x) + b(-y) \). Of these two common divisors, the nonnegative one is called the greatest common divisor of \( a \) and \( b \), and is denoted by \( \gcd(a, b) \) or, simply by \( (a, b) \). If \( (a, b) = 1 \) then \( a \) and \( b \) are said to be relatively prime.
+
+\textbf{Theorem 1.7 (Euclid's Lemma).} If \( a|bc \) and \( (a, b) = 1 \), then \( a|c \).
+
+\textbf{Proof.} Since \((a, b) = 1\) we can write \(1 = ax + by\). Therefore \(c = acx + bcy\). But \(a|acx\) and \(a|bcy\), so \(a|c\).
+
+\textbf{Theorem 1.8.} If a prime \(p\) divides \(ab\), then \(p|a\) or \(p|b\). More generally, if a prime \(p\) divides a product \(a_1 \cdots a_k\), then \(p\) divides at least one of the factors.
+
+\textbf{Proof.} Assume \(p|ab\) and that \(p\) does not divide \(a\). If we prove that \((p, a) = 1\), then Euclid’s Lemma implies \(p|b\). Let \(d = (p, a)\). Then \(d|p\) so \(d = 1\) or \(d = p\). We cannot have \(d = p\) because \(d|a\) but \(p\) does not divide \(a\). Hence \(d = 1\). To prove the more general statement we use induction on \(k\), the number of factors. Details are left to the reader.
+
+\textbf{Theorem 1.9 (Unique factorization theorem).} Every integer \( n > 1 \) can be represented as a product of prime factors in only one way, apart from the order of the factors.
+
+\textbf{Proof.} We use induction on \(n\). The theorem is true for \(n = 2\). Assume, then, that it is true for all integers greater than 1 and less than \(n\). If \(n\) is prime there is nothing more to prove. Therefore assume that \(n\) is composite and that \(n\) has two factorizations into prime factors, say
+\[ n = p_1 p_2 \cdots p_s = q_1 q_2 \cdots q_t. \tag{2} \]
+We wish to show that \(s = t\) and that each \(p\) equals some \(q\). Since \(p_1\) divides the product \(q_1 q_2 \cdots q_t\), it divides at least one factor. Relabel the \(q\)’s if necessary so that \(p_1 | q_1\). Then \(p_1 = q_1\) since both \(p_1\) and \(q_1\) are primes. In (2) we cancel \(p_1\) on both sides to obtain
+\[ \frac{n}{p_1} = p_2 \cdots p_s = q_2 \cdots q_t. \]
+Since \(n\) is composite, \(1 < n/p_1 < n\); so by the induction hypothesis the two factorizations of \(n/p_1\) are identical, apart from the order of the factors. Therefore the same is true in (2) and the proof is complete.
+
+\section*{1.8 RATIONAL NUMBERS}
+Quotients of integers \(a/b\) (where \(b \neq 0\)) are called rational numbers. For example, \(1/2, -7/5\), and 6 are rational numbers. The set of rational numbers, which we denote by \(\mathbb{Q}\), contains \(\mathbb{Z}\) as a subset. The reader should note that all the field axioms and the order axioms are satisfied by \(\mathbb{Q}\).
+
+We assume that the reader is familiar with certain elementary properties of rational numbers. For example, if \(a\) and \(b\) are rational, their average \((a + b)/2\) is also rational and lies between \(a\) and \(b\). Therefore between any two rational numbers there are infinitely many rational numbers, which implies that if we are given a certain rational number we cannot speak of the “next largest” rational number.
+
+\section*{1.9 IRRATIONAL NUMBERS}
+Real numbers that are not rational are called irrational. For example, the numbers \(\sqrt{2}\), \(e\), \(\pi\) and \(e^{\pi}\) are irrational.
+
+Ordinarily it is not too easy to prove that some particular number is irrational. There is no simple proof, for example, of the irrationality of \(e^{\pi}\). However, the irrationality of certain numbers such as \(\sqrt{2}\) and \(\sqrt{3}\) is not too difficult to establish and, in fact, we easily prove the following:
+
+\textbf{Theorem 1.10.} If \(n\) is a positive integer which is not a perfect square, then \(\sqrt{n}\) is irrational.
+
+\textbf{Proof.} Suppose first that \(n\) contains no square factor > 1. We assume that \(\sqrt{n}\) is rational and obtain a contradiction. Let \(\sqrt{n} = a/b\), where \(a\) and \(b\) are integers having no factor in common. Then \(nb^2 = a^2\) and, since the left side of this equation is a multiple of \(n\), so too is \(a^2\). However, if \(a^2\) is a multiple of \(n\), \(a\) itself must be a multiple of \(n\), since \(n\) has no square factors > 1. (This is easily seen by examining the factorization of \(a\) into its prime factors.) This means that \(a = cn\), where \(c\) is some integer. Then the equation \(nb^2 = a^2\) becomes \(nb^2 = c^2n^2\), or \(b^2 = nc^2\). The same argument shows that \(b\) must also be a multiple of \(n\). Thus \(a\) and \(b\) are both multiples of \(n\), which contradicts the fact that they have no factor in common. This completes the proof if \(n\) has no square factor > 1.
+
+If \(n\) has a square factor, we can write \(n = m^2k\), where \(k > 1\) and \(k\) has no square factor > 1. Then \(\sqrt{n} = m\sqrt{k}\); and if \(\sqrt{n}\) were rational, the number \(\sqrt{k}\) would also be rational, contradicting that which was just proved.
+
+A different type of argument is needed to prove that the number \(e\) is irrational. (We assume familiarity with the exponential \(e^x\) from elementary calculus and its representation as an infinite series.)
+
+\textbf{Theorem 1.11.} If \(e^x = 1 + x + x^2/2! + x^3/3! + \cdots + x^n/n! + \cdots\), then the number \(e\) is irrational.
+
+\textbf{Proof.} We shall prove that \(e^{-1}\) is irrational. The series for \(e^{-1}\) is an alternating series with terms which decrease steadily in absolute value. In such an alternating series the error made by stopping at the nth term has the algebraic sign of the first neglected term and is less in absolute value than the first neglected term. Hence, if \(s_n = \sum_{k=0}^n (-1)^k/k!\), we have the inequality
+\[0 < e^{-1} - s_{2k-1} < \frac{1}{(2k)!},\]
+from which we obtain
+\[0 < (2k - 1)!(e^{-1} - s_{2k-1}) < \frac{1}{2k} \leq \frac{1}{2},\]
+for any integer \(k \geq 1\). Now \((2k - 1)!s_{2k-1}\) is always an integer. If \(e^{-1}\) were rational, then we could choose \(k\) so large that \((2k - 1)!e^{-1}\) would also be an integer. Because of (3) the difference of these two integers would be a number between 0 and \(\frac{1}{2}\), which is impossible. Thus \(e^{-1}\) cannot be rational, and hence \(e\) cannot be rational.
+
+NOTE. For a proof that \(\pi\) is irrational, see Exercise 7.33.
+
+The ancient Greeks were aware of the existence of irrational numbers as early as 500 B.C. However, a satisfactory theory of such numbers was not developed until late in the nineteenth century, at which time three different theories were introduced by Cantor, Dedekind, and Weierstrass. For an account of the theories of Dedekind and Cantor and their equivalence, see Reference 1.6.
+
+\section*{1.10 UPPER BOUNDS, MAXIMUM ELEMENT, LEAST UPPER BOUND (SUPREMUM)}
+Irrational numbers arise in algebra when we try to solve certain quadratic equations. For example, it is desirable to have a real number \(x\) such that \(x^2 = 2\). From the nine axioms listed above we cannot prove that such an \(x\) exists in \(\mathbb{R}\) because these nine axioms are also satisfied by \(\mathbb{Q}\) and we have shown that there is no rational number whose square is 2. The completeness axiom allows us to introduce irrational numbers in the real-number system, and it gives the real-number system a property of continuity that is fundamental to many theorems in analysis.
+
+Before we describe the completeness axiom, it is convenient to introduce additional terminology and notation.
+
+\textbf{Definition 1.12.} Let \(S\) be a set of real numbers. If there is a real number \(b\) such that \(x \leq b\) for every \(x\) in \(S\), then \(b\) is called an upper bound for \(S\) and we say that \(S\) is bounded above by \(b\).
+
+We say an upper bound because every number greater than \(b\) will also be an upper bound. If an upper bound \(b\) is also a member of \(S\), then \(b\) is called the largest member or the maximum element of \(S\). There can be at most one such \(b\). If it exists, we write
+\[b = \max S.\]
+
+A set with no upper bound is said to be unbounded above.
+
+Definitions of the terms lower bound, bounded below, smallest member (or minimum element) can be similarly formulated. If \(S\) has a minimum element we denote it by \(\min S\).
+
+\textbf{Examples}
+\begin{enumerate}
+    \item The set \(\mathbb{R}^+ = (0, +\infty)\) is unbounded above. It has no upper bounds and no maximum element. It is bounded below by 0 but has no minimum element.
+    \item The closed interval \(S = [0, 1]\) is bounded above by 1 and is bounded below by 0. In fact, \(\max S = 1\) and \(\min S = 0\).
+    \item The half-open interval \(S = [0, 1)\) is bounded above by 1 but it has no maximum element. Its minimum element is 0.
+\end{enumerate}
+
+\section*{1.11 THE COMPLETENESS AXIOM}
+Our final axiom for the real number system involves the notion of supremum.
+
+\textbf{Axiom 10.} Every nonempty set \(S\) of real numbers which is bounded above has a supremum; that is, there is a real number \(b\) such that \(b = \sup S\).
+
+As a consequence of this axiom it follows that every nonempty set of real numbers which is bounded below has an infimum.
+
+\end{document}
