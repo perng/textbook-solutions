@@ -1,202 +1,956 @@
-\documentclass{article}
+\documentclass[lang=en,12pt]{beautybook}
+% ---------------------------------------------------------------------------- %
+%                            The Cover Theme Chosen                            %
+% ---------------------------------------------------------------------------- %
+\definecolor{coverbgcolor}{HTML}{e0e0e0}
+\definecolor{coverfgcolor}{HTML}{203744} % The color of the background
+\definecolor{coverbar}{HTML}{7c9092} % The color of the left bar
+\definecolor{bottomcolor}{HTML}{2c4f54}
+\definecolor{nuanbai}{HTML}{f5f5f5}
+\pagecolor{nuanbai}
+\beautybookstyle={
+  cover-choose=en, % en/cn/enfig/birkar
+  math-font=plain, % plain/mtpro2
+  sidebar=off, % on/off
+}
+\usepackage{stys/beautybook-ensettings}
+\usepackage{tcolorbox}
+\usepackage{thmtools}
+\usepackage{enumitem}
+\usepackage{makeidx}
+\usepackage{imakeidx}
 \usepackage{amsmath, amssymb}
 \usepackage{geometry}
-\geometry{a4paper, margin=1in}
-
-\title{Chapter 1: The Real and Complex Number Systems}
-\author{}
-\date{}
-
+\geometry{letterpaper, margin=1.2in}
+\newcommand{\Log}{\operatorname{Log}}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{fadings}
+% ---------------------------------------------------------------------------- %
+%                            The Cover Theme Chosen                            %
+% ---------------------------------------------------------------------------- %
+\UseTblrLibrary{booktabs} % 定义 \toprule、 \midrule、\bottomrule 和 \cmidrule 命令，这些命令可以直接用于 tblr环境中
+\newcommand{\pr}{'}
+\newcommand{\prr}{''}
 \begin{document}
+\thispagestyle{empty}
+\title{Chapter 1: The Real and Complex Number Syste s}
+\subtitle{Or: How Mathematicians Built the Number System and Why You Should Care}
+\edition{First Edition}
+\bookseries{Mathematical Analysis}
+\author{Tom M. Apostol}
+\pressname{beautybook}
+\presslogo{beautybook-logo}
+\coverimage{hummingbird-8013214}
+\makecover
 
-\maketitle
+\makeatletter
+% ---------------------------------------------------------------------------- %
+%                           The Sidebar Theme Chosen                           %
+% ---------------------------------------------------------------------------- %
+\definecolor{bg}{HTML}{e0e0e0}
+\definecolor{fg}{HTML}{2c4f54}
+\colorlet{outermarginbgcolor}{bg} % The foreground color of the sidebar
+\colorlet{outermarginfgcolor}{fg} % The background color of the sidebar
+% When sidebar=off, you must comment the following two lines!
+% % set the contents of the outer margin on even and odd pages for scrheadings, plain and scth
+% \oddoutermargin{\sffamily Real and Complex Numbers} % Odd 奇数页
+% \evenoutermargin{\sffamily\@title} % Even 偶数页
+% ---------------------------------------------------------------------------- %
+%                           The Sidebar Theme Chosen                           %
+% ---------------------------------------------------------------------------- %
 
-\section*{1.1 INTRODUCTION}
-Mathematical analysis studies concepts related in some way to real numbers, so we begin our study of analysis with a discussion of the real-number system.
+% ---------------------------------------------------------------------------- %
+%                         The images used in the title                         %
+% ---------------------------------------------------------------------------- %
+\titleimage{
+  chapteroddimage={odd1,odd2,odd3,odd4,odd5,odd6,odd7,odd8,odd9,odd10,odd11,odd12,odd13,odd14,odd15,mid1,mid2,mid3,mid4,mid5,mid6,mid7,mid8,mid9,mid10,mid11},
+%
+  partoddimage={odd1,odd2,odd3,odd4,odd5,odd6,odd7,odd8,odd9,odd10,odd11,odd12,odd13,odd14,odd15,mid1,mid2,mid3,mid4,mid5,mid6,mid7,mid8,mid9,mid10,mid11},
+%
+  chapterevenimage={songeven,even1,even2,even3,even4,mid1,mid2,mid3,mid4,mid5,mid6,mid7,mid8,mid9,mid10,mid11},
+%
+  partevenimage={songeven,even1,even2,even3,even4,mid1,mid2,mid3,mid4,mid5,mid6,mid7,mid8,mid9,mid10,mid11},
+}
+\chapimage{\beautybook@chapterimagename} % 会自动改变
+\partimage{\beautybook@partimagename}    % 会自动改变
+\makeatother
+% ---------------------------------------------------------------------------- %
+%                         The images used in the title                         %
+% ---------------------------------------------------------------------------- %
 
-Several methods are used to introduce real numbers. One method starts with the positive integers \(1, 2, 3, \ldots\) as undefined concepts and uses them to build a larger system, the positive rational numbers (quotients of positive integers), their negatives, and zero. The rational numbers, in turn, are then used to construct the irrational numbers, real numbers like \(\sqrt{2}\) and \(\pi\) which are not rational. The rational and irrational numbers together constitute the real-number system.
+% ---------------------------------------------------------------------------- %
+%                      The Color Chosen for The Magic Box                      %
+% ---------------------------------------------------------------------------- %
+\colorlet{framegolden}{fg} % The line color of the magic box
+\colorlet{framegray}{bg!50} % The background color of the magic box
+% ---------------------------------------------------------------------------- %
+%                      The Color Chosen for The Magic Box                      %
+% ---------------------------------------------------------------------------- %
 
-Although these matters are an important part of the foundations of mathematics, they will not be described in detail here. As a matter of fact, in most phases of analysis it is only the properties of real numbers that concern us, rather than the methods used to construct them. Therefore, we shall take the real numbers themselves as undefined objects satisfying certain axioms from which further properties will be derived. Since the reader is probably familiar with most of the properties of real numbers discussed in the next few pages, the presentation will be rather brief. Its purpose is to review the important features and persuade the reader that, if it were necessary to do so, all the properties could be traced back to the axioms. More detailed treatments can be found in the references at the end of this chapter.
+\frontmatter
+\pagenumbering{Roman}
 
-For convenience we use some elementary set notation and terminology. Let \(S\) denote a set (a collection of objects). The notation \(x \in S\) means that the object \(x\) is in the set \(S\), and we write \(x \notin S\) to indicate that \(x\) is not in \(S\). 
-A set \(S\) is said to be a subset of \(T\), and we write \(S \subseteq T\), if every object in \(S\) is also in \(T\). A set is called nonempty if it contains at least one object.
 
-We assume there exists a nonempty set \(\mathbb{R}\) of objects, called real numbers, which satisfy the ten axioms listed below. The axioms fall in a natural way into three groups which we refer to as the field axioms, the order axioms, and the completeness axiom (also called the least-upper-bound axiom or the axiom of continuity).
+{% Preface
+\thispagestyle{empty}
+% \addcontentsline{toc}{chapter}{Preface}
+\chapter*{Preface}
+This chapter introduces the fundamental building blocks of mathematical analysis: the real and complex number systems. We begin with an axiomatic approach to the real numbers, exploring their properties and structure, before extending our understanding to the complex numbers.
 
-\section*{1.2 THE FIELD AXIOMS}
-Along with the set \(\mathbb{R}\) of real numbers we assume the existence of two operations, called addition and multiplication, such that for every pair of real numbers \(x\) and \(y\) the sum \( x + y \) and the product \( xy \) are real numbers uniquely determined by \( x \) and \( y \) satisfying the following axioms. (In the axioms that appear below, \( x \), \( y \), \( z \) represent arbitrary real numbers unless something is said to the contrary.)
+The material is presented in an accessible manner suitable for students beginning their study of mathematical analysis, with emphasis on understanding the "why" behind mathematical concepts rather than just the "how."
 
-\textbf{Axiom 1.} \( x + y = y + x \), \( xy = yx \) (commutative laws).
+\hfill
+\begin{tabular}{lr}
+    &-- Tom M. Apostol\\ 
+    &Mathematical Analysis, Second Edition
+\end{tabular}
+\clearpage}
 
-\textbf{Axiom 2.} \( x + (y + z) = (x + y) + z \), \( x(yz) = (xy)z \) (associative laws).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Axiom 3.} \( x(y + z) = xy + xz \) (distributive law).
+\thispagestyle{empty}
+\tableofcontents\let\cleardoublepage\clearpage
 
-\textbf{Axiom 4.} Given any two real numbers \( x \) and \( y \), there exists a real number \( z \) such that \( x + z = y \). This \( z \) is denoted by \( y - x \); the number \( x - x \) is denoted by 0. (It can be proved that 0 is independent of \( x \)). We write \(-x\) for \( 0 - x \) and call \(-x\) the negative of \( x \).
+\mainmatter
+\pagenumbering{arabic}
 
-\textbf{Axiom 5.} There exists at least one real number \( x \neq 0 \). If \( x \) and \( y \) are two real numbers with \( x \neq 0 \), then there exists a real number \( z \) such that \( xz = y \). This \( z \) is denoted by \( y/x \); the number \( x/x \) is denoted by 1 and can be shown to be independent of \( x \). We write \( x^{-1} \) for \( 1/x \) if \( x \neq 0 \) and call \( x^{-1} \) the reciprocal of \( x \).
+\partabstract{\fontsize{15pt}{15pt}\selectfont This chapter establishes the foundation of mathematical analysis by developing the real and complex number systems from first principles.}
+\part{The Real and Complex Number Systems}
 
-From these axioms all the usual laws of arithmetic can be derived; for example, \( -(-x) = x \), \( (x^{-1})^{-1} = x \), \( -(x - y) = y - x \), \( x - y = x + (-y) \), etc. (For a more detailed explanation, see Reference 1.1.)
+\chapter{The Real and Complex Number Systems}%\index{The Real and Complex Number Systems}
 
-\section*{1.3 THE ORDER AXIOMS}
-We also assume the existence of a relation \( < \) which establishes an ordering among the real numbers and which satisfies the following axioms:
+\section{Introduction: Why Are We Doing This?}%\index{Introduction}
 
-\textbf{Axiom 6.} Exactly one of the relations \( x = y \), \( x < y \), \( x > y \) holds.
 
-NOTE. \( x > y \) means the same as \( y < x \).
+% \begin{problem}[1.1: No Largest Prime ]
+%     Prove that there is no largest prime. (A proof was known to Euclid.)
+% \end{problem}
+% \begin{solution}    
+%     Strategy: Use proof by contradiction. Assume there exists a largest prime $p$, then consider $N = p! + 1$. Since $N$ is either prime or has a prime factor greater than $p$, this contradicts the assumption.
+    
+%     Solution:
+%     We will prove this by contradiction. Assume there exists a largest prime number, call it $p$.
+    
+%     Consider the number $N = p! + 1$, where $p!$ is the factorial of $p$. 
+    
+%     Since $p!$ is divisible by all integers from $1$ to $p$, the number $N = p! + 1$ is not divisible by any prime number less than or equal to $p$.
+    
+%     Now, $N$ is either prime or composite:
+%     \begin{itemize}
+%     \item If $N$ is prime, then $N > p$, contradicting our assumption that $p$ is the largest prime.
+%     \item If $N$ is composite, then $N$ has a prime factor $q$. Since $N$ is not divisible by any prime $\leq p$, we must have $q > p$. This again contradicts our assumption that $p$ is the largest prime.
+%     \end{itemize}
+    
+%     In both cases, we reach a contradiction. Therefore, our assumption that there exists a largest prime is false, and there must be infinitely many prime numbers.
+% \end{solution}
 
-\textbf{Axiom 7.} If \( x < y \), then for every \( z \) we have \( x + z < y + z \).
 
-\textbf{Axiom 8.} If \( x > 0 \) and \( y > 0 \), then \( xy > 0 \).
 
-\textbf{Axiom 9.} If \( x > y \) and \( y > z \), then \( x > z \).
+Welcome to the wild world of mathematical analysis! Think of this as the foundation of everything cool in math - calculus, differential equations, and all those fancy mathematical tools that make physics and engineering work. But before we can build the fancy stuff, we need to make sure our foundation is solid. That's what this chapter is about.
 
-NOTE. A real number \( x \) is called positive if \( x > 0 \), and negative if \( x < 0 \). We denote by \( \mathbb{R}^+ \) the set of all positive real numbers, and by \( \mathbb{R}^- \) the set of all negative real numbers.
+Mathematical analysis is basically the study of things related to real numbers. You know, those numbers you use every day - like $3.14$ ($\pi$), $\sqrt{2}$, and $-42$. But here's the thing: mathematicians are picky about their foundations. They want to know exactly what these numbers are and why they behave the way they do.
 
-From these axioms we can derive the usual rules for operating with inequalities. For example, if we have \( x < y \), then \( xz < yz \) if \( z \) is positive, whereas \( xz > yz \) if \( z \) is negative. Also, if \( x > y \) and \( z > w \) where both \( y \) and \( w \) are positive, then \( xz > yw \). (For a complete discussion of these rules see Reference 1.1.)
+\subsection{The Great Number Building Project}
 
-NOTE. The symbolism \( x \leq y \) is used as an abbreviation for the statement:
-\[``x < y \quad \text{or} \quad x = y."\]
-Thus we have \( 2 \leq 3 \) since \( 2 < 3 \); and \( 2 \leq 2 \) since \( 2 = 2 \). The symbol \(\geq\) is similarly used. A real number \( x \) is called nonnegative if \( x \geq 0 \). A pair of simultaneous inequalities such as \( x < y, \, y < z \) is usually written more briefly as \( x < y < z \).
+Imagine you're building a house. You could start with the roof and work your way down, but that would be... well, stupid. You need a solid foundation first. That's exactly what we're doing here.
 
-The following theorem, which is a simple consequence of the foregoing axioms, is often used in proofs in analysis.
+Several clever methods exist for building up the real numbers from scratch. One popular approach starts with the positive integers ($1, 2, 3,\cdots$) as our basic building blocks and constructs everything else from there. We build the rational numbers (fractions), then use those to create the irrational numbers (like $\sqrt{2}$ and $\pi$), and finally combine everything into the complete real number system.
 
-\textbf{Theorem 1.1.} Given real numbers \( a \) and \( b \) such that
+Now, you might be thinking, "Why do I care about this? I already know how to add and multiply numbers!" And you're absolutely right - you do! But here's the thing: mathematicians discovered that if you want to prove really cool stuff (like why calculus works), you need to be absolutely certain about the properties of your number system. No hand-waving allowed!
+
+\subsection{The Axiomatic Approach: Because We're Lazy (But Smart)}
+
+Instead of building everything from scratch every time, we're going to take the lazy mathematician's approach: we'll assume the real numbers exist and just list the properties they must have. These properties are called \textbf{axioms} - think of them as the "rules of the game."
+
+The beauty of this approach is that once we agree on these basic rules, we can prove everything else from them. It's like playing a board game - you agree on the rules first, then everything that happens in the game follows logically from those rules.
+
+For convenience, we'll use some basic set notation. If you're not familiar with sets, think of them as collections of objects. The notation \(x \in S\) means "x is in the set S," and \(S \subseteq T\) means "every element of S is also in T." That's it - nothing fancy!
+
+We assume there exists a nonempty set \(\mathbb{R}\) of objects called real numbers that satisfy ten axioms. These axioms fall into three natural groups:
+\begin{itemize}
+\item \textbf{Field axioms} - the basic arithmetic rules (addition, multiplication)
+\item \textbf{Order axioms} - how numbers compare to each other (which is bigger?)
+\item \textbf{Completeness axiom} - the secret sauce that makes calculus work
+\end{itemize}
+
+\section{The Field Axioms: The Arithmetic Rules}%\index{Field Axioms}
+
+Alright, let's get down to business! The field axioms are basically the "common sense" rules for arithmetic that you've been using since kindergarten. But now we're going to write them down formally because... well, because mathematicians are weird like that.
+
+Along with the set \(\mathbb{R}\) of real numbers, we assume the existence of two operations: addition (+) and multiplication (×). For every pair of real numbers \(x\) and \(y\), we can form their sum \(x + y\) and their product \(xy\). These operations satisfy the following axioms:
+
+\textbf{Axiom 1 (Commutative Laws):} \(x + y = y + x\) and \(xy = yx\)
+
+\textbf{Translation:} Order doesn't matter! 2 + 3 = 3 + 2, and 4 × 5 = 5 × 4. This might seem obvious, but it's actually a big deal - not all mathematical operations have this property.
+
+\textbf{Axiom 2 (Associative Laws):} \(x + (y + z) = (x + y) + z\) and \(x(yz) = (xy)z\)
+
+\textbf{Translation:} Grouping doesn't matter! (2 + 3) + 4 = 2 + (3 + 4). This is why we can write 2 + 3 + 4 without worrying about parentheses.
+
+\textbf{Axiom 3 (Distributive Law):} \(x(y + z) = xy + xz\)
+
+\textbf{Translation:} This is the famous FOIL method from algebra! It's why 3(2 + 4) = 3×2 + 3×4 = 6 + 12 = 18.
+
+\textbf{Axiom 4 (Subtraction):} Given any two real numbers \(x\) and \(y\), there exists a real number \(z\) such that \(x + z = y\). This \(z\) is denoted by \(y - x\).
+
+\textbf{Translation:} We can always subtract! The number \(x - x\) is denoted by 0, and we write \(-x\) for \(0 - x\).
+
+\textbf{Axiom 5 (Division):} There exists at least one real number \(x \neq 0\). If \(x \neq 0\), then for any \(y\) there exists a \(z\) such that \(xz = y\). This \(z\) is denoted by \(y/x\).
+
+\textbf{Translation:} We can always divide (except by zero, which is still impossible and always will be). The number \(x/x\) is denoted by 1, and we write \(x^{-1}\) for \(1/x\) if \(x \neq 0\).
+
+From these five axioms, we can derive all the familiar rules of arithmetic: \(-(-x) = x\), \((x^{-1})^{-1} = x\), \(-(x - y) = y - x\), and so on. It's like having a mathematical toolkit where these axioms are your basic tools, and everything else is built from them.
+
+\section{The Order Axioms: Who's Bigger?}%\index{Order Axioms}
+
+Now we need to talk about order - which numbers are bigger than others. This might seem obvious (5 is bigger than 3, duh!), but we need to be precise about it.
+
+We assume the existence of a relation \(<\) (less than) that establishes an ordering among real numbers and satisfies the following axioms:
+
+\textbf{Axiom 6 (Trichotomy):} Exactly one of the relations \(x = y\), \(x < y\), or \(x > y\) holds.
+
+\textbf{Translation:} Given any two numbers, exactly one of these is true: they're equal, the first is smaller, or the first is bigger. No ambiguity allowed!
+
+\textbf{Axiom 7 (Addition Preserves Order):} If \(x < y\), then for every \(z\) we have \(x + z < y + z\).
+
+\textbf{Translation:} If you add the same number to both sides of an inequality, the inequality still holds. This is why if 3 < 5, then 3 + 2 < 5 + 2.
+
+\textbf{Axiom 8 (Positive Multiplication Preserves Order):} If \(x > 0\) and \(y > 0\), then \(xy > 0\).
+
+\textbf{Translation:} Positive times positive equals positive. This is why we know that 2 × 3 = 6 is positive.
+
+\textbf{Axiom 9 (Transitivity):} If \(x > y\) and \(y > z\), then \(x > z\).
+
+\textbf{Translation:} If A is bigger than B, and B is bigger than C, then A is bigger than C. This is why we can write things like \(1 < 2 < 3 < 4\).
+
+From these axioms, we can derive all the familiar rules for working with inequalities. For example, if \(x < y\) and \(z > 0\), then \(xz < yz\). But if \(z < 0\), then \(xz > yz\) (the inequality flips!). This is why multiplying both sides of an inequality by a negative number reverses the inequality.
+
+We also introduce some convenient notation: \(x \leq y\) means "\(x < y\) or \(x = y\)", and \(x \geq y\) means "\(x > y\) or \(x = y\)". A real number \(x\) is called \textbf{nonnegative} if \(x \geq 0\).
+
+\subsection{A Handy Theorem: The Squeeze Principle}
+
+Here's a useful theorem that often comes up in analysis:
+
+\begin{theorem}[][The Squeeze Principle]%[thm:squeeze-principle]
+Given real numbers \(a\) and \(b\) such that
 \[a \leq b + \varepsilon \quad \text{for every} \; \varepsilon > 0.\]
-Then \( a \leq b \).
+Then \(a \leq b\).
+\end{theorem}
 
-\textbf{Proof.} If \( b < a \), then inequality (1) is violated for \( \varepsilon = (a - b)/2 \) because
+\begin{proof}
+If \(b < a\), then the inequality is violated for \(\varepsilon = (a - b)/2\) because
 \[b + \varepsilon = b + \frac{a - b}{2} = \frac{a + b}{2} < \frac{a + a}{2} = a.\]
-Therefore, by Axiom 6 we must have \( a \leq b \).
+This contradicts our assumption, so we must have \(a \leq b\).
+\end{proof}
 
-Axiom 10, the completeness axiom, will be described in Section 1.11.
+\textbf{Translation:} If you can squeeze \(a\) to be less than or equal to \(b\) plus any tiny positive number, then \(a\) must actually be less than or equal to \(b\). This is incredibly useful in calculus when dealing with limits!
 
-\section*{1.4 GEOMETRIC REPRESENTATION OF REAL NUMBERS}
-The real numbers are often represented geometrically as points on a line (called the real line or the real axis). A point is selected to represent 0 and another to represent 1, as shown in Fig. 1.1. This choice determines the scale. Under an appropriate set of axioms for Euclidean geometry, each point on the real line corresponds to one and only one real number and, conversely, each real number is represented by one and only one point on the line. It is customary to refer to the point \( x \) rather than the point representing the real number \( x \).
+\section{Geometric Representation: The Number Line}%\index{Geometric Representation}
+
+The real numbers are often represented geometrically as points on a line (called the real line or real axis). This is probably the most intuitive way to think about real numbers.
+
+Pick a point to represent 0 and another to represent 1, as shown in the figure below. This choice determines the scale. Under the right geometric axioms, each point on the line corresponds to exactly one real number, and each real number corresponds to exactly one point on the line.
 
 \[\begin{array}{ccc}
  & 0 & 1 \\
 x & y & 
 \end{array}\]
-\textbf{Figure 1.1}
+\textbf{Figure 1.1: The Real Number Line}
 
-The order relation has a simple geometric interpretation. If \( x < y \), the point \( x \) lies to the left of the point \( y \), as shown in Fig. 1.1. Positive numbers lie to the right of 0, and negative numbers to the left of 0. If \( a < b \), a point \( x \) satisfies the inequalities \( a < x < b \) if and only if \( x \) is between \( a \) and \( b \).
+The order relation has a simple geometric interpretation: if \(x < y\), then the point \(x\) lies to the left of the point \(y\). Positive numbers lie to the right of 0, and negative numbers to the left of 0. If \(a < b\), a point \(x\) satisfies \(a < x < b\) if and only if \(x\) is between \(a\) and \(b\).
 
-\section*{1.5 INTERVALS}
-The set of all points between \( a \) and \( b \) is called an interval. Sometimes it is important to distinguish between intervals which include their endpoints and intervals which do not.
+This geometric picture is incredibly useful for understanding concepts like intervals, absolute values, and even calculus concepts like continuity and limits.
 
-NOTATION. The notation \(\{x : x \text{ satisfies } P\}\) will be used to designate the set of all real numbers \( x \) which satisfy property \( P \).
+\section{Intervals: Chunks of the Number Line}%\index{Intervals}
 
-\section*{1.6 INTEGERS}
-This section describes the integers, a special subset of \( \mathbb{R} \). Before we define the integers it is convenient to introduce first the notion of an inductive set.
+The set of all points between \(a\) and \(b\) is called an \textbf{interval}. Sometimes it's important to distinguish between intervals that include their endpoints and those that don't.
 
-\textbf{Definition 1.3.} A set of real numbers is called an inductive set if it has the following two properties:
-a) The number \(1\) is in the set.
-b) For every \(x\) in the set, the number \(x + 1\) is also in the set.
+We'll use the notation \(\{x : x \text{ satisfies } P\}\) to designate the set of all real numbers \(x\) that satisfy property \(P\). For example, \(\{x : x > 0\}\) is the set of all positive real numbers.
 
-For example, \( \mathbb{R} \) is an inductive set. So is the set \( \mathbb{R}^+ \). Now we shall define the positive integers to be those real numbers which belong to every inductive set.
+Common types of intervals include:
+\begin{itemize}
+\item \([a, b]\) - closed interval (includes both endpoints)
+\item \((a, b)\) - open interval (excludes both endpoints)
+\item \([a, b)\) - half-open interval (includes \(a\) but not \(b\))
+\item \((a, b]\) - half-open interval (includes \(b\) but not \(a\))
+\end{itemize}
 
-\textbf{Definition 1.4.} A real number is called a positive integer if it belongs to every inductive set. The set of positive integers is denoted by \( \mathbb{Z}^+ \).
+\section{Integers: The Counting Numbers}%\index{Integers}
 
-The set \( \mathbb{Z}^+ \) is itself an inductive set. It contains the number \(1\), the number \(1 + 1\) (denoted by \(2\)), the number \(2 + 1\) (denoted by \(3\)), and so on. Since \( \mathbb{Z}^+ \) is a subset of every inductive set, we refer to \( \mathbb{Z}^+ \) as the smallest inductive set. This property of \( \mathbb{Z}^+ \) is sometimes called the principle of induction. We assume the reader is familiar with proofs by induction which are based on this principle. (See Reference 1.1.) Examples of such proofs are given in the next section.
+This section describes the integers, a special subset of \(\mathbb{R}\). Before we define the integers, it's convenient to introduce the notion of an \textbf{inductive set}.
 
-The negatives of the positive integers are called the negative integers. The positive integers, together with the negative integers and \(0\) (zero), form a set \( \mathbb{Z} \) which we call simply the set of integers.
+\textbf{Definition 1.3 (Inductive Set):} A set of real numbers is called an inductive set if it has the following two properties:
+\begin{enumerate}
+\item The number 1 is in the set.
+\item For every \(x\) in the set, the number \(x + 1\) is also in the set.
+\end{enumerate}
 
-\section*{1.7 THE UNIQUE FACTORIZATION THEOREM FOR INTEGERS}
-If \(n\) and \(d\) are integers and if \(n = cd\) for some integer \(c\), we say \(d\) is a divisor of \(n\), or \(n\) is a multiple of \(d\), and we write \(d|n\) (read: \(d\) divides \(n\)). An integer \(n\) is called a prime if \( n > 1 \) and if the only positive divisors of \( n \) are 1 and \( n \). If \( n > 1 \) and \( n \) is not prime, then \( n \) is called composite. The integer 1 is neither prime nor composite.
+\textbf{Translation:} An inductive set is like a chain reaction - if you start with 1 and keep adding 1, you get all the positive integers.
 
-This section derives some elementary results on factorization of integers, culminating in the unique factorization theorem, also called the fundamental theorem of arithmetic.
+For example, \(\mathbb{R}\) itself is an inductive set (it contains 1, 2, 3, ...). So is the set \(\mathbb{R}^+\) of positive real numbers.
 
-The fundamental theorem states that (1) every integer \( n > 1 \) can be represented as a product of prime factors, and (2) this factorization can be done in only one way, apart from the order of the factors. It is easy to prove part (1).
+Now we define the positive integers to be those real numbers that belong to \textbf{every} inductive set.
 
-\textbf{Theorem 1.5.} Every integer \( n > 1 \) is either a prime or a product of primes.
+\textbf{Definition 1.4 (Positive Integers):} A real number is called a positive integer if it belongs to every inductive set. The set of positive integers is denoted by \(\mathbb{Z}^+\).
 
-\textbf{Proof.} We use induction on \( n \). The theorem holds trivially for \( n = 2 \). Assume it is true for every integer \( k \) with \( 1 < k < n \). If \( n \) is not prime it has a positive divisor \( d \) with \( 1 < d < n \). Hence \( n = cd \), where \( 1 < c < n \). Since both \( c \) and \( d \) are \( <n \), each is a prime or a product of primes; hence \( n \) is a product of primes.
+\textbf{Translation:} The positive integers are the numbers that are in every inductive set. This is a clever way to define them without circular reasoning!
+
+The set \(\mathbb{Z}^+\) is itself an inductive set. It contains 1, 2, 3, and so on. Since \(\mathbb{Z}^+\) is a subset of every inductive set, we refer to it as the \textbf{smallest} inductive set. This property is sometimes called the \textbf{principle of induction}.
+
+The negatives of the positive integers are called the negative integers. The positive integers, together with the negative integers and 0, form a set \(\mathbb{Z}\) which we call simply the set of integers.
+
+\section{The Unique Factorization Theorem: Breaking Numbers Apart}%\index{Unique Factorization Theorem}
+
+If \(n\) and \(d\) are integers and if \(n = cd\) for some integer \(c\), we say \(d\) is a \textbf{divisor} of \(n\), or \(n\) is a \textbf{multiple} of \(d\), and we write \(d|n\) (read: "d divides n").
+
+An integer \(n\) is called a \textbf{prime} if \(n > 1\) and if the only positive divisors of \(n\) are 1 and \(n\) itself. If \(n > 1\) and \(n\) is not prime, then \(n\) is called \textbf{composite}. The integer 1 is neither prime nor composite (it's special like that).
+
+This section derives some elementary results on factorization of integers, culminating in the \textbf{unique factorization theorem}, also called the \textbf{fundamental theorem of arithmetic}.
+
+The fundamental theorem states that (1) every integer \(n > 1\) can be represented as a product of prime factors, and (2) this factorization can be done in only one way, apart from the order of the factors.
+
+\begin{theorem}[]{Theorem 1.5:} Every integer \(n > 1\) is either a prime or a product of primes.
+\end{theorem}
+
+\textbf{Proof:} We use induction on \(n\). The theorem holds trivially for \(n = 2\). Assume it is true for every integer \(k\) with \(1 < k < n\). If \(n\) is not prime, it has a positive divisor \(d\) with \(1 < d < n\). Hence \(n = cd\), where \(1 < c < n\). Since both \(c\) and \(d\) are \(< n\), each is a prime or a product of primes; hence \(n\) is a product of primes.
+
+\textbf{Translation:} Every number bigger than 1 can be broken down into a product of prime numbers. This is like the mathematical version of breaking down a molecule into its constituent atoms.
 
 Before proving part (2), uniqueness of the factorization, we introduce some further concepts.
 
-If \( d|a \) and \( d|b \) we say \( d \) is a common divisor of \( a \) and \( b \). The next theorem shows that every pair of integers \( a \) and \( b \) has a common divisor which is a linear combination of \( a \) and \( b \).
+If \(d|a\) and \(d|b\), we say \(d\) is a \textbf{common divisor} of \(a\) and \(b\). The next theorem shows that every pair of integers \(a\) and \(b\) has a common divisor which is a linear combination of \(a\) and \(b\).
 
-\textbf{Theorem 1.6.} Every pair of integers \( a \) and \( b \) has a common divisor \( d \) of the form
+\textbf{Theorem 1.6 (Bézout's Identity):} Every pair of integers \(a\) and \(b\) has a common divisor \(d\) of the form
 \[d = ax + by\]
-where \( x \) and \( y \) are integers. Moreover, every common divisor of \( a \) and \( b \) divides this \( d \).
+where \(x\) and \(y\) are integers. Moreover, every common divisor of \(a\) and \(b\) divides this \(d\).
 
-\textbf{Proof.} First assume that \( a \geq 0 \), \( b \geq 0 \) and use induction on \( n = a + b \). If \( n = 0 \) then \( a = b = 0 \), and we can take \( d = 0 \) with \( x = y = 0 \). Assume, then, that the theorem has been proved for 0, 1, 2, ..., \( n - 1 \). By symmetry, we can assume \( a \geq b \). If \( b = 0 \) take \( d = a \), \( x = 1 \), \( y = 0 \). If \( b \geq 1 \) we can apply the induction hypothesis to \( a - b \) and \( b \), since their sum is \( a = n - b \leq n - 1 \). Hence there is a common divisor \( d \) of \( a - b \) and \( b \) of the form \( d = (a - b)x + by \). This \( d \) also divides \( (a - b) + b = a \), so \( d \) is a common divisor of \( a \) and \( b \) and we have \( d = ax + (y - x)b \), a linear combination of \( a \) and \( b \). To complete the proof we need to show that every common divisor divides \( d \). Since a common divisor divides \( a \) and \( b \), it also divides the linear combination \( ax + (y - x)b = d \). This completes the proof if \( a \geq 0 \) and \( b \geq 0 \). If one or both of \( a \) and \( b \) is negative, apply the result just proved to \( |a| \) and \( |b| \).
+\textbf{Proof:} (The proof is technical but shows that we can always find integers \(x\) and \(y\) such that \(ax + by\) gives us the greatest common divisor of \(a\) and \(b\).)
 
-NOTE. If \( d \) is a common divisor of \( a \) and \( b \) of the form \( d = ax + by \), then \( -d \) is also a divisor of the same form, \( -d = a(-x) + b(-y) \). Of these two common divisors, the nonnegative one is called the greatest common divisor of \( a \) and \( b \), and is denoted by \( \gcd(a, b) \) or, simply by \( (a, b) \). If \( (a, b) = 1 \) then \( a \) and \( b \) are said to be relatively prime.
+The nonnegative common divisor of this form is called the \textbf{greatest common divisor} of \(a\) and \(b\), denoted by \(\gcd(a, b)\) or simply \((a, b)\). If \((a, b) = 1\), then \(a\) and \(b\) are said to be \textbf{relatively prime}.
 
-\textbf{Theorem 1.7 (Euclid's Lemma).} If \( a|bc \) and \( (a, b) = 1 \), then \( a|c \).
+\textbf{Theorem 1.7 (Euclid's Lemma):} If \(a|bc\) and \((a, b) = 1\), then \(a|c\).
 
-\textbf{Proof.} Since \((a, b) = 1\) we can write \(1 = ax + by\). Therefore \(c = acx + bcy\). But \(a|acx\) and \(a|bcy\), so \(a|c\).
+\textbf{Proof:} Since \((a, b) = 1\), we can write \(1 = ax + by\). Therefore \(c = acx + bcy\). But \(a|acx\) and \(a|bcy\), so \(a|c\).
 
-\textbf{Theorem 1.8.} If a prime \(p\) divides \(ab\), then \(p|a\) or \(p|b\). More generally, if a prime \(p\) divides a product \(a_1 \cdots a_k\), then \(p\) divides at least one of the factors.
+\textbf{Translation:} If a number divides a product and is relatively prime to one of the factors, then it must divide the other factor. This is crucial for proving unique factorization.
 
-\textbf{Proof.} Assume \(p|ab\) and that \(p\) does not divide \(a\). If we prove that \((p, a) = 1\), then Euclid’s Lemma implies \(p|b\). Let \(d = (p, a)\). Then \(d|p\) so \(d = 1\) or \(d = p\). We cannot have \(d = p\) because \(d|a\) but \(p\) does not divide \(a\). Hence \(d = 1\). To prove the more general statement we use induction on \(k\), the number of factors. Details are left to the reader.
+\textbf{Theorem 1.8:} If a prime \(p\) divides \(ab\), then \(p|a\) or \(p|b\). More generally, if a prime \(p\) divides a product \(a_1 \cdots a_k\), then \(p\) divides at least one of the factors.
 
-\textbf{Theorem 1.9 (Unique factorization theorem).} Every integer \( n > 1 \) can be represented as a product of prime factors in only one way, apart from the order of the factors.
+\textbf{Proof:} Assume \(p|ab\) and that \(p\) does not divide \(a\). If we prove that \((p, a) = 1\), then Euclid's Lemma implies \(p|b\). Let \(d = (p, a)\). Then \(d|p\) so \(d = 1\) or \(d = p\). We cannot have \(d = p\) because \(d|a\) but \(p\) does not divide \(a\). Hence \(d = 1\).
 
-\textbf{Proof.} We use induction on \(n\). The theorem is true for \(n = 2\). Assume, then, that it is true for all integers greater than 1 and less than \(n\). If \(n\) is prime there is nothing more to prove. Therefore assume that \(n\) is composite and that \(n\) has two factorizations into prime factors, say
+\textbf{Theorem 1.9 (Unique Factorization Theorem):} Every integer \(n > 1\) can be represented as a product of prime factors in only one way, apart from the order of the factors.
+
+\textbf{Proof:} We use induction on \(n\). The theorem is true for \(n = 2\). Assume, then, that it is true for all integers greater than 1 and less than \(n\). If \(n\) is prime, there is nothing more to prove. Therefore assume that \(n\) is composite and that \(n\) has two factorizations into prime factors, say
 \[ n = p_1 p_2 \cdots p_s = q_1 q_2 \cdots q_t. \tag{2} \]
-We wish to show that \(s = t\) and that each \(p\) equals some \(q\). Since \(p_1\) divides the product \(q_1 q_2 \cdots q_t\), it divides at least one factor. Relabel the \(q\)’s if necessary so that \(p_1 | q_1\). Then \(p_1 = q_1\) since both \(p_1\) and \(q_1\) are primes. In (2) we cancel \(p_1\) on both sides to obtain
+We wish to show that \(s = t\) and that each \(p\) equals some \(q\). Since \(p_1\) divides the product \(q_1 q_2 \cdots q_t\), it divides at least one factor. Relabel the \(q\)'s if necessary so that \(p_1 | q_1\). Then \(p_1 = q_1\) since both \(p_1\) and \(q_1\) are primes. In (2) we cancel \(p_1\) on both sides to obtain
 \[ \frac{n}{p_1} = p_2 \cdots p_s = q_2 \cdots q_t. \]
 Since \(n\) is composite, \(1 < n/p_1 < n\); so by the induction hypothesis the two factorizations of \(n/p_1\) are identical, apart from the order of the factors. Therefore the same is true in (2) and the proof is complete.
 
-\section*{1.8 RATIONAL NUMBERS}
-Quotients of integers \(a/b\) (where \(b \neq 0\)) are called rational numbers. For example, \(1/2, -7/5\), and 6 are rational numbers. The set of rational numbers, which we denote by \(\mathbb{Q}\), contains \(\mathbb{Z}\) as a subset. The reader should note that all the field axioms and the order axioms are satisfied by \(\mathbb{Q}\).
+\textbf{Translation:} Every number has a unique "prime fingerprint" - there's only one way to break it down into prime factors (ignoring the order). This is why prime numbers are so important in cryptography and number theory!
 
-We assume that the reader is familiar with certain elementary properties of rational numbers. For example, if \(a\) and \(b\) are rational, their average \((a + b)/2\) is also rational and lies between \(a\) and \(b\). Therefore between any two rational numbers there are infinitely many rational numbers, which implies that if we are given a certain rational number we cannot speak of the “next largest” rational number.
+\section{Rational Numbers: The Fractions}%\index{Rational Numbers}
 
-\section*{1.9 IRRATIONAL NUMBERS}
-Real numbers that are not rational are called irrational. For example, the numbers \(\sqrt{2}\), \(e\), \(\pi\) and \(e^{\pi}\) are irrational.
+Quotients of integers \(a/b\) (where \(b \neq 0\)) are called \textbf{rational numbers}. For example, \(1/2, -7/5\), and 6 are rational numbers. The set of rational numbers, which we denote by \(\mathbb{Q}\), contains \(\mathbb{Z}\) as a subset.
 
-Ordinarily it is not too easy to prove that some particular number is irrational. There is no simple proof, for example, of the irrationality of \(e^{\pi}\). However, the irrationality of certain numbers such as \(\sqrt{2}\) and \(\sqrt{3}\) is not too difficult to establish and, in fact, we easily prove the following:
+The reader should note that all the field axioms and the order axioms are satisfied by \(\mathbb{Q}\). This means that the rational numbers form a perfectly good number system for basic arithmetic.
 
-\textbf{Theorem 1.10.} If \(n\) is a positive integer which is not a perfect square, then \(\sqrt{n}\) is irrational.
+We assume that the reader is familiar with certain elementary properties of rational numbers. For example, if \(a\) and \(b\) are rational, their average \((a + b)/2\) is also rational and lies between \(a\) and \(b\). Therefore between any two rational numbers there are infinitely many rational numbers, which implies that if we are given a certain rational number we cannot speak of the "next largest" rational number.
 
-\textbf{Proof.} Suppose first that \(n\) contains no square factor > 1. We assume that \(\sqrt{n}\) is rational and obtain a contradiction. Let \(\sqrt{n} = a/b\), where \(a\) and \(b\) are integers having no factor in common. Then \(nb^2 = a^2\) and, since the left side of this equation is a multiple of \(n\), so too is \(a^2\). However, if \(a^2\) is a multiple of \(n\), \(a\) itself must be a multiple of \(n\), since \(n\) has no square factors > 1. (This is easily seen by examining the factorization of \(a\) into its prime factors.) This means that \(a = cn\), where \(c\) is some integer. Then the equation \(nb^2 = a^2\) becomes \(nb^2 = c^2n^2\), or \(b^2 = nc^2\). The same argument shows that \(b\) must also be a multiple of \(n\). Thus \(a\) and \(b\) are both multiples of \(n\), which contradicts the fact that they have no factor in common. This completes the proof if \(n\) has no square factor > 1.
+\textbf{Translation:} The rational numbers are "dense" - between any two rational numbers, you can always find another rational number. This is why the number line looks so crowded!
+
+\section{Irrational Numbers: The Weird Ones}%\index{Irrational Numbers}
+
+Real numbers that are not rational are called \textbf{irrational}. For example, the numbers \(\sqrt{2}\), \(e\), \(\pi\) and \(e^{\pi}\) are irrational.
+
+Ordinarily it is not too easy to prove that some particular number is irrational. There is no simple proof, for example, of the irrationality of \(e^{\pi}\). However, the irrationality of certain numbers such as \(\sqrt{2}\) and \(\sqrt{3}\) is not too difficult to establish.
+
+\textbf{Theorem 1.10:} If \(n\) is a positive integer which is not a perfect square, then \(\sqrt{n}\) is irrational.
+
+\textbf{Proof:} Suppose first that \(n\) contains no square factor > 1. We assume that \(\sqrt{n}\) is rational and obtain a contradiction. Let \(\sqrt{n} = a/b\), where \(a\) and \(b\) are integers having no factor in common. Then \(nb^2 = a^2\) and, since the left side of this equation is a multiple of \(n\), so too is \(a^2\). However, if \(a^2\) is a multiple of \(n\), \(a\) itself must be a multiple of \(n\), since \(n\) has no square factors > 1. This means that \(a = cn\), where \(c\) is some integer. Then the equation \(nb^2 = a^2\) becomes \(nb^2 = c^2n^2\), or \(b^2 = nc^2\). The same argument shows that \(b\) must also be a multiple of \(n\). Thus \(a\) and \(b\) are both multiples of \(n\), which contradicts the fact that they have no factor in common.
 
 If \(n\) has a square factor, we can write \(n = m^2k\), where \(k > 1\) and \(k\) has no square factor > 1. Then \(\sqrt{n} = m\sqrt{k}\); and if \(\sqrt{n}\) were rational, the number \(\sqrt{k}\) would also be rational, contradicting that which was just proved.
 
-A different type of argument is needed to prove that the number \(e\) is irrational. (We assume familiarity with the exponential \(e^x\) from elementary calculus and its representation as an infinite series.)
+\textbf{Translation:} The square root of any non-square integer is irrational. This is why \(\sqrt{2}\), \(\sqrt{3}\), \(\sqrt{5}\), etc., are all irrational numbers.
 
-\textbf{Theorem 1.11.} If \(e^x = 1 + x + x^2/2! + x^3/3! + \cdots + x^n/n! + \cdots\), then the number \(e\) is irrational.
+A different type of argument is needed to prove that the number \(e\) is irrational.
 
-\textbf{Proof.} We shall prove that \(e^{-1}\) is irrational. The series for \(e^{-1}\) is an alternating series with terms which decrease steadily in absolute value. In such an alternating series the error made by stopping at the nth term has the algebraic sign of the first neglected term and is less in absolute value than the first neglected term. Hence, if \(s_n = \sum_{k=0}^n (-1)^k/k!\), we have the inequality
+\textbf{Theorem 1.11:} If \(e^x = 1 + x + x^2/2! + x^3/3! + \cdots + x^n/n! + \cdots\), then the number \(e\) is irrational.
+
+\textbf{Proof:} We shall prove that \(e^{-1}\) is irrational. The series for \(e^{-1}\) is an alternating series with terms which decrease steadily in absolute value. In such an alternating series the error made by stopping at the nth term has the algebraic sign of the first neglected term and is less in absolute value than the first neglected term. Hence, if \(s_n = \sum_{k=0}^n (-1)^k/k!\), we have the inequality
 \[0 < e^{-1} - s_{2k-1} < \frac{1}{(2k)!},\]
 from which we obtain
 \[0 < (2k - 1)!(e^{-1} - s_{2k-1}) < \frac{1}{2k} \leq \frac{1}{2},\]
 for any integer \(k \geq 1\). Now \((2k - 1)!s_{2k-1}\) is always an integer. If \(e^{-1}\) were rational, then we could choose \(k\) so large that \((2k - 1)!e^{-1}\) would also be an integer. Because of (3) the difference of these two integers would be a number between 0 and \(\frac{1}{2}\), which is impossible. Thus \(e^{-1}\) cannot be rational, and hence \(e\) cannot be rational.
 
-NOTE. For a proof that \(\pi\) is irrational, see Exercise 7.33.
+\textbf{Translation:} The number \(e\) (approximately 2.71828...) is irrational. This proof uses a clever trick involving factorials and the fact that no integer can be between 0 and 1/2.
 
-The ancient Greeks were aware of the existence of irrational numbers as early as 500 B.C. However, a satisfactory theory of such numbers was not developed until late in the nineteenth century, at which time three different theories were introduced by Cantor, Dedekind, and Weierstrass. For an account of the theories of Dedekind and Cantor and their equivalence, see Reference 1.6.
+The ancient Greeks were aware of the existence of irrational numbers as early as 500 B.C. However, a satisfactory theory of such numbers was not developed until late in the nineteenth century, at which time three different theories were introduced by Cantor, Dedekind, and Weierstrass.
 
-\section*{1.10 UPPER BOUNDS, MAXIMUM ELEMENT, LEAST UPPER BOUND (SUPREMUM)}
-Irrational numbers arise in algebra when we try to solve certain quadratic equations. For example, it is desirable to have a real number \(x\) such that \(x^2 = 2\). From the nine axioms listed above we cannot prove that such an \(x\) exists in \(\mathbb{R}\) because these nine axioms are also satisfied by \(\mathbb{Q}\) and we have shown that there is no rational number whose square is 2. The completeness axiom allows us to introduce irrational numbers in the real-number system, and it gives the real-number system a property of continuity that is fundamental to many theorems in analysis.
+\section{Upper Bounds, Maximum Element, Least Upper Bound: The Completeness Story}%\index{Upper Bounds}
+
+Irrational numbers arise in algebra when we try to solve certain quadratic equations. For example, it is desirable to have a real number \(x\) such that \(x^2 = 2\). From the nine axioms listed above we cannot prove that such an \(x\) exists in \(\mathbb{R}\) because these nine axioms are also satisfied by \(\mathbb{Q}\) and we have shown that there is no rational number whose square is 2.
+
+The completeness axiom allows us to introduce irrational numbers in the real-number system, and it gives the real-number system a property of continuity that is fundamental to many theorems in analysis.
 
 Before we describe the completeness axiom, it is convenient to introduce additional terminology and notation.
 
-\textbf{Definition 1.12.} Let \(S\) be a set of real numbers. If there is a real number \(b\) such that \(x \leq b\) for every \(x\) in \(S\), then \(b\) is called an upper bound for \(S\) and we say that \(S\) is bounded above by \(b\).
+\textbf{Definition 1.12 (Upper Bound):} Let \(S\) be a set of real numbers. If there is a real number \(b\) such that \(x \leq b\) for every \(x\) in \(S\), then \(b\) is called an \textbf{upper bound} for \(S\) and we say that \(S\) is \textbf{bounded above} by \(b\).
 
-We say an upper bound because every number greater than \(b\) will also be an upper bound. If an upper bound \(b\) is also a member of \(S\), then \(b\) is called the largest member or the maximum element of \(S\). There can be at most one such \(b\). If it exists, we write
+We say \textbf{an} upper bound because every number greater than \(b\) will also be an upper bound. If an upper bound \(b\) is also a member of \(S\), then \(b\) is called the \textbf{largest member} or the \textbf{maximum element} of \(S\). There can be at most one such \(b\). If it exists, we write
 \[b = \max S.\]
 
-A set with no upper bound is said to be unbounded above.
+A set with no upper bound is said to be \textbf{unbounded above}.
 
-Definitions of the terms lower bound, bounded below, smallest member (or minimum element) can be similarly formulated. If \(S\) has a minimum element we denote it by \(\min S\).
+Definitions of the terms \textbf{lower bound}, \textbf{bounded below}, \textbf{smallest member} (or \textbf{minimum element}) can be similarly formulated. If \(S\) has a minimum element we denote it by \(\min S\).
 
-\textbf{Examples}
+\textbf{Examples:}
 \begin{enumerate}
     \item The set \(\mathbb{R}^+ = (0, +\infty)\) is unbounded above. It has no upper bounds and no maximum element. It is bounded below by 0 but has no minimum element.
     \item The closed interval \(S = [0, 1]\) is bounded above by 1 and is bounded below by 0. In fact, \(\max S = 1\) and \(\min S = 0\).
     \item The half-open interval \(S = [0, 1)\) is bounded above by 1 but it has no maximum element. Its minimum element is 0.
 \end{enumerate}
 
-\section*{1.11 THE COMPLETENESS AXIOM}
-Our final axiom for the real number system involves the notion of supremum.
+\textbf{Translation:} Some sets have maximum elements (like [0,1] has max = 1), while others don't (like [0,1) doesn't have a maximum, even though it's bounded above by 1). This distinction is crucial for understanding the completeness axiom.
 
-\textbf{Axiom 10.} Every nonempty set \(S\) of real numbers which is bounded above has a supremum; that is, there is a real number \(b\) such that \(b = \sup S\).
+\section{The Completeness Axiom: The Secret Sauce}%\index{Completeness Axiom}
+
+Our final axiom for the real number system involves the notion of \textbf{supremum} (least upper bound). This is the axiom that makes calculus work!
+
+\textbf{Axiom 10 (Completeness Axiom):} Every nonempty set \(S\) of real numbers which is bounded above has a supremum; that is, there is a real number \(b\) such that \(b = \sup S\).
 
 As a consequence of this axiom it follows that every nonempty set of real numbers which is bounded below has an infimum.
+
+\textbf{Translation:} This axiom says that the real numbers are "complete" - there are no "holes" in the number line. Every bounded set has a smallest upper bound. This is what makes calculus possible, because it ensures that limits exist when they should exist.
+
+The completeness axiom is what distinguishes the real numbers from the rational numbers. The rational numbers satisfy all the other axioms but not this one, which is why calculus doesn't work properly with just rational numbers.
+
+\section*{1.12 SOME PROPERTIES OF THE SUPREMUM: The Supremum's Superpowers}
+
+Now that we have the supremum in our mathematical toolkit, let's explore some of its amazing properties! These properties are like the "superpowers" of the supremum - they make it incredibly useful for proving all sorts of cool things in analysis.
+
+This section discusses some fundamental properties of the supremum that will be useful throughout this text. There's a corresponding set of properties for the infimum that you should try to figure out for yourself (it's good practice!).
+
+The first property shows that a set with a supremum contains numbers that get arbitrarily close to its supremum. Think of it like this: if you have a supremum, you can always find elements in your set that are as close to it as you want.
+
+\textbf{Theorem 1.14 (Approximation Property):} Let \( S \) be a nonempty set of real numbers with a supremum, say \( b = \sup S \). Then for every \( a < b \) there is some \( x \) in \( S \) such that
+\[ a < x \leq b. \]
+
+\textbf{Proof:} First of all, \( x \leq b \) for all \( x \) in \( S \) (that's what supremum means!). If we had \( x \leq a \) for every \( x \) in \( S \), then \( a \) would be an upper bound for \( S \) smaller than the least upper bound. But that's impossible - the supremum is the \textbf{least} upper bound! Therefore \( x > a \) for at least one \( x \) in \( S \).
+
+\textbf{Translation:} If you pick any number less than the supremum, you can always find an element in the set that's bigger than your chosen number but still less than or equal to the supremum. This is incredibly useful for approximation arguments!
+
+\textbf{Theorem 1.15 (Additive Property):} Given nonempty subsets \( A \) and \( B \) of \( \mathbb{R} \), let \( C \) denote the set
+\[C = \{x + y : x \in A, \, y \in B\}.\]
+If each of \( A \) and \( B \) has a supremum, then \( C \) has a supremum and
+\[\sup C = \sup A + \sup B.\]
+
+\textbf{Proof:} Let \( a = \sup A, \, b = \sup B \). If \( z \in C \) then \( z = x + y \), where \( x \in A, \, y \in B, \, \text{so } z = x + y \leq a + b \). Hence \( a + b \) is an upper bound for \( C \), so \( C \) has a supremum, say \( c = \sup C \), and \( c \leq a + b \). We show next that \( a + b \leq c \). Choose any \( \varepsilon > 0 \). By Theorem 1.14 there is an \( x \) in \( A \) and a \( y \) in \( B \) such that
+\[a - \varepsilon < x \quad \text{and} \quad b - \varepsilon < y.\]
+Adding these inequalities we find
+\[a + b - 2\varepsilon < x + y \leq c.\]
+Thus, \( a + b < c + 2\varepsilon \) for every \( \varepsilon > 0 \) so, by Theorem 1.1, \( a + b \leq c \).
+
+\textbf{Translation:} When you add two sets together (by adding each element from the first set to each element from the second), the supremum of the result is the sum of the individual suprema. This is like saying "the maximum possible sum is the sum of the maximums" - which makes intuitive sense!
+
+The proof of the next theorem is left as an exercise for the reader (because we believe in you!).
+
+\textbf{Theorem 1.16 (Comparison Property):} Given nonempty subsets \( S \) and \( T \) of \( \mathbb{R} \) such that \( s \leq t \) for every \( s \) in \( S \) and \( t \) in \( T \). If \( T \) has a supremum then \( S \) has a supremum and
+\[\sup S \leq \sup T.\]
+
+\textbf{Translation:} If every element of set \( S \) is less than or equal to every element of set \( T \), then the supremum of \( S \) is less than or equal to the supremum of \( T \). This is like saying "if everyone in group A is shorter than everyone in group B, then the tallest person in group A is shorter than the tallest person in group B."
+
+\section*{1.13 PROPERTIES OF THE INTEGERS DEDUCED FROM THE COMPLETENESS AXIOM: The Integers Go to Infinity (And Beyond!)}
+
+Now we're going to use our powerful completeness axiom to prove some really cool things about the integers. These theorems might seem obvious at first glance, but they're actually quite profound - they tell us that the integers are "unbounded" in a very precise mathematical sense.
+
+\textbf{Theorem 1.17:} The set \( \mathbb{Z}^+ \) of positive integers \( 1, 2, 3, \ldots \) is unbounded above.
+
+\textbf{Proof:} If \( \mathbb{Z}^+ \) were bounded above then \( \mathbb{Z}^+ \) would have a supremum, say \( a = \sup \mathbb{Z}^+ \). By Theorem 1.14 we would have \( a - 1 < n \) for some \( n \) in \( \mathbb{Z}^+ \). Then \( n + 1 > a \) for this \( n \). Since \( n + 1 \in \mathbb{Z}^+ \) this contradicts the fact that \( a = \sup \mathbb{Z}^+ \).
+
+\textbf{Translation:} The positive integers go on forever! There's no largest positive integer. This might seem obvious, but it's actually a consequence of the completeness axiom - it's not something we can just assume.
+
+\textbf{Theorem 1.18:} For every real \( x \) there is a positive integer \( n \) such that \( n > x \).
+
+\textbf{Proof:} If this were not true, some \( x \) would be an upper bound for \( \mathbb{Z}^+ \), contradicting Theorem 1.17.
+
+\textbf{Translation:} No matter how big a real number you pick, there's always a positive integer that's bigger than it. This is like saying "the integers are bigger than any finite number" - which is exactly what we mean when we say they're unbounded!
+
+\section*{1.14 THE ARCHIMEDEAN PROPERTY OF THE REAL NUMBER SYSTEM: Archimedes Was a Genius}
+
+The next theorem describes the \textbf{Archimedean property} of the real number system. This property is named after the ancient Greek mathematician Archimedes, who was famous for saying "Give me a lever long enough and a fulcrum on which to place it, and I shall move the world." Well, this property is almost as powerful!
+
+Geometrically, it tells us that any line segment, no matter how long, can be covered by a finite number of line segments of a given positive length, no matter how small. Think of it like this: if you have a really long rope and a really short piece of string, you can always cut the rope into a finite number of pieces, each the length of your short string.
+
+\textbf{Theorem 1.19 (Archimedean Property):} If \( x > 0 \) and if \( y \) is an arbitrary real number, there is a positive integer \( n \) such that \( nx > y \).
+
+\textbf{Proof:} Apply Theorem 1.18 with \( x \) replaced by \( y/x \).
+
+\textbf{Translation:} No matter how small a positive number \( x \) is, and no matter how big a number \( y \) is, you can always multiply \( x \) by some integer to get a number bigger than \( y \). This is like saying "if you keep adding the same small amount, you'll eventually exceed any target." This property is crucial for many proofs in analysis!
+
+\section*{1.15 RATIONAL NUMBERS WITH FINITE DECIMAL REPRESENTATION: The Nice Fractions}
+
+A real number of the form 
+\[ r = a_0 + \frac{a_1}{10} + \frac{a_2}{10^2} + \cdots + \frac{a_n}{10^n}, \]
+where \( a_0 \) is a nonnegative integer and \( a_1, \ldots, a_n \) are integers satisfying \( 0 \leq a_i \leq 9 \), is usually written more briefly as follows:
+\[ r = a_0 \cdot a_1 a_2 \cdots a_n. \]
+
+This is said to be a \textbf{finite decimal representation} of \( r \). For example,
+\[ \frac{1}{2} = \frac{5}{10} = 0.5, \quad \frac{1}{50} = \frac{2}{10^2} = 0.02, \quad \frac{29}{4} = 7 + \frac{2}{10} + \frac{5}{10^2} = 7.25. \]
+
+\textbf{Translation:} These are the "nice" rational numbers - the ones that have finite decimal expansions. They're the fractions that "terminate" when you write them as decimals.
+
+Real numbers like these are necessarily rational and, in fact, they all have the form \( r = a/10^n \), where \( a \) is an integer. However, not all rational numbers can be expressed with finite decimal representations. For example, if \( \frac{1}{3} \) could be so expressed, then we would have \( \frac{1}{3} = a/10^n \) or \( 3a = 10^n \) for some integer \( a \). But this is impossible since \( 3 \) does not divide any power of \( 10 \).
+
+\textbf{Translation:} Not all fractions have nice, finite decimal representations. Some, like \( \frac{1}{3} = 0.3333\ldots \), go on forever! This happens when the denominator has prime factors other than 2 and 5 (the prime factors of 10).
+
+\section*{1.16 FINITE DECIMAL APPROXIMATIONS TO REAL NUMBERS: Getting Close Enough}
+
+This section uses the completeness axiom to show that real numbers can be approximated to any desired degree of accuracy by rational numbers with finite decimal representations. This is incredibly important because it means we can always work with "nice" decimal numbers that are as close as we want to any real number!
+
+\textbf{Theorem 1.20:} Assume \( x \geq 0 \). Then for every integer \( n \geq 1 \) there is a finite decimal \( r_n = a_0 \cdot a_1 a_2 \cdots a_n \) such that
+\[ r_n \leq x < r_n + \frac{1}{10^n}. \]
+
+\textbf{Proof:} Let \( S \) be the set of all nonnegative integers \( \leq x \). Then \( S \) is nonempty, since \( 0 \in S \), and \( S \) is bounded above by \( x \). Therefore \( S \) has a supremum, say \( a_0 = \sup S \). It is easily verified that \( a_0 \in S \), so \( a_0 \) is a nonnegative integer. We call \( a_0 \) the \textbf{greatest integer} in \( x \), and we write \( a_0 = [x] \). Clearly, we have
+\[ a_0 \leq x < a_0 + 1. \]
+
+Now let \( a_1 = [10x - 10a_0] \), the greatest integer in \( 10x - 10a_0 \). Since \( 0 \leq 10x - 10a_0 = 10(x - a_0) < 10 \), we have \( 0 \leq a_1 \leq 9 \) and
+\[ a_1 \leq 10x - 10a_0 < a_1 + 1. \]
+In other words, \( a_1 \) is the largest integer satisfying the inequalities
+\[ a_0 + \frac{a_1}{10} \leq x < a_0 + \frac{a_1 + 1}{10}. \]
+
+More generally, having chosen \( a_1, \ldots, a_{n-1} \) with \( 0 \leq a_i \leq 9 \), let \( a_n \) be the largest integer satisfying the inequalities
+\[ a_0 + \frac{a_1}{10} + \cdots + \frac{a_n}{10^n} \leq x < a_0 + \frac{a_1}{10} + \cdots + \frac{a_n + 1}{10^n}. \tag{4} \]
+Then \( 0 \leq a_n \leq 9 \) and we have
+\[ r_n \leq x < r_n + \frac{1}{10^n}, \]
+where \( r_n = a_0 \cdot a_1 a_2 \cdots a_n \). This completes the proof. It is easy to verify that \( x \) is actually the supremum of the set of rational numbers \( r_1, r_2, \ldots \).
+
+\textbf{Translation:} This theorem tells us that we can approximate any real number as closely as we want using finite decimals. For example, if you want to approximate \( \pi \) to 5 decimal places, you can find a finite decimal \( r_5 \) such that \( r_5 \leq \pi < r_5 + \frac{1}{10^5} \). This is the mathematical foundation for how calculators and computers work with real numbers - they use finite decimal approximations!
+
+The proof shows how to construct these approximations step by step, digit by digit. It's like building a decimal expansion one place at a time, always making sure we're as close as possible to the target number.
+
+
+\section*{1.17 INFINITE DECIMAL REPRESENTATIONS: The Never-Ending Story}
+
+Now we're going to talk about infinite decimal representations - the ones that go on forever! This might seem weird at first, but it's actually how we represent most real numbers.
+
+The integers \( a_0, a_1, a_2, \ldots \) obtained in the proof of Theorem 1.20 can be used to define an infinite decimal representation of \( x \). We write
+\[ x = a_0 \cdot a_1 a_2 \cdots \]
+to mean that \( a_n \) is the largest integer satisfying (4). For example, if \( x = \frac{1}{8} \) we find \( a_0 = 0, a_1 = 1, a_2 = 2, a_3 = 5 \), and \( a_n = 0 \) for all \( n \geq 4 \). Therefore we can write
+\[ \frac{1}{8} = 0.125000 \cdots \]
+
+\textbf{Translation:} Even though \( \frac{1}{8} \) has a finite decimal representation (0.125), we can also write it as an infinite decimal with zeros repeating forever. This is like saying "0.125 followed by an infinite string of zeros."
+
+If we interchange the inequality signs \( \leq \) and \( < \) in (4), we obtain a slightly different definition of decimal expansions. The finite decimals \( r_n \) satisfy \( r_n < x \leq r_n + 10^{-n} \) although the digits \( a_0, a_1, a_2, \ldots \) need not be the same as those in (4). For example, if we apply this second definition to \( x = \frac{1}{8} \) we find the infinite decimal representation
+\[ \frac{1}{8} = 0.124999 \cdots \]
+
+\textbf{Translation:} This is a really weird but important fact: the same real number can have two different infinite decimal representations! In this case, 0.125000... and 0.124999... represent the same number. This happens because of how we define the supremum.
+
+The fact that a real number might have two different decimal representations is merely a reflection of the fact that two different sets of real numbers can have the same supremum.
+
+\section*{1.18 ABSOLUTE VALUES AND THE TRIANGLE INEQUALITY: The Distance Game}
+
+Calculations with inequalities arise quite frequently in analysis. They are of particular importance in dealing with the notion of absolute value. If \( x \) is any real number, the absolute value of \( x \), denoted by \( |x| \), is defined as follows:
+\[ |x| = 
+\begin{cases} 
+x, & \text{if } x \geq 0, \\
+-x, & \text{if } x \leq 0.
+\end{cases}\]
+
+\textbf{Translation:} The absolute value of a number is its "distance from zero" on the number line. It's always nonnegative, and it tells you how far a number is from zero, regardless of whether it's positive or negative.
+
+A fundamental inequality concerning absolute values is given in the following:
+
+\textbf{Theorem 1.21:} If \( a \geq 0 \), then we have the inequality \( |x| \leq a \) if, and only if, \(-a \leq x \leq a\).
+
+\textbf{Proof:} From the definition of \( |x| \), we have the inequality \(-|x| \leq x \leq |x| \), since \( x = |x| \) or \( x = -|x| \). If we assume that \( |x| \leq a \), then we can write \(-a \leq -|x| \leq x \leq |x| \leq a \) and thus half of the theorem is proved. Conversely, let us assume \(-a \leq x \leq a\). Then if \( x \geq 0 \), we have \( |x| = x \leq a \), whereas if \( x < 0 \), we have \( |x| = -x \leq a \). In either case we have \( |x| \leq a \) and the theorem is proved.
+
+\textbf{Translation:} This theorem says that \( |x| \leq a \) means the same thing as \( x \) being between \(-a\) and \( a \). This is incredibly useful for solving inequalities involving absolute values!
+
+We can use this theorem to prove the triangle inequality.
+
+\textbf{Theorem 1.22 (Triangle Inequality):} For arbitrary real \( x \) and \( y \) we have
+\[ |x + y| \leq |x| + |y| \quad (\text{the triangle inequality}).\]
+
+\textbf{Proof:} We have \(-|x| \leq x \leq |x|\) and \(-|y| \leq y \leq |y|\). Addition gives us \(-(|x| + |y|) \leq x + y \leq |x| + |y|\), and from Theorem 1.21 we conclude that \( |x + y| \leq |x| + |y| \). This proves the theorem.
+
+\textbf{Translation:} The triangle inequality is one of the most important inequalities in all of mathematics! It says that the absolute value of a sum is less than or equal to the sum of the absolute values. This is like saying "the shortest distance between two points is a straight line" - if you go from 0 to \( x + y \), it's never longer than going from 0 to \( x \) and then from \( x \) to \( x + y \).
+
+The triangle inequality is often used in other forms. For example, if we take \( x = a - c \) and \( y = c - b \) in Theorem 1.22 we find
+\[ |a - b| \leq |a - c| + |c - b|.\]
+
+Also, from Theorem 1.22 we have \( |x| \geq |x + y| - |y| \). Taking \( x = a + b \), \( y = -b \), we obtain
+\[ |a + b| \geq |a| - |b|.\]
+
+Interchanging \( a \) and \( b \) we also find \( |a + b| \geq |b| - |a| = -(|a| - |b|) \), and hence
+\[ |a + b| \geq ||a| - |b||.\]
+
+By induction we can also prove the generalizations
+\[ |x_1 + x_2 + \cdots + x_n| \leq |x_1| + |x_2| + \cdots + |x_n|\]
+and
+\[ |x_1 + x_2 + \cdots + x_n| \geq |x_1| - |x_2| - \cdots - |x_n|.\]
+
+\textbf{Translation:} These are just different ways to use the triangle inequality. The first one says that the absolute value of a sum of many numbers is less than or equal to the sum of their absolute values. The second one gives a lower bound.
+
+\section*{1.19 THE CAUCHY-SCHWARZ INEQUALITY: The Super Inequality}
+
+We shall now derive another inequality which is often used in analysis. This one is so important that it has its own name!
+
+\textbf{Theorem 1.23 (Cauchy–Schwarz Inequality):} If \( a_1, \ldots, a_n \) and \( b_1, \ldots, b_n \) are arbitrary real numbers, we have
+\[\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right).\]
+Moreover, if some \( a_i \neq 0 \) equality holds if and only if there is a real \( x \) such that \( a_k x + b_k = 0 \) for each \( k = 1, 2, \ldots, n \).
+
+\textbf{Proof:} A sum of squares can never be negative. Hence we have
+\[\sum_{k=1}^n (a_k x + b_k)^2 \geq 0\]
+for every real \( x \), with equality if and only if each term is zero. This inequality can be written in the form
+\[Ax^2 + 2Bx + C \geq 0,\]
+where
+\[A = \sum_{k=1}^n a_k^2, \quad B = \sum_{k=1}^n a_k b_k, \quad C = \sum_{k=1}^n b_k^2.\]
+If \( A > 0 \), put \( x = -B/A \) to obtain \( B^2 - AC \leq 0 \), which is the desired inequality. If \( A = 0 \), the proof is trivial.
+
+\textbf{Translation:} The Cauchy-Schwarz inequality is incredibly powerful! It says that the square of the sum of products is less than or equal to the product of the sums of squares. This inequality appears everywhere in mathematics - in geometry, analysis, probability, and even quantum mechanics!
+
+NOTE. In vector notation the Cauchy–Schwarz inequality takes the form
+\[(\mathbf{a} \cdot \mathbf{b})^2 \leq \|\mathbf{a}\|^2 \|\mathbf{b}\|^2,\]
+where \(\mathbf{a} = (a_1, \ldots, a_n)\), \(\mathbf{b} = (b_1, \ldots, b_n)\) are two \( n \)-dimensional vectors,
+\[\mathbf{a} \cdot \mathbf{b} = \sum_{k=1}^n a_k b_k,\]
+is their dot product, and \(\|\mathbf{a}\| = (\mathbf{a} \cdot \mathbf{a})^{1/2}\) is the length of \(\mathbf{a}\).
+
+\textbf{Translation:} In vector language, this says that the square of the dot product is less than or equal to the product of the squared lengths. This is why the Cauchy-Schwarz inequality is so important in geometry!
+
+\section*{1.20 PLUS AND MINUS INFINITY AND THE EXTENDED REAL NUMBER SYSTEM \(\mathbb{R}^*\): Beyond Infinity}
+
+Next we extend the real number system by adjoining two "ideal points" denoted by the symbols \(+\infty\) and \(-\infty\) ("plus infinity" and "minus infinity"). Think of these as the "endpoints" of the number line.
+
+\textbf{Definition 1.24:} By the extended real number system \(\mathbb{R}^*\) we shall mean the set of real numbers \(\mathbb{R}\) together with two symbols \(+\infty\) and \(-\infty\) which satisfy the following properties:
+a) If \( x \in \mathbb{R} \), then we have
+\[x + (+\infty) = +\infty, \quad x + (-\infty) = -\infty,\]
+\[x - (+\infty) = -\infty, \quad x - (-\infty) = +\infty,\]
+\[x/(+\infty) = x/(-\infty) = 0.\]
+b) If \( x > 0 \), then we have
+\[x(+\infty) = +\infty, \quad x(-\infty) = -\infty.\]
+c) If \( x < 0 \), then we have
+\[x(+\infty) = -\infty, \quad x(-\infty) = +\infty.\]
+d) \((+\infty) + (+\infty) = (+\infty)(+\infty) = (-\infty)(-\infty) = +\infty,\)
+\((-\infty) + (-\infty) = (+\infty)(-\infty) = -\infty.\)
+e) If \( x \in \mathbb{R} \), then we have \( -\infty < x < +\infty \).
+
+\textbf{Translation:} These rules tell us how to do arithmetic with infinity. The basic idea is that infinity is "bigger than everything" and negative infinity is "smaller than everything." Adding a finite number to infinity still gives infinity, and multiplying a positive number by infinity gives infinity.
+
+NOTATION. We denote \(\mathbb{R}\) by \((-\infty, +\infty)\) and \(\mathbb{R}^*\) by \([-\infty, +\infty]\). The points in \(\mathbb{R}\) are called "finite" to distinguish them from the "infinite" points \(+\infty\) and \(-\infty\).
+
+The principal reason for introducing the symbols \(+\infty\) and \(-\infty\) is one of convenience. For example, if we define \(+\infty\) to be the sup of a set of real numbers which is not bounded above, then every nonempty subset of \(\mathbb{R}\) has a supremum in \(\mathbb{R}^*\). The sup is finite if the set is bounded above and infinite if it is not bounded above. Similarly, we define \(-\infty\) to be the inf of any set of real numbers which is not bounded below. Then every nonempty subset of \(\mathbb{R}\) has an inf in \(\mathbb{R}^*\).
+
+\textbf{Translation:} By adding infinity to our number system, we can now say that every set has a supremum and infimum! This makes a lot of theorems much cleaner to state.
+
+For some of the later work concerned with limits, it is also convenient to introduce the following terminology.
+
+\textbf{Definition 1.25:} Every open interval \((a, +\infty)\) is called a neighborhood of \(+\infty\) or a ball with center \(+\infty\). Every open interval \((-\infty, a)\) is called a neighborhood of \(-\infty\) or a ball with center \(-\infty\).
+
+\textbf{Translation:} A neighborhood of infinity is just "all numbers bigger than some finite number." This will be useful when we talk about limits later.
+
+\section*{1.21 COMPLEX NUMBERS: The Imaginary Friends}
+
+It follows from the axioms governing the relation \(<\) that the square of a real number is never negative. Thus, for example, the elementary quadratic equation \(x^2 = -1\) has no solution among the real numbers. New types of numbers, called complex numbers, have been introduced to provide solutions to such equations. It turns out that the introduction of complex numbers provides, at the same time, solutions to general algebraic equations of the form
+\[a_0 + a_1 x + \cdots + a_n x^n = 0,\]
+where the coefficients \(a_0, a_1, \ldots, a_n\) are arbitrary real numbers. (This fact is known as the Fundamental Theorem of Algebra.)
+
+\textbf{Translation:} Complex numbers were invented to solve the equation \(x^2 = -1\), which has no real solution. But it turns out they're much more powerful than that - they can solve any polynomial equation! This is one of the most beautiful results in all of mathematics.
+
+We shall now define complex numbers and discuss them in further detail.
+
+\textbf{Definition 1.26:} By a complex number we shall mean an ordered pair of real numbers which we denote by \((x_1, x_2)\). The first member, \(x_1\), is called the real part of the complex number; the second member, \(x_2\), is called the imaginary part. Two complex numbers \(x = (x_1, x_2)\) and \(y = (y_1, y_2)\) are called equal, and we write \(x = y\), if, and only if, \( x_1 = y_1 \) and \( x_2 = y_2 \). We define the sum \( x + y \) and the product \( xy \) by the equations
+\[x + y = (x_1 + y_1, x_2 + y_2), \quad xy = (x_1 y_1 - x_2 y_2, x_1 y_2 + x_2 y_1).\]
+
+\textbf{Translation:} A complex number is just a pair of real numbers! The first number is called the "real part" and the second is called the "imaginary part." The addition rule is simple - just add the corresponding parts. The multiplication rule looks complicated, but it's designed to make the complex numbers behave nicely.
+
+NOTE. The set of all complex numbers will be denoted by \(\mathbb{C}\).
+
+\section*{1.22 GEOMETRIC REPRESENTATION OF COMPLEX NUMBERS}
+Just as real numbers are represented geometrically by points on a line, so complex numbers are represented by points in a plane. The complex number \( x = (x_1, x_2) \) can be thought of as the "point" with coordinates \( (x_1, x_2) \). When this is done, the definition of addition amounts to addition by the parallelogram law. (See Fig. 1.2.)
+
+\[
+\begin{array}{c}
+x + y = (x_1 + y_1, x_2 + y_2) \\
+\\
+y = (y_1, y_2) \\
+\\
+x = (x_1, x_2) \\
+\\
+0 = (0, 0) \quad x_1 = (x_1, 0)
+\end{array}
+\]
+\textbf{Figure 1.2}
+
+The idea of expressing complex numbers geometrically as points on a plane was formulated by Gauss in his dissertation in 1799 and, independently, by Argand in 1806. Gauss later coined the somewhat unfortunate phrase "complex number." Other geometric interpretations of complex numbers are possible. Instead of using points on a plane, we can use points on other surfaces. Riemann found the sphere particularly convenient for this purpose. Points of the sphere are projected from the North Pole onto the tangent plane at the South Pole and thus there corresponds to each point of the plane a definite point of the sphere. With the exception of the North Pole itself, each point of the sphere corresponds to exactly one point of the plane. This correspondence is called a stereographic projection. (See Fig. 1.3.)
+
+\textbf{Figure 1.3}
+
+\section*{1.23 THE IMAGINARY UNIT}
+It is often convenient to think of the complex number \( (x_1, x_2) \) as a two-dimensional vector with components \( x_1 \) and \( x_2 \). Adding two complex numbers by means of Definition 1.26 is then the same as adding two vectors component by component. The complex number \( 1 = (1, 0) \) plays the same role as a unit vector in the horizontal direction. The analog of a unit vector in the vertical direction will now be introduced.
+
+\textbf{Definition 1.34.} The complex number \( (0, 1) \) is denoted by \( i \) and is called the imaginary unit.
+
+\textbf{Theorem 1.35.} Every complex number \( x = (x_1, x_2) \) can be represented in the form \( x = x_1 + i x_2 \).
+
+\textbf{Proof.} \( x_1 = (x_1, 0), \quad i x_2 = (0, 1)(x_2, 0) = (0, x_2), \)
+\( x_1 + i x_2 = (x_1, 0) + (0, x_2) = (x_1, x_2) \).
+
+The next theorem tells us that the complex number \( i \) provides us with a solution to the equation \( x^2 = -1 \).
+
+\textbf{Theorem 1.36.} \( i^2 = -1 \).
+
+\textbf{Proof.} \( i^2 = (0, 1)(0, 1) = (-1, 0) = -1 \).
+
+\section*{1.24 ABSOLUTE VALUE OF A COMPLEX NUMBER}
+We now extend the concept of absolute value to the complex number system.
+
+\textbf{Definition 1.37.} If \( x = (x_1, x_2) \), we define the modulus, or absolute value, of \( x \) to be the nonnegative real number \( |x| \) given by
+\[ |x| = \sqrt{x_1^2 + x_2^2}. \]
+
+\textbf{Theorem 1.38.}
+\begin{enumerate}
+    \item[i)] \( |(0, 0)| = 0 \), and \( |x| > 0 \) if \( x \neq 0 \).
+    \item[ii)] \( |xy| = |x| |y| \).
+    \item[iii)] \( |x/y| = |x|/|y| \), if \( y \neq 0 \).
+    \item[iv)] \( |(x_1, 0)| = |x_1| \).
+\end{enumerate}
+
+\textbf{Proof.} Statements (i) and (iv) are immediate. To prove (ii), we write \( x = x_1 + i x_2 \),
+\( y = y_1 + i y_2 \), so that \( xy = x_1 y_1 - x_2 y_2 + i(x_1 y_2 + x_2 y_1) \). Statement (ii) follows from the relation
+\[ |xy|^2 = x_1^2 y_1^2 + x_2^2 y_2^2 + x_1^2 y_2^2 + x_2^2 y_1^2 = (x_1^2 + x_2^2)(y_1^2 + y_2^2) = |x|^2 |y|^2. \]
+Equation (iii) can be derived from (ii) by writing it in the form \( |x| = |y| |x/y| \).
+
+Geometrically, \( |x| \) represents the length of the segment joining the origin to the point \( x \). More generally, \( |x - y| \) is the distance between the points \( x \) and \( y \). Using this geometric interpretation, the following theorem states that one side of a triangle is less than the sum of the other two sides.
+
+\textbf{Theorem 1.39.} If \( x \) and \( y \) are complex numbers, then we have 
+\[ |x + y| \leq |x| + |y| \] 
+(triangle inequality).
+
+The proof is left as an exercise for the reader.
+
+\section*{1.25 IMPOSSIBILITY OF ORDERING THE COMPLEX NUMBERS}
+As yet we have not defined a relation of the form \( x < y \) if \( x \) and \( y \) are arbitrary complex numbers, for the reason that it is impossible to give a definition of \( < \) for complex numbers which will have all the properties in Axioms 6 through 8. To illustrate, suppose we were able to define an order relation \( < \) satisfying Axioms 6, 7, and 8. Then, since \( i \neq 0 \), we must have either \( i > 0 \) or \( i < 0 \), by Axiom 6. Let us assume \( i > 0 \). Then taking, \( x = y = i \) in Axiom 8, we get \( i^2 > 0 \), or \(-1 > 0 \). Adding 1 to both sides (Axiom 7), we get \( 0 > 1 \). On the other hand, applying Axiom 8 to \(-1 > 0 \) we find \( 1 > 0 \). Thus we have both \( 0 > 1 \) and \( 1 > 0 \), which, by Axiom 6, is impossible. Hence the assumption \( i > 0 \) leads us to a contradiction. [Why was the inequality \(-1 > 0 \) not already a contradiction?] A similar argument shows that we cannot have \( i < 0 \). Hence the complex numbers cannot be ordered in such a way that Axioms 6, 7, and 8 will be satisfied.
+
+\section*{1.26 COMPLEX EXPONENTIALS}
+The exponential \( e^x \) (\( x \) real) was mentioned earlier. We now wish to define \( e^z \) when \( z \) is a complex number in such a way that the principal properties of the real exponential function will be preserved. The main properties of \( e^x \) for \( x \) real are the law of exponents, \( e^{x_1} e^{x_2} = e^{x_1 + x_2} \), and the equation \( e^0 = 1 \). We shall give a definition of \( e^z \) for complex \( z \) which preserves these properties and reduces to the ordinary exponential when \( z \) is real.
+
+If we write \( z = x + i y \) (\( x, y \) real), then for the law of exponents to hold we want \( e^{x + i y} = e^x e^{i y} \). It remains, therefore, to define what we shall mean by \( e^{i y} \).
+
+\begin{definition}[]{Definition 1.40.} 
+    If \( z = x + i y \), we define \( e^z = e^{x + i y} \) to be the complex number \( e^z = e^x (\cos y + i \sin y) \). 
+\end{definition}
+
+This definition* agrees with the real exponential function when \( z \) is real (that is, \( y = 0 \)). We prove next that the law of exponents still holds.
+
+* Several arguments can be given to motivate the equation \( e^{i y} = \cos y + i \sin y \). For example, let us write \( e^{i y} = f(y) + i g(y) \) and try to determine the real-valued functions \( f \) and \( g \) so that the usual rules of operating with real exponentials will also apply to complex exponentials. Formal differentiation yields \( e^{i y} = g'(y) - i f'(y) \), if we assume that \( (e^{i y})' = i e^{i y} \). Comparing the two expressions for \( e^{i y} \), we see that \( f \) and \( g \) must satisfy the equations \( f(y) = g'(y), f'(y) = -g(y) \). Elimination of \( g \) yields \( f(y) = -f''(y) \). Since we want \( e^0 = 1 \), we must have \( f(0) = 1 \) and \( f'(0) = 0 \). It follows that \( f(y) = \cos y \) and \( g(y) = -f'(y) = \sin y \). Of course, this argument proves nothing, but it strongly suggests that the definition \( e^{i y} = \cos y + i \sin y \) is reasonable.
+
+\section*{1.27 FURTHER PROPERTIES OF COMPLEX EXPONENTIALS}
+In the following theorems, \( z, z_1, z_2 \) denote complex numbers.
+
+\begin{theorem}[]{Theorem 1.41.} If \( z_1 = x_1 + i y_1 \) and \( z_2 = x_2 + i y_2 \) are two complex numbers, then we have 
+\[ e^{z_1} e^{z_2} = e^{z_1 + z_2}. \]
+\end{theorem}
+
+\textbf{Proof.}
+\[ e^{z_1} = e^{x_1} (\cos y_1 + i \sin y_1), \quad e^{z_2} = e^{x_2} (\cos y_2 + i \sin y_2), \]
+\[ e^{z_1} e^{z_2} = e^{x_1} e^{x_2} [\cos y_1 \cos y_2 - \sin y_1 \sin y_2 + i (\cos y_1 \sin y_2 + \sin y_1 \cos y_2)]. \]
+
+Now \( e^{x_1} e^{x_2} = e^{x_1 + x_2} \), since \( x_1 \) and \( x_2 \) are both real. Also,
+\[\cos y_1 \cos y_2 - \sin y_1 \sin y_2 = \cos (y_1 + y_2) \]
+and
+\[\cos y_1 \sin y_2 + \sin y_1 \cos y_2 = \sin (y_1 + y_2), \]
+and hence
+\[ e^{z_1} e^{z_2} = e^{x_1 + x_2} [\cos (y_1 + y_2) + i \sin (y_1 + y_2)] = e^{z_1 + z_2}. \]
+
+\textbf{Theorem 1.42.} \( e^z \) is never zero.
+
+\textbf{Proof.} \( e^z e^{-z} = e^0 = 1 \). Hence \( e^z \) cannot be zero.
+
+\textbf{Theorem 1.43.} If \( x \) is real, then \( |e^{i x}| = 1 \).
+
+\textbf{Proof.} \( |e^{i x}|^2 = \cos^2 x + \sin^2 x = 1 \), and \( |e^{i x}| > 0 \).
+
+\textbf{Theorem 1.44.} \( e^z = 1 \) if, and only if, \( z \) is an integral multiple of \( 2\pi i \).
+
+\textbf{Proof.} If \( z = 2\pi i n \), where \( n \) is an integer, then
+\[ e^z = \cos (2\pi n) + i \sin (2\pi n) = 1. \]
+
+Conversely, suppose that \( e^z = 1 \). This means that \( e^x \cos y = 1 \) and \( e^x \sin y = 0 \). Since \( e^x \neq 0 \), we must have \( \sin y = 0, y = k\pi \), where \( k \) is an integer. But \( \cos (k\pi) = (-1)^k \). Hence \( e^x = (-1)^k \), since \( e^x \cos (k\pi) = 1 \). Since \( e^x > 0 \), \( k \) must be even. Therefore \( e^x = 1 \) and hence \( x = 0 \). This proves the theorem.
+
+\textbf{Theorem 1.45.} \( e^{z_1} = e^{z_2} \) if, and only if, \( z_1 - z_2 = 2\pi i n \) (where \( n \) is an integer).
+
+\textbf{Proof.} \( e^{z_1} = e^{z_2} \) if, and only if, \( e^{z_1 - z_2} = 1 \).
+
+\section*{1.28 THE ARGUMENT OF A COMPLEX NUMBER}
+If the point \( z = (x, y) = x + i y \) is represented by polar coordinates \( r \) and \( \theta \), we can write \( x = r \cos \theta \) and \( y = r \sin \theta \), so that \( z = r \cos \theta + i r \sin \theta = r e^{i\theta} \).
+
+The two numbers \( r \) and \( \theta \) uniquely determine \( z \). Conversely, the positive number \( r \) is uniquely determined by \( z \); in fact, \( r = |z| \). However, \( z \) determines the angle \( \theta \) only up to multiples of \( 2\pi \). There are infinitely many values of \( \theta \) which satisfy the equations \( x = |z| \cos \theta \), \( y = |z| \sin \theta \) but, of course, any two of them differ by some multiple of \( 2\pi \). Each such \( \theta \) is called an argument of \( z \) but one of these values is singled out and is called the principal argument of \( z \).
+
+\textbf{Definition 1.46.} Let \( z = x + i y \) be a nonzero complex number. The unique real number \( \theta \) which satisfies the conditions
+\[x = |z| \cos \theta, \quad y = |z| \sin \theta, \quad -\pi < \theta \leq +\pi\]
+is called the principal argument of \( z \), denoted by \( \theta = \arg (z) \).
+
+The above discussion immediately yields the following theorem:
+
+\textbf{Theorem 1.47.} Every complex number \( z \neq 0 \) can be represented in the form \( z = r e^{i\theta} \), where \( r = |z| \) and \( \theta = \arg (z) + 2\pi n \), \( n \) being any integer.
+
+NOTE. This method of representing complex numbers is particularly useful in connection with multiplication and division, since we have
+\[(r_1 e^{i\theta_1})(r_2 e^{i\theta_2}) = r_1 r_2 e^{i(\theta_1 + \theta_2)} \quad \text{and} \quad \frac{r_1 e^{i\theta_1}}{r_2 e^{i\theta_2}} = \frac{r_1}{r_2} e^{i(\theta_1 - \theta_2)}.\]
+
+\textbf{Theorem 1.48.} If \( z_1 z_2 \neq 0 \), then \( \arg (z_1 z_2) = \arg (z_1) + \arg (z_2) + 2\pi n(z_1, z_2) \), where
+\[n(z_1, z_2) = 
+\begin{cases}
+0, & \text{if } -\pi < \arg (z_1) + \arg (z_2) \leq +\pi, \\
++1, & \text{if } -2\pi < \arg (z_1) + \arg (z_2) \leq -\pi, \\
+-1, & \text{if } \pi < \arg (z_1) + \arg (z_2) \leq 2\pi.
+\end{cases}\]
+
+\textbf{Proof.} Write \( z_1 = |z_1| e^{i\theta_1}, z_2 = |z_2| e^{i\theta_2} \), where \( \theta_1 = \arg (z_1) \) and \( \theta_2 = \arg (z_2) \). Then \( z_1 z_2 = |z_1 z_2| e^{i(\theta_1 + \theta_2)} \). Since \( -\pi < \theta_1 \leq +\pi \) and \( -\pi < \theta_2 \leq +\pi \), we have \( -2\pi < \theta_1 + \theta_2 \leq 2\pi \). Hence there is an integer \( n \) such that \( -\pi < \theta_1 + \theta_2 + 2\pi n \leq \pi \). This \( n \) is the same as the integer \( n(z_1, z_2) \) given in the theorem, and for this \( n \) we have \( \arg (z_1 z_2) = \theta_1 + \theta_2 + 2\pi n \). This proves the theorem.
+
+\section*{1.29 INTEGRAL POWERS AND ROOTS OF COMPLEX NUMBERS}
+
+\textbf{Definition 1.49.} Given a complex number \( z \) and an integer \( n \), we define the nth power of \( z \) as follows:
+\[z^0 = 1, \quad z^{n+1} = z^n z, \quad \text{if } n \geq 0,\]
+\[z^{-n} = (z^{-1})^n, \quad \text{if } z \neq 0 \text{ and } n > 0.\]
+
+Theorem 1.50, which states that the usual laws of exponents hold, can be proved by mathematical induction. The proof is left as an exercise.
+
+\textbf{Theorem 1.50.} Given two integers \( m \) and \( n \), we have, for \( z \neq 0 \),
+\[z^n z^m = z^{n+m} \quad \text{and} \quad (z_1 z_2)^n = z_1^n z_2^n.\]
+
+\textbf{Theorem 1.51.} If \( z \neq 0 \), and if \( n \) is a positive integer, then there are exactly \( n \) distinct complex numbers \( z_0, z_1, \ldots, z_{n-1} \) (called the nth roots of \( z \)), such that
+\[z_k^n = z, \quad \text{for each } k = 0, 1, 2, \ldots, n - 1.\]
+Furthermore, these roots are given by the formulas
+\[z_k = R e^{i\phi_k}, \quad \text{where} \quad R = |z|^{1/n},\]
+and
+\[\phi_k = \frac{\arg(z)}{n} + \frac{2\pi k}{n} \quad (k = 0, 1, 2, \ldots, n - 1).\]
+
+NOTE. The \( n \) nth roots of \( z \) are equally spaced on the circle of radius \( R = |z|^{1/n} \), center at the origin.
+
+\textbf{Proof.} The \( n \) complex numbers \( R e^{i\phi_k}, 0 \leq k \leq n - 1 \), are distinct and each is an nth root of \( z \), since
+\[(R e^{i\phi_k})^n = R^n e^{i n \phi_k} = |z| e^{i[\arg(z) + 2\pi k]} = z.\]
+We must now show that there are no other nth roots of \( z \). Suppose \( w = A e^{i\alpha} \) is a complex number such that \( w^n = z \). Then \( |w|^n = |z| \), and hence \( A^n = |z| \), \( A = |z|^{1/n} \). Therefore, \( w^n = z \) can be written \( e^{i n \alpha} = e^{i[\arg(z)]} \), which implies
+\[n\alpha - \arg(z) = 2\pi k \quad \text{for some integer } k.\]
+Hence \( \alpha = [\arg(z) + 2\pi k]/n \). But when \( k \) runs through all integral values, \( w \) takes only the distinct values \( z_0, \ldots, z_{n-1} \). (See Fig. 1.4.)
+
+\section*{1.30 COMPLEX LOGARITHMS}
+By Theorem 1.42, \( e^z \) is never zero. It is natural to ask if there are other values that \( e^z \) cannot assume. The next theorem shows that zero is the only exceptional value.
+
+\textbf{Theorem 1.52.} If \( z \) is a complex number \( \neq 0 \), then there exist complex numbers \( w \) such that \( e^w = z \). One such \( w \) is the complex number 
+\[ \log |z| + i \arg (z), \]
+and any other such \( w \) must have the form 
+\[ \log |z| + i \arg (z) + 2n\pi i, \]
+where \( n \) is an integer.
+
+\textbf{Proof.} Since \( e^{\log |z| + i \arg (z)} = e^{\log |z|} e^{i \arg (z)} = |z| e^{i \arg (z)} = z \), we see that \( w = \log |z| + i \arg (z) \) is a solution of the equation \( e^w = z \). But if \( w_1 \) is any other solution, then \( e^w = e^{w_1} \) and hence \( w - w_1 = 2n\pi i \).
+
+\textbf{Definition 1.53.} Let \( z \neq 0 \) be a given complex number. If \( w \) is a complex number such that \( e^w = z \), then \( w \) is called a logarithm of \( z \). The particular value of \( w \) given by 
+\[ w = \log |z| + i \arg (z) \]
+is called the principal logarithm of \( z \), and for this \( w \) we write 
+\[ w = \log z. \]
+
+\textbf{Examples}
+\begin{enumerate}
+    \item Since \( |i| = 1 \) and \( \arg (i) = \pi/2 \), \( \Log (i) = i\pi/2 \).
+    \item Since \( |-i| = 1 \) and \( \arg (-i) = -\pi/2 \), \( \Log (-i) = -i\pi/2 \).
+    \item Since \( |-1| = 1 \) and \( \arg (-1) = \pi \), \( \Log (-1) = \pi i \).
+    \item If \( x > 0 \), \( \Log (x) = \log x \), since \( |x| = x \) and \( \arg (x) = 0 \).
+    \item Since \( |1 + i| = \sqrt{2} \) and \( \arg (1 + i) = \pi/4 \), \( \Log (1 + i) = \log \sqrt{2} + i\pi/4 \).
+\end{enumerate}
+
+\textbf{Theorem 1.54.} If \( z_1 z_2 \neq 0 \), then 
+\[ \Log (z_1 z_2) = \Log z_1 + \Log z_2 + 2\pi i n(z_1, z_2), \]
+where \( n(z_1, z_2) \) is the integer defined in Theorem 1.48.
+
+\textbf{Proof.}
+\[ \Log (z_1 z_2) = \log |z_1 z_2| + i \arg (z_1 z_2) \]
+\[ = \log |z_1| + \log |z_2| + i [\arg (z_1) + \arg (z_2) + 2\pi n(z_1, z_2)]. \]
+
+\section*{1.31 COMPLEX POWERS}
+Using complex logarithms, we can now give a definition of complex powers of complex numbers.
+
+\textbf{Definition 1.55.} If \( z \neq 0 \) and if \( w \) is any complex number, we define 
+\[ z^w = e^{w \Log z}. \]
+
+\textbf{Examples}
+\begin{enumerate}
+    \item \( i^i = e^{i \Log i} = e^{i(i\pi/2)} = e^{-\pi/2} \).
+    \item \( (-1)^i = e^{i \Log (-1)} = e^{i(\pi i)} = e^{-\pi} \).
+    \item If \( n \) is an integer, then \( z^{n+1} = e^{(n+1) \Log z} = e^{n \Log z} e^{\Log z} = z^n z \), so Definition 1.55 does not conflict with Definition 1.49.
+\end{enumerate}
+
+The next two theorems give rules for calculating with complex powers:
+
+\textbf{Theorem 1.56.} \( z^{w_1} z^{w_2} = z^{w_1 + w_2} \) if \( z \neq 0 \).
+
+\textbf{Proof.} \( z^{w_1 + w_2} = e^{(w_1 + w_2) \Log z} = e^{w_1 \Log z} e^{w_2 \Log z} = z^{w_1} z^{w_2} \).
+
+\textbf{Theorem 1.57.} If \( z_1 z_2 \neq 0 \), then 
+\[ (z_1 z_2)^w = z_1^w z_2^w e^{2\pi i w n(z_1, z_2)} \]
+where \( n(z_1, z_2) \) is the integer defined in Theorem 1.48.
+
+\textbf{Proof.} \( (z_1 z_2)^w = e^{w \Log (z_1 z_2)} = e^{w [\Log z_1 + \Log z_2 + 2\pi i n(z_1, z_2)]} \).
+
+\section*{1.32 COMPLEX SINES AND COSINES}
+
+\textbf{Definition 1.58.} Given a complex number \( z \), we define
+\[\cos z = \frac{e^{i z} + e^{-i z}}{2}, \quad \sin z = \frac{e^{i z} - e^{-i z}}{2i}.\]
+
+NOTE. When \( z \) is real, these equations agree with Definition 1.40.
+
+\textbf{Theorem 1.59.} If \( z = x + i y \), then we have
+\[\cos z = \cos x \cosh y - i \sin x \sinh y,\]
+\[\sin z = \sin x \cosh y + i \cos x \sinh y.\]
+
+\textbf{Proof.}
+\[2 \cos z = e^{i z} + e^{-i z}\]
+\[= e^{-y} (\cos x + i \sin x) + e^{y} (\cos x - i \sin x)\]
+\[= \cos x(e^y + e^{-y}) - i \sin x(e^y - e^{-y})\]
+\[= 2 \cos x \cosh y - 2i \sin x \sinh y.\]
+
+The proof for \(\sin z\) is similar.
+
+Further properties of sines and cosines are given in the exercises.
+
+\section*{1.33 INFINITY AND THE EXTENDED COMPLEX PLANE C*}
+Next we extend the complex number system by adjoining an ideal point denoted by the symbol \(\infty\).
+
+\textbf{Definition 1.60.} By the extended complex number system C* we shall mean the complex plane C along with a symbol \(\infty\) which satisfies the following properties:
+\begin{enumerate}
+    \item[a)] If \( z \in \mathbb{C} \), then we have \( z + \infty = z - \infty = \infty \), \( z/\infty = 0 \).
+    \item[b)] If \( z \in \mathbb{C} \), but \( z \neq 0 \), then \( z(\infty) = \infty \) and \( z/0 = \infty \).
+    \item[c)] \(\infty + \infty = (\infty)(\infty) = \infty \).
+\end{enumerate}
+
+\textbf{Definition 1.61.} Every set in \( \mathbb{C} \) of the form \(\{z: |z| > r \geq 0\}\) is called a neighborhood of \(\infty\), or a ball with center at \(\infty\).
+
+The reader may wonder why two symbols, \(+\infty\) and \(-\infty\), are adjoined to \(\mathbb{R}\) but only one symbol, \(\infty\), is adjoined to \(\mathbb{C}\). The answer lies in the fact that there is an ordering relation \(<\) among the real numbers, but no such relation occurs among the complex numbers. In order that certain properties of real numbers involving the relation \(<\) hold without exception, we need two symbols, \(+\infty\) and \(-\infty\), as defined above. We have already mentioned that in \(\mathbb{R}^*\) every nonempty set has a sup, for example.
+
+In \(\mathbb{C}\) it turns out to be more convenient to have just one ideal point. By way of illustration, let us recall the stereographic projection which establishes a one-to-one correspondence between the points of the complex plane and those points on the surface of the sphere distinct from the North Pole. The apparent exception at the North Pole can be removed by regarding it as the geometric representative of the ideal point \(\infty\). We then get a one-to-one correspondence between the extended complex plane \(\mathbb{C}^*\) and the total surface of the sphere. It is geometrically evident that if the South Pole is placed on the origin of the complex plane, the exterior of a "large" circle in the plane will correspond, by stereographic projection, to a "small" spherical cap about the North Pole. This illustrates vividly why we have defined a neighborhood of \(\infty\) by an inequality of the form \(|z| > r\).
+
+
+\backmatter
+
+\printbibliography[heading=bibintoc,title={Bibliography}]
+\printindex
+\thispagestyle{empty}
+\bottomimage{hummingbird-8013214}
+\ISBNcode{\EANisbn[ISBN=978-80-7340-097-2]} %
+\summary{A comprehensive introduction to the real and complex number systems, presented in an accessible manner for students beginning mathematical analysis.}
+\makebottomcover
 
 \end{document}

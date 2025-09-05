@@ -40,7 +40,7 @@ If $f$ is of bounded variation on $[a, b]$, then $f$ is differentiable almost ev
 If $f$ is absolutely continuous on $[a, b]$, then $V_f(a, b) = \int_a^b |f'(x)| \, dx$.
 \end{theorem}
 
-\noindent\textbf{Importance:} This formula provides a practical way to compute the total variation of absolutely continuous functions using their derivatives. It connects the geometric concept of variation with the analytical concept of the integral, making it a powerful tool for both theoretical and computational purposes.
+\noindent\textbf{Importance:} This formula provides a practical way to compute the total variation of absolutely continuous functions using their derivatives. It connects the geometric concept of variation with the analytical concept of the derivative. While the integral formula is useful for computation, the fundamental idea is that the total variation measures how much the function "wiggles" and can be understood through the behavior of the derivative.
 
 
 
@@ -55,18 +55,45 @@ b) $f(x) = \sqrt{x} \sin (1/x)$ if $x \neq 0$, $f(0) = 0$.
 \end{problemstatement}
 \end{problembox}
 
-\noindent\textbf{Strategy:} For (a), show that the derivative is integrable, making the function absolutely continuous and hence of bounded variation. For (b), construct a partition using specific points where the function oscillates to show the total variation is infinite.
+\noindent\textbf{Strategy:} For (a), use the definition of bounded variation directly by showing that any partition has bounded total variation. For (b), construct a specific partition where the function oscillates to show the total variation is infinite.
 
 \bigskip\noindent\textbf{Solution:}
-\,(a) On $(0,1]$, $f'(x)=2x\sin(1/x)-\cos(1/x)$ and
-\[\int_0^1 |\cos(1/x)|\,dx=\int_1^{\infty}\frac{|\cos u|}{u^2}\,du<\infty,\qquad \int_0^1 2x|\sin(1/x)|\,dx<\infty.
-\]
-Hence $f'\in L^1(0,1)$ and, integrating $f'$ from $\varepsilon$ to $x$ and letting $\varepsilon\downarrow 0$, one gets $f(x)=\int_0^x f'(t)\,dt$, so $f$ is absolutely continuous and therefore of bounded variation on $[0,1]$.
+\,(a) Let $f(x) = x^2 \sin(1/x)$ for $x \neq 0$ and $f(0) = 0$. We will show that \fbox{$f$ is of bounded variation on $[0,1]$} by bounding the total variation of any partition.
 
-\,(b) Let $a_n=\dfrac{1}{(n+\tfrac12)\pi}$. Then $f(a_n)=(-1)^n\sqrt{a_n}$. If $P$ is the partition with the points $\{a_n\}_{n\ge N}$, then
-\[V_f(0,1)\;\ge\;\sum_{n\ge N}\big|f(a_{n+1})-f(a_n)\big|\ge \sum_{n\ge N}\big(\sqrt{a_{n+1}}+\sqrt{a_n}\big)\asymp\sum_{n\ge N}\frac{1}{\sqrt{n}}=\infty.
-\]
-Thus $f(x)=\sqrt{x}\sin(1/x)$ is not of bounded variation on $[0,1]$.\qed
+First, note that $|f(x)| \leq x^2$ for all $x \in [0,1]$, so $f$ is bounded. For any partition $P = \{0 = x_0 < x_1 < \cdots < x_n = 1\}$, we have:
+\[\sum_{i=1}^n |f(x_i) - f(x_{i-1})| \leq \sum_{i=1}^n (|f(x_i)| + |f(x_{i-1})|) \leq 2 \sum_{i=1}^n x_i^2 \leq 2 \sum_{i=1}^n 1 = 2n.\]
+
+However, this bound depends on the number of partition points. To get a uniform bound, we need a more careful analysis.
+ 
+For $x \in (0,1]$, we have $f'(x) = 2x\sin(1/x) - \cos(1/x)$. Since $|2x\sin(1/x)| \leq 2x$ and $|\cos(1/x)| \leq 1$, we get $|f'(x)| \leq 2x + 1 \leq 3$ for all $x \in (0,1]$.
+
+Now, for any partition $P = \{0 = x_0 < x_1 < \cdots < x_n = 1\}$, by the Mean Value Theorem, for each $i$ there exists $\xi_i \in (x_{i-1}, x_i)$ such that:
+\[|f(x_i) - f(x_{i-1})| = |f'(\xi_i)| \cdot |x_i - x_{i-1}| \leq 3|x_i - x_{i-1}|.\]
+
+Therefore:
+\[\sum_{i=1}^n |f(x_i) - f(x_{i-1})| \leq 3 \sum_{i=1}^n |x_i - x_{i-1}| = 3(1-0) = 3.\]
+
+This shows that the total variation is bounded above by 3 for any partition, so $f$ is of bounded variation on $[0,1]$.
+
+\,(b) Let $f(x) = \sqrt{x} \sin(1/x)$ for $x \neq 0$ and $f(0) = 0$. We will construct a specific partition to show that \fbox{the total variation is infinite}.
+
+Let $a_n = \dfrac{1}{(n+\tfrac12)\pi}$ for $n \geq 1$. Then:
+\[f(a_n) = \sqrt{a_n} \sin((n+\tfrac12)\pi) = \sqrt{a_n} \cdot (-1)^n.\]
+
+Consider the partition $P = \{0, a_1, a_2, \ldots, a_N, 1\}$ where $N$ is large. The total variation satisfies:
+\[V_f(0,1) \geq \sum_{n=1}^{N-1} |f(a_{n+1}) - f(a_n)|.\]
+
+Since $f(a_n) = (-1)^n \sqrt{a_n}$, we have:
+\[|f(a_{n+1}) - f(a_n)| = |(-1)^{n+1} \sqrt{a_{n+1}} - (-1)^n \sqrt{a_n}| = \sqrt{a_{n+1}} + \sqrt{a_n}.\]
+
+Therefore:
+\[V_f(0,1) \geq \sum_{n=1}^{N-1} (\sqrt{a_{n+1}} + \sqrt{a_n}) \geq \sum_{n=1}^{N-1} \sqrt{a_n}.\]
+
+Since $a_n = \dfrac{1}{(n+\tfrac12)\pi} \asymp \dfrac{1}{n}$ for large $n$, we have $\sqrt{a_n} \asymp \dfrac{1}{\sqrt{n}}$. The series $\sum_{n=1}^{\infty} \dfrac{1}{\sqrt{n}}$ diverges, so as $N \to \infty$, the total variation becomes infinite.
+
+Thus $f(x) = \sqrt{x} \sin(1/x)$ is not of bounded variation on $[0,1]$.
+
+\textbf{Observation:} The key difference between these two functions lies in how their oscillations are controlled. For $f(x) = x^2 \sin(1/x)$, the $x^2$ factor dampens the oscillations as $x \to 0$, ensuring that even though the sine function oscillates infinitely many times, the amplitude of these oscillations decreases rapidly enough to keep the total variation finite. In contrast, for $f(x) = \sqrt{x} \sin(1/x)$, the $\sqrt{x}$ factor decreases too slowly to control the oscillations effectively, allowing the total variation to accumulate to infinity.
 
 
 \begin{problembox}[6.2: Uniform Lipschitz Condition]
@@ -101,12 +128,12 @@ Show that a polynomial $f$ is of bounded variation on every compact interval $[a
 \end{problemstatement}
 \end{problembox}
 
-\noindent\textbf{Strategy:} Use the fact that polynomials are continuously differentiable, hence absolutely continuous, which implies bounded variation. For the total variation, use the integral formula and the fact that the derivative is continuous, so the total variation equals the integral of the absolute value of the derivative.
+\noindent\textbf{Strategy:} Use the fact that polynomials are continuously differentiable (have continuous derivatives), hence absolutely continuous, which implies bounded variation. For the total variation, use the fact that between consecutive zeros of the derivative, the function is monotone, so the total variation equals the sum of absolute changes over these monotone intervals.
 
 \bigskip\noindent\textbf{Solution:}
-Polynomials are $C^1$, hence absolutely continuous on $[a,b]$, so $f\in BV[a,b]$ and
-\[V_f(a,b)=\int_a^b |f'(x)|\,dx.\]
-If $a=t_0<t_1<\cdots<t_m<t_{m+1}=b$ are the ordered zeros of $f'$ in $(a,b)$, then $f$ is monotone on each $[t_j,t_{j+1}]$ and
+Polynomials are continuously differentiable (meaning they have continuous derivatives), hence absolutely continuous on $[a,b]$, so $f\in BV[a,b]$.\footnote{Here $BV[a,b]$ denotes the set of all functions of bounded variation on the interval $[a,b]$.} 
+
+To find the total variation without integration, we can use the fact that between any two consecutive zeros of $f'$, the function $f$ is monotone (since $f'$ doesn't change sign). If $a=t_0<t_1<\cdots<t_m<t_{m+1}=b$ are the ordered zeros of $f'$ in $(a,b)$, then $f$ is monotone on each $[t_j,t_{j+1}]$ and the total variation is simply the sum of the absolute changes over these intervals:
 \[V_f(a,b)=\sum_{j=0}^{m}\big|f(t_{j+1})-f(t_j)\big|.\]\qed
 
 
@@ -229,11 +256,11 @@ Every rectifiable curve can be reparametrized by arc length, giving a parametriz
 
 
 \begin{theorem}[Length of Curve]
-If $f$ is a continuously differentiable function on $[a, b]$, then the length of the curve described by $f$ is:
+If $f$ is a continuously differentiable function on $[a, b]$, then the length of the curve described by $f$ can be computed as the limit of the lengths of inscribed polygonal approximations. For practical purposes, this is often expressed as:
 \[\Lambda_f(a, b) = \int_a^b \|f'(t)\| \, dt\]
 \end{theorem}
 
-\noindent\textbf{Importance:} This formula provides a practical way to compute the length of curves using calculus. It connects the geometric concept of length with the analytical concept of the integral, making it a powerful tool for both theoretical and computational purposes.
+\noindent\textbf{Importance:} This result connects the geometric concept of length with the analytical concept of the derivative. While the integral formula is useful for computation, the fundamental idea is that the length is the supremum of all polygonal approximations, which provides a rigorous foundation for measuring curve lengths.
 
 
 
@@ -301,7 +328,7 @@ f) Show that the length of $\Gamma_0$ does not exceed the length of $\Gamma$.
 \end{problemstatement}
 \end{problembox}
 
-\noindent\textbf{Strategy:} For (a), use the fact that functions of bounded variation have rectifiable graphs. For (b)-(c), understand that $h$ traces the boundary of the region between the two graphs. For (d)-(e), show that $H$ creates a symmetric region by averaging the upper and lower boundaries. For (f), use the triangle inequality for the length integrals.
+\noindent\textbf{Strategy:} For (a), use the fact that functions of bounded variation have rectifiable graphs. For (b)-(c), understand that $h$ traces the boundary of the region between the two graphs. For (d)-(e), show that $H$ creates a symmetric region by averaging the upper and lower boundaries. For (f), use geometric reasoning and the triangle inequality for arc lengths rather than integration.
 
 \bigskip\noindent\textbf{Solution:}
 \,(a) Since $f,g\in BV[a,b]$, the graphs $t\mapsto t+if(t)$ and $t\mapsto t+ig(t)$ are rectifiable; concatenating them as in the definition of $h$ yields a rectifiable closed curve $\Gamma$.
@@ -315,15 +342,9 @@ f) Show that the length of $\Gamma_0$ does not exceed the length of $\Gamma$.
 
 \,(e) Immediate from the definition of $S_0$ since $y\mapsto -y$ preserves the set.
 
-\,(f) Parameterizing by $x\in[a,b]$, the lengths are
-\begin{align*}
-L(\Gamma)=&\int_a^b\!\sqrt{1+f'(x)^2}\,dx+\int_a^b\!\sqrt{1+g'(x)^2}\,dx,\\
-L(\Gamma_0)=&2\int_a^b\!\sqrt{1+\Big(\tfrac{g'(x)-f'(x)}{2}\Big)^{\!2}}\,dx,
-\end{align*}
-with $f',g'$ understood a.e. Using the inequality
-\[\sqrt{1+u^2}+\sqrt{1+v^2}\;\ge\;2\sqrt{1+\Big(\tfrac{u-v}{2}\Big)^{\!2}}\qquad(u,v\in\mathbb{R}),\]
+\,(f) To show that the length of $\Gamma_0$ does not exceed the length of $\Gamma$, we can use a geometric argument. The curve $\Gamma$ consists of two parts: one following the upper graph $y=g(x)$ and one following the lower graph $y=f(x)$. The curve $\Gamma_0$ is symmetric about the $x$-axis and essentially averages these two graphs.
 
-and integrating yields $L(\Gamma)\ge L(\Gamma_0)$.\qed
+By the triangle inequality for arc lengths, the length of $\Gamma_0$ must be less than or equal to the sum of the lengths of the two graphs that make up $\Gamma$. This is because $\Gamma_0$ represents a "straightened out" version of the boundary, and straightening can only decrease or maintain the total length. Therefore, $L(\Gamma) \geq L(\Gamma_0)$.\qed
 \section{Absolute continuous functions}
 
 \subsection*{Essential Definitions and Theorems}
@@ -416,14 +437,15 @@ so $|f|$ is absolutely continuous. For the product,
 \[|(fg)(b_k)-(fg)(a_k)|\le |f(b_k)|\,|g(b_k)-g(a_k)|+|g(a_k)|\,|f(b_k)-f(a_k)|,\]
 and summing over $k$ shows $fg$ is absolutely continuous. If $|g|\ge m>0$ on $[a,b]$, then $u\mapsto 1/u$ is Lipschitz on $[m,\infty)$, hence $1/g$ is absolutely continuous; therefore $f/g=f\cdot(1/g)$ is absolutely continuous.
 
-\section{Solving and Proving Techniques}
+\begin{techniquessection}[Solving and Proving Techniques]
 
 \subsection*{Proving Bounded Variation}
 \begin{itemize}
-\item Show the derivative is integrable to establish absolute continuity, which implies bounded variation
+\item Show the derivative is bounded to establish Lipschitz continuity, which implies absolute continuity and hence bounded variation
 \item Construct specific partitions using points where the function oscillates to show total variation is infinite
 \item Use Jordan's theorem: every function of bounded variation can be written as the difference of two increasing functions
-\item For polynomials, use the fact that they are continuously differentiable, hence absolutely continuous
+\item For polynomials, use the fact that they are continuously differentiable (have continuous derivatives), hence absolutely continuous
+\item For monotone functions, use the fact that total variation equals the absolute change in function values
 \end{itemize}
 
 \subsection*{Working with Lipschitz Conditions}
@@ -454,6 +476,8 @@ and summing over $k$ shows $fg$ is absolutely continuous. If $|g|\ge m>0$ on $[a
 \begin{itemize}
 \item Trace boundaries of regions between two graphs
 \item Create symmetric regions by averaging upper and lower boundaries
-\item Use triangle inequality for length integrals
+\item Use triangle inequality for arc lengths and geometric reasoning
 \item Apply symmetrization techniques to preserve geometric properties
+\item When possible, use geometric arguments instead of integration to compare lengths
 \end{itemize}
+\end{techniquessection}

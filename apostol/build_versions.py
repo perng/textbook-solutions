@@ -10,8 +10,8 @@ import subprocess
 import shutil
 from pathlib import Path
 
-def modify_flag(show_problems=True):
-    """Modify the showproblems flag in apostol.tex"""
+def modify_flags(show_problems=True, show_definitions=True):
+    """Modify the showproblems and showdefinitions flags in apostol.tex"""
     tex_file = "apostol.tex"
     
     with open(tex_file, 'r', encoding='utf-8') as f:
@@ -25,6 +25,15 @@ def modify_flag(show_problems=True):
         # Set flag to hide problems
         content = content.replace(r'\showproblemstrue', r'\showproblemsfalse')
         content = content.replace(r'\showproblemsfalse  % Change this to', r'\showproblemsfalse  % Change this to')
+    
+    if show_definitions:
+        # Set flag to show definitions/theorems/techniques
+        content = content.replace(r'\showdefinitionsfalse', r'\showdefinitionstrue')
+        content = content.replace(r'\showdefinitionstrue  % Change this to', r'\showdefinitionstrue  % Change this to')
+    else:
+        # Set flag to hide definitions/theorems/techniques
+        content = content.replace(r'\showdefinitionstrue', r'\showdefinitionsfalse')
+        content = content.replace(r'\showdefinitionsfalse  % Change this to', r'\showdefinitionsfalse  % Change this to')
     
     with open(tex_file, 'w', encoding='utf-8') as f:
         f.write(content)
@@ -55,18 +64,18 @@ def main():
     output_dir = Path("output")
     output_dir.mkdir(exist_ok=True)
     
-    # Version 1: With problem statements
-    print("\n1. Building version WITH problem statements...")
-    modify_flag(show_problems=True)
+    # Version 1: With problem statements and definitions/theorems
+    print("\n1. Building version WITH problem statements and definitions/theorems...")
+    modify_flags(show_problems=True, show_definitions=True)
     if compile_latex():
         shutil.copy("apostol.pdf", output_dir / "apostol_with_problems.pdf")
         print("✓ Successfully created apostol_with_problems.pdf")
     else:
         print("✗ Failed to compile version with problems")
     
-    # Version 2: Solutions only
-    print("\n2. Building version WITHOUT problem statements...")
-    modify_flag(show_problems=False)
+    # Version 2: Solutions only (no problems, no definitions/theorems/techniques)
+    print("\n2. Building version WITHOUT problem statements and definitions/theorems...")
+    modify_flags(show_problems=False, show_definitions=False)
     if compile_latex():
         shutil.copy("apostol.pdf", output_dir / "apostol_solutions_only.pdf")
         print("✓ Successfully created apostol_solutions_only.pdf")

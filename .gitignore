@@ -13,6 +13,7 @@
 .*.lb
 */book/*
 */tmp/*
+**/revised/*
 output
 ## Intermediate documents:
 *.dvi
