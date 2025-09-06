@@ -30,7 +30,7 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsthm}
-\usepackage[hidelinks]{hyperref}
+\usepackage[hidelinks,unicode=true,bookmarks=false]{hyperref}
 \usepackage{microtype}
 \microtypesetup{expansion=false}
 \usepackage{enumitem}
@@ -111,6 +111,13 @@
     \excludecomment{problemstatement}
 \fi
 
+% Create a new environment to hide "Importance" sections when problems are hidden
+\ifshowproblems
+    \newenvironment{importance}{}{}
+\else
+    \excludecomment{importance}
+\fi
+
 % Redefine definition and theorem environments to use colored boxes
 \newtheorem{definition}{Definition}
 \newtheorem{theorem}{Theorem}
@@ -181,9 +188,21 @@
     \excludecomment{techniquessection}
 \fi
 
+% Environment for "Definitions and Theorems" subsections (conditional)
+\ifshowdefinitions
+    \newenvironment{definitionssection}[1][]{
+        \subsection*{#1}
+        \ignorespaces
+    }{
+        \ignorespacesafterend
+    }
+\else
+    \excludecomment{definitionssection}
+\fi
+
 \newcommand{\Log}{\log}
 \newcommand{\shortsearrow}{\mathrel{\vcenter{\hbox{$\scriptscriptstyle\searrow$}}}}
-\renewcommand{\qed}{\hfill$\blacksquare$}
+\renewcommand{\qed}{\hfill$\blacksquare$\vspace{1em}}
 
 % Glossary commands - commented out due to expansion issues
 % \newcommand{\addtoglossary}[2]{

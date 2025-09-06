@@ -2,13 +2,16 @@
 
 \section{Open and Closed Sets in $\mathbb{R}^1$ and $\mathbb{R}^2$}
 
-\subsection*{Definitions and Theorems for Section 3.1}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Open Set]
 A set $S$ in a metric space $(M,d)$ is said to be open if for every point $x \in S$, there exists a positive number $\varepsilon$ such that the open ball $B(x;\varepsilon) = \{y \in M : d(x,y) < \varepsilon\}$ is entirely contained in $S$.
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} Open sets are the fundamental building blocks of topology. They formalize the intuitive notion of "neighborhoods" and provide the foundation for understanding continuity, convergence, and many other topological concepts. Open sets are essential for all areas of analysis, topology, and modern mathematics.
+\end{importance}
 
 
 
@@ -16,7 +19,9 @@ A set $S$ in a metric space $(M,d)$ is said to be open if for every point $x \in
 A set $S$ in a metric space $(M,d)$ is said to be closed if its complement $M \setminus S$ is an open set.
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} Closed sets are the dual concept to open sets and are equally fundamental in topology. They capture the idea of sets that contain all their limit points and are essential for understanding compactness, completeness, and many other important topological properties. Closed sets are crucial for analysis and many applications in mathematics.
+\end{importance}
 
 
 
@@ -24,7 +29,9 @@ A set $S$ in a metric space $(M,d)$ is said to be closed if its complement $M \s
 A point $x$ in a metric space $(M,d)$ is said to be an interior point of a set $S \subseteq M$ if there exists a positive number $\varepsilon$ such that the open ball $B(x;\varepsilon)$ is entirely contained in $S$.
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} Interior points formalize the intuitive notion of points that are "inside" a set, not on the boundary. They are essential for understanding the structure of sets and are crucial for defining the interior of a set. Interior points are fundamental for topology and many areas of analysis.
+\end{importance}
 
 
 
@@ -32,7 +39,9 @@ A point $x$ in a metric space $(M,d)$ is said to be an interior point of a set $
 A point $x$ in a metric space $(M,d)$ is said to be an accumulation point (or limit point) of a set $S \subseteq M$ if every open ball centered at $x$ contains at least one point of $S$ different from $x$ itself.
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} Accumulation points are fundamental for understanding the structure of sets and convergence. They capture the idea of points that can be approached by sequences in the set and are essential for defining closed sets, compactness, and many other important topological concepts. Accumulation points are crucial for analysis and topology.
+\end{importance}
 
 
 
@@ -40,7 +49,9 @@ A point $x$ in a metric space $(M,d)$ is said to be an accumulation point (or li
 A neighborhood of a point $x$ in a metric space $(M,d)$ is any open set that contains $x$.
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} Neighborhoods formalize the intuitive notion of "nearness" and provide a way to talk about local properties of spaces and functions. They are essential for understanding continuity, convergence, and many other topological concepts. Neighborhoods are fundamental for topology and analysis.
+\end{importance}
 
 
 
@@ -55,7 +66,9 @@ In any metric space $(M,d)$, the following properties hold:
 \end{enumerate}
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} These properties are the fundamental axioms that define a topology. They establish the basic rules for how open and closed sets behave under set operations and are essential for all of topology and analysis. These properties are used constantly in proofs and are the foundation for understanding topological spaces.
+\end{importance}
 
 
 
@@ -63,7 +76,9 @@ In any metric space $(M,d)$, the following properties hold:
 A metric space $(M,d)$ is connected if and only if the only subsets of $M$ that are both open and closed are the empty set $\emptyset$ and the whole space $M$ itself.
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} This theorem provides a fundamental characterization of connectedness in terms of open and closed sets. It gives a practical way to test whether a space is connected and is essential for understanding the structure of topological spaces. Connectedness is crucial for many results in analysis, including the intermediate value theorem.
+\end{importance}
 
 
 
@@ -71,7 +86,9 @@ A metric space $(M,d)$ is connected if and only if the only subsets of $M$ that 
 A set $A$ in a metric space $(M,d)$ is said to be dense in $M$ if every point of $M$ is either in $A$ or is an accumulation point of $A$. Equivalently, $A$ is dense in $M$ if the closure of $A$ equals $M$, that is, $\overline{A} = M$.
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} Dense sets are fundamental for understanding the structure of metric spaces and are essential for approximation theory. They provide a way to approximate any point in a space using points from a subset. Dense sets are crucial for many results in analysis, functional analysis, and approximation theory.
+\end{importance}
 
 
 
@@ -79,7 +96,9 @@ A set $A$ in a metric space $(M,d)$ is said to be dense in $M$ if every point of
 Both the set of rational numbers and the set of irrational numbers are dense in the real line $\mathbb{R}$.
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} This theorem shows that both rational and irrational numbers are densely distributed throughout the real number line. This property is fundamental for understanding the structure of the real numbers and is essential for many results in analysis, approximation theory, and number theory. It demonstrates the richness of the real number system.
+\end{importance}
 
 
 
@@ -402,7 +421,8 @@ If $S = [a,b]$, we're done. Otherwise, the complement $[a,b] \setminus S$ is ope
 Therefore, $S = [a,b] \setminus \bigcup_{i=1}^{\infty} (a_i, b_i)$, which is the desired representation.\qed
 \section{Open and Closed Sets in $\mathbb{R}^n$}
 
-\subsection*{Definitions and Theorems for Section 3.2}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Open Ball]
 Given a metric space $(M,d)$, the open ball centered at a point $a \in M$ with radius $r > 0$ is the set $B(a;r) = \{x \in M : d(x,a) < r\}$.
@@ -536,7 +556,7 @@ Let $S$ and $T$ be subsets of $\mathbb{R}^k$. Prove that $\overline{S \cup T} = 
 
 \noindent\textbf{Strategy:} For the union, use the monotonicity of closure and show both inclusions. For the intersection, use the fact that if a point is adherent to the intersection, it's adherent to both sets. The openness of $S$ is not needed for the intersection inclusion.
 
-\noindent\textbf{Proof.}
+\bigskip\noindent\textbf{Solution:}
 We use only the definition of closure via adherent points.
 
 For the union, first note $S\subseteq S\cup T$ and $T\subseteq S\cup T$, so by monotonicity of closure,
@@ -545,7 +565,7 @@ whence $\overline S\cup\overline T\subseteq \overline{S\cup T}$. Conversely, if 
 
 For the intersection, if $x\in \overline{S\cap T}$ then every neighborhood of $x$ meets $S\cap T$, hence meets both $S$ and $T$. Therefore $x\in\overline S$ and $x\in\overline T$, so
 \[\overline{S\cap T}\subseteq \overline S\cap \overline T.\]
-This inclusion holds without any hypothesis on $S$.
+This inclusion holds without any hypothesis on $S$.\qed
 
 
 
@@ -712,7 +732,8 @@ For each $n$, since $S_n$ is open and contains all rationals in $(0,1)$, we can 
 By the Cantor intersection theorem, $\bigcap_{n=1}^{\infty} Q_n$ is nonempty. Let $x \in \bigcap_{n=1}^{\infty} Q_n$. Then $x \in \bigcap_{k=1}^{\infty} S_k = S$, so $x$ is rational. But $x \neq x_n$ for any $n$ since $x_n \notin Q_n$ for each $n$. This contradicts the fact that $S$ contains all rationals in $(0,1)$.\qed
 \section{Covering Theorems in $\mathbb{R}^n$}
 
-\subsection*{Definitions and Theorems for Section 3.3}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Open Cover]
 An open cover of a set $S$ in a metric space $(M,d)$ is a collection of open sets whose union contains $S$.
@@ -1114,7 +1135,8 @@ We need to show that $A$ is perfect. Since $T$ is closed by Exercise 3.24(c), $A
 Therefore, $A$ is perfect, and we have the desired decomposition $F = A \cup B$.\qed
 \section{Metric Spaces}
 
-\subsection*{Definitions and Theorems for Section 3.4}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Metric Space]
 A metric space consists of a set $M$ together with a function $d: M \times M \to [0,\infty)$ (called a metric or distance function) that satisfies the following three axioms for all points $x, y, z \in M$:
@@ -1488,7 +1510,8 @@ Other examples of product metrics include:
 - $\rho(x,y) = (d_1(x_1,y_1)^p + d_2(x_2,y_2)^p)^{1/p}$ for $p \geq 1$\qed
 \section{Compact subsets of a metric space}
 
-\subsection*{Definitions and Theorems for Section 3.5}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Compact Set]
 A set $S$ in a metric space $(M,d)$ is said to be compact if every open cover of $S$ has a finite subcover.
@@ -1603,9 +1626,14 @@ The following problems involve arbitrary subsets \( A \) and \( B \) of a metric
 \end{problemstatement}
 \end{problembox}
 
+\noindent\textbf{Strategy:} This section contains multiple exercises exploring the relationships between interior, closure, and boundary operations in metric spaces. Each problem will use the fundamental definitions and properties of these topological concepts.
+
+\bigskip\noindent\textbf{Solution:} This section presents a collection of exercises that demonstrate various properties of interior, closure, and boundary operations. The problems are solved individually in the following subsections, each building upon the basic definitions and established properties of these topological concepts in metric spaces.\qed
+
 \section{Miscellaneous Properties of Interior and Boundary}
 
-\subsection*{Definitions and Theorems for Section 3.6}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Closure of a Set]
 The closure of a set $S$ in a metric space $(M,d)$, denoted by $\overline{S}$, is the union of $S$ and its derived set: $\overline{S} = S \cup S'$.
@@ -1813,7 +1841,7 @@ Give an example in which \(\text{int } A = \text{int } B = \emptyset\) but \(\te
 
 \noindent\textbf{Strategy:} Use the rational and irrational numbers in $\mathbb{R}$. Both have empty interior (since they're dense and co-dense), but their union is all of $\mathbb{R}$ which has non-empty interior.
 
-\bigskip\noindent\textbf{Solution:} Let $A = \mathbb{Q}$ and $B = \mathbb{R} \setminus \mathbb{Q}$ in the metric space $\mathbb{R}$. Then $\text{int } A = \emptyset$ and $\text{int } B = \emptyset$, but $A \cup B = \mathbb{R}$, so $\text{int } (A \cup B) = \mathbb{R} = M$.
+\bigskip\noindent\textbf{Solution:} Let $A = \mathbb{Q}$ and $B = \mathbb{R} \setminus \mathbb{Q}$ in the metric space $\mathbb{R}$. Then $\text{int } A = \emptyset$ and $\text{int } B = \emptyset$, but $A \cup B = \mathbb{R}$, so $\text{int } (A \cup B) = \mathbb{R} = M$.\qed
 
 
 
@@ -1847,7 +1875,7 @@ Let $x \in \partial(A \cup B)$. Then $x \in \overline{A \cup B} = \overline{A} \
 
 If $x \in \overline{A}$, then $x \in \overline{A} \cap \overline{M - A} = \partial A$. If $x \in \overline{B}$, then $x \in \overline{B} \cap \overline{M - B} = \partial B$. Therefore, $x \in \partial A \cup \partial B$.
 
-Conversely, let $x \in \partial A \cup \partial B$. Without loss of generality, assume $x \in \partial A$. Then $x \in \overline{A} \subseteq \overline{A \cup B}$ and $x \in \overline{M - A} \subseteq \overline{M - (A \cup B)}$. Therefore, $x \in \partial(A \cup B)$.
+Conversely, let $x \in \partial A \cup \partial B$. Without loss of generality, assume $x \in \partial A$. Then $x \in \overline{A} \subseteq \overline{A \cup B}$ and $x \in \overline{M - A} \subseteq \overline{M - (A \cup B)}$. Therefore, $x \in \partial(A \cup B)$.\qed
 
 
 \begin{techniquessection}[Solving and Proving Techniques]

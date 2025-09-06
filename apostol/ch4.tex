@@ -2,19 +2,24 @@
 
 \section{Limits of Sequences}
 
-\subsection*{Essential Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Cauchy Sequence]
 A sequence $(x_n)$ in a metric space $(S,d)$ is Cauchy if for every $\varepsilon > 0$ there exists $N \in \mathbb{N}$ such that $d(x_n, x_m) < \varepsilon$ for all $n, m \geq N$.
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} Cauchy sequences provide a way to test for convergence without knowing the limit in advance. This is crucial in many applications where we can verify that terms are getting closer together but don't know what they're converging to. The concept of completeness (every Cauchy sequence converges) is fundamental to modern analysis.
+\end{importance}
 
 \begin{definition}[Complete Metric Space]
 A metric space $(S,d)$ is complete if every Cauchy sequence in $S$ converges to a point in $S$.
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} Completeness is one of the most fundamental properties in analysis. It ensures that "almost convergent" sequences (Cauchy sequences) actually converge, which is essential for many existence proofs and the development of calculus. Complete spaces are the natural setting for most of modern analysis.
+\end{importance}
 
 \begin{definition}[Metric Space]
 A metric space is a set $S$ together with a function $d: S \times S \to [0,\infty)$ (called a metric) satisfying:
@@ -120,7 +125,7 @@ Prove each of the following statements about sequences in $\mathbb{C}$:
     \caption{The sequence converges to $(a_1 + 2a_2)/3$ regardless of initial values, with oscillating behavior that dampens over time.}
     \end{figure}
 
-\noindent\textbf{Proof.}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item If $|z|<1$, then $|z^n|=|z|^n\to 0$ by the geometric sequence property, hence $z^n\to 0$. If $|z|>1$, then $|z^n|=|z|^n\to +\infty$, so $(z^n)$ is unbounded and therefore not convergent in $\mathbb{C}$.
 \item If $|c_n|\le M$ for all $n$ and $z_n\to 0$, then $|c_n z_n|\le M|z_n|\to 0$.
@@ -214,7 +219,8 @@ If $0 < x_1 < 1$ and if $x_{n+1} = 1 - \sqrt{1 - x_n}$ for all $n \geq 1$, prove
     \end{tikzpicture}
     \caption{The sequence is decreasing and converges to 0, with the ratio $x_{n+1}/x_n$ approaching $1/2$ as $n \to \infty$.}
     \end{figure}
-\noindent\textbf{Proof.}
+
+\bigskip\noindent\textbf{Solution:}
 For $t\in(0,1)$, the inequality $\sqrt{1-t}>1-\tfrac{t}{2}$ holds (concavity of $\sqrt{\cdot}$ or binomial expansion). Thus
 \[
 x_{n+1}=1-\sqrt{1-x_n}<1-\Big(1-\tfrac{x_n}{2}\Big)=\tfrac{x_n}{2}<x_n,
@@ -239,7 +245,7 @@ Prove that $a_n^2 - 2b_n^2 = 1$ for $n \geq 2$. Deduce that $a_n/b_n \to \sqrt{2
 
 \noindent\textbf{Strategy:} Expand the quadratic expression and equate rational/irrational parts to find recurrence relations. Use mathematical induction to prove the identity. For the limits, manipulate the identity to express ratios and use the fact that sequences are increasing.
 
-\noindent\textbf{Proof.}
+\bigskip\noindent\textbf{Solution:}
 
 \textbf{Part 1: Prove that $a_n^2 - 2b_n^2 = 1$ for $n \geq 2$}
 
@@ -397,17 +403,27 @@ If $|a_n| < 2$ and $|a_{n+2} - a_{n+1}| \leq \frac{1}{8} |a_{n+1}^2 - a_n^2|$ fo
 
 \noindent\textbf{Strategy:} Use the boundedness condition to bound $|a_{n+1} + a_n|$, then factor the difference of squares to show the sequence is Cauchy. Use the contraction-like property to establish convergence.
 
-\noindent\textbf{Proof.}
-Since $|a_{n+1}|,|a_n|<2$, we have $|a_{n+1}+a_n|<4$. Hence
+\bigskip\noindent\textbf{Solution:}
+We will show that the sequence $\{a_n\}$ is Cauchy and therefore converges.
+
+Since $|a_{n+1}|, |a_n| < 2$ for all $n$, we have $|a_{n+1} + a_n| \leq |a_{n+1}| + |a_n| < 4$. 
+
+Using the given condition and factoring the difference of squares:
 \[
-|a_{n+2}-a_{n+1}|\le\tfrac18|a_{n+1}^2-a_n^2|=\tfrac18|a_{n+1}-a_n||a_{n+1}+a_n|
-\le \tfrac12\,|a_{n+1}-a_n|.
+|a_{n+2} - a_{n+1}| \leq \frac{1}{8} |a_{n+1}^2 - a_n^2| = \frac{1}{8} |a_{n+1} - a_n| \cdot |a_{n+1} + a_n| \leq \frac{1}{8} \cdot 4 \cdot |a_{n+1} - a_n| = \frac{1}{2} |a_{n+1} - a_n|.
 \]
-Inductively, $|a_{n+k}-a_{n+k-1}|\le 2^{-k+1}|a_{n+1}-a_n|$. Therefore for $m>n$,
+
+This shows that the sequence has a contraction-like property. By induction, we can show that for any $k \geq 1$:
 \[
-|a_m-a_n|\le \sum_{k=n}^{m-1}|a_{k+1}-a_k|\le |a_{n+1}-a_n|\sum_{j=0}^{\infty}2^{-j}=2|a_{n+1}-a_n|\to 0,
+|a_{n+k} - a_{n+k-1}| \leq 2^{-k+1} |a_{n+1} - a_n|.
 \]
-so $(a_n)$ is Cauchy and converges.\qed
+
+Now, for any $m > n$, using the triangle inequality:
+\[
+|a_m - a_n| \leq \sum_{k=n}^{m-1} |a_{k+1} - a_k| \leq |a_{n+1} - a_n| \sum_{j=0}^{\infty} 2^{-j} = 2|a_{n+1} - a_n|.
+\]
+
+Since $|a_{n+1} - a_n| \to 0$ as $n \to \infty$ (by the contraction property), we have $|a_m - a_n| \to 0$ as $m, n \to \infty$. This means $\{a_n\}$ is a Cauchy sequence, and since we're working in a complete metric space (the real numbers), the sequence converges.\qed
 \medskip
 
 \begin{problembox}[4.7: Metric Space Convergence]
@@ -418,11 +434,22 @@ In a metric space $(S, d)$, assume that $x_n \to x$ and $y_n \to y$. Prove that 
 
 \noindent\textbf{Strategy:} Use the reverse triangle inequality to bound $|d(x_n, y_n) - d(x, y)|$ in terms of $d(x_n, x)$ and $d(y_n, y)$, then use the convergence of the sequences.
 
-\noindent\textbf{Proof.}
-By the reverse triangle inequality,
+\bigskip\noindent\textbf{Solution:}
+We need to show that $d(x_n, y_n) \to d(x, y)$ as $n \to \infty$.
+
+By the reverse triangle inequality, we have:
 \[
-\big|d(x_n,y_n)-d(x,y)\big|\le d(x_n,x)+d(y_n,y)\to 0.
-\]\qed
+|d(x_n, y_n) - d(x, y)| \leq d(x_n, x) + d(y_n, y).
+\]
+
+Since $x_n \to x$ and $y_n \to y$, we have $d(x_n, x) \to 0$ and $d(y_n, y) \to 0$ as $n \to \infty$.
+
+Therefore:
+\[
+|d(x_n, y_n) - d(x, y)| \leq d(x_n, x) + d(y_n, y) \to 0 + 0 = 0.
+\]
+
+This means that $d(x_n, y_n) \to d(x, y)$ as $n \to \infty$, which completes the proof.\qed
 \medskip
 
 \begin{problembox}[4.8: Compact Metric Spaces]
@@ -433,28 +460,30 @@ Prove that in a compact metric space $(S, d)$, every sequence in $S$ has a subse
 
 \noindent\textbf{Strategy:} Use the limit-point property of compact sets: if a set is compact and infinite, it has a limit point. If a value appears infinitely often, use the constant subsequence. Otherwise, use the limit point to construct a convergent subsequence.
 
-\noindent\textbf{Proof.}
-\textbf{Lemma (Limit-point property).}
-If \(S\) is compact and \(A\subseteq S\) is infinite, then \(A\) has a limit point in \(S\).
+\bigskip\noindent\textbf{Solution:}
+We will prove that in a compact metric space $(S, d)$, every sequence has a convergent subsequence.
 
-\emph{Proof of Lemma.}
-Suppose \(A\) has no limit point. Then each \(a\in A\) is isolated in \(A\): there exists \(r_a>0\) with
-\[
-B(a,r_a)\cap (A\setminus\{a\})=\varnothing.
-\]
-Consider the open cover
-\[
-\mathcal{U}=\{S\setminus A\}\ \cup\ \{B(a,r_a):a\in A\}
-\]
-of \(S\). Any finite subfamily of \(\mathcal{U}\) uses only finitely many of the balls \(B(a,r_a)\), hence covers at most finitely many points of \(A\); thus it cannot cover \(S\). This contradicts compactness. Hence \(A\) has a limit point in \(S\). \(\square\)
+\textbf{Lemma:} If $S$ is compact and $A \subseteq S$ is infinite, then $A$ has a limit point in $S$.
 
-\textbf{Proof of Theorem.}
-Let \((x_n)\) be a sequence in \(S\).
-If some value \(x\in S\) occurs infinitely often among the \(x_n\), then the constant subsequence \(x,x,\dots\) converges to \(x\).
+\textit{Proof of Lemma:} Suppose $A$ has no limit point. Then each $a \in A$ is isolated in $A$: there exists $r_a > 0$ with $B(a, r_a) \cap (A \setminus \{a\}) = \emptyset$.
 
-Otherwise, the set \(A=\{x_n:n\in\mathbb{N}\}\) is infinite. By the Lemma, \(A\) has a limit point \(x\in S\). By definition of limit point, every ball \(B(x,\varepsilon)\) contains infinitely many terms of the sequence. Choose \(n_1\) with \(d(x_{n_1},x)<1\); having chosen \(n_k\), pick \(n_{k+1}>n_k\) with \(d(x_{n_{k+1}},x)<1/(k+1)\). Then \(x_{n_k}\to x\) because for any \(\varepsilon>0\), pick \(K\) with \(1/K<\varepsilon\); for all \(k\ge K\), \(d(x_{n_k},x)<\varepsilon\).
+Consider the open cover $\mathcal{U} = \{S \setminus A\} \cup \{B(a, r_a) : a \in A\}$ of $S$. Any finite subfamily of $\mathcal{U}$ uses only finitely many of the balls $B(a, r_a)$, hence covers at most finitely many points of $A$; thus it cannot cover $S$. This contradicts compactness. Hence $A$ has a limit point in $S$. $\square$
 
-Thus \((x_n)\) has a subsequence converging in \(S\). \qed
+\textbf{Proof of Main Result:} Let $(x_n)$ be a sequence in $S$.
+
+\textbf{Case 1:} If some value $x \in S$ occurs infinitely often among the $x_n$, then the constant subsequence $x, x, \ldots$ converges to $x$.
+
+\textbf{Case 2:} Otherwise, the set $A = \{x_n : n \in \mathbb{N}\}$ is infinite. By the Lemma, $A$ has a limit point $x \in S$. 
+
+By definition of limit point, every ball $B(x, \varepsilon)$ contains infinitely many terms of the sequence. We can construct a convergent subsequence as follows:
+\begin{enumerate}[label=\alph*)]
+\item Choose $n_1$ with $d(x_{n_1}, x) < 1$
+\item Having chosen $n_k$, pick $n_{k+1} > n_k$ with $d(x_{n_{k+1}}, x) < 1/(k+1)$
+\end{enumerate}
+
+Then $x_{n_k} \to x$ because for any $\varepsilon > 0$, pick $K$ with $1/K < \varepsilon$; for all $k \geq K$, we have $d(x_{n_k}, x) < \varepsilon$.
+
+Thus $(x_n)$ has a subsequence converging in $S$.\qed
 \medskip
 
 \begin{problembox}[4.9: Complete Subsets]
@@ -465,15 +494,26 @@ Let $A$ be a subset of a metric space $S$. If $A$ is complete, prove that $A$ is
 
 \noindent\textbf{Strategy:} For the first part, use the fact that any convergent sequence in $A$ is Cauchy and must converge to a point in $A$ (by completeness), so $A$ contains all its limit points. For the converse, use the fact that Cauchy sequences in $A$ converge in $S$ (by completeness of $S$) and the limit must be in $A$ (by closedness).
 
-\noindent\textbf{Proof.}
-If $A$ is complete and $x\in\overline{A}$, then there exists $(a_n)\subset A$ with $a_n\to x$. Any convergent sequence is Cauchy; since $A$ is complete, its limit must lie in $A$, so $x\in A$. Thus $A$ is closed.
+\bigskip\noindent\textbf{Solution:}
+We need to prove two statements:
+\begin{enumerate}[label=\alph*)]
+\item If $A$ is complete, then $A$ is closed.
+\item If $S$ is complete and $A$ is closed, then $A$ is complete.
+\end{enumerate}
 
-Conversely, if $S$ is complete and $A$ is closed in $S$, then every Cauchy sequence in $A$ converges in $S$ (completeness) to some $x\in S$, and closeness of $A$ forces $x\in A$. Hence $A$ is complete.\qed
+\textbf{Proof of (a):} Suppose $A$ is complete. To show that $A$ is closed, we need to show that $A$ contains all its limit points.
+
+Let $x \in \overline{A}$. Then there exists a sequence $(a_n) \subset A$ such that $a_n \to x$. Since any convergent sequence is Cauchy and $A$ is complete, the limit of this sequence must lie in $A$. Therefore, $x \in A$, which shows that $A$ is closed.
+
+\textbf{Proof of (b):} Suppose $S$ is complete and $A$ is closed in $S$. To show that $A$ is complete, we need to show that every Cauchy sequence in $A$ converges to a point in $A$.
+
+Let $(a_n)$ be a Cauchy sequence in $A$. Since $S$ is complete, $(a_n)$ converges to some point $x \in S$. Since $A$ is closed and $(a_n) \subset A$ with $a_n \to x$, we must have $x \in A$. Therefore, $A$ is complete.\qed
 \medskip
 
 \section{Limits of Functions}
 
-\subsection*{Essential Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Metric Space]
 A metric space is a set $S$ together with a function $d: S \times S \to [0,\infty)$ (called a metric) satisfying:
@@ -485,16 +525,17 @@ A metric space is a set $S$ together with a function $d: S \times S \to [0,\inft
 \end{enumerate}
 \end{definition}
 
-\noindent\textbf{Importance:} Metric spaces provide the most general setting for studying convergence, continuity, and topology. They abstract the notion of distance from Euclidean space to any set where we can define a reasonable distance function. This abstraction is crucial for modern analysis and topology.
-
-\begin{theorem}[Reverse Triangle Inequality]
+\noindent\begin{importance}
+\textbf{Importance:}Metric spaces provide the most general setting for studying convergence, continuity, and topology. They abstract the notion of distance from Euclidean space to any set where we can define a reasonable distance function. This abstraction is crucial for modern analysis and topology.
+\end{importance}\begin{theorem}[Reverse Triangle Inequality]
 For any metric space $(S,d)$ and $x,y,z \in S$: $|d(x,y) - d(x,z)| \leq d(y,z)$
 \end{theorem}
 
-\noindent\textbf{Importance:} This inequality is essential for proving that distance functions are continuous and for establishing bounds on how distances change. It's a direct consequence of the triangle inequality and is used extensively in analysis to control the behavior of distance functions.
+\noindent\begin{importance}
+\textbf{Importance:}This inequality is essential for proving that distance functions are continuous and for establishing bounds on how distances change. It's a direct consequence of the triangle inequality and is used extensively in analysis to control the behavior of distance functions.
 
 Note: In Exercise 4.10 through 4.28, all functions are real-valued.
-
+\end{importance}
 \begin{problembox}[4.10: Function Limit Properties]
 \begin{problemstatement}
 Let $f$ be defined on an open interval $(a, b)$ and assume $x \in (a, b)$. Consider the two statements:
@@ -630,44 +671,46 @@ For fixed $m$, the inner limit is $\lim_{n\to\infty}\cos^{2n}(\theta)=\begin{cas
 
 \section{Continuity of real-valued functions}
 
-\subsection*{Essential Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{theorem}[Sequential Continuity]
 A function $f: S \to T$ is continuous at $x$ if and only if $f(x_n) \to f(x)$ whenever $x_n \to x$.
 \end{theorem}
 
-\noindent\textbf{Importance:} This theorem provides an alternative characterization of continuity that is often easier to use in proofs. It connects the concept of continuity directly to sequence convergence, making it a powerful tool for establishing continuity and proving many important results in analysis.
-
-\begin{theorem}[Extreme Value Theorem]
+\noindent\begin{importance}
+\textbf{Importance:}This theorem provides an alternative characterization of continuity that is often easier to use in proofs. It connects the concept of continuity directly to sequence convergence, making it a powerful tool for establishing continuity and proving many important results in analysis.
+\end{importance}\begin{theorem}[Extreme Value Theorem]
 A continuous function on a compact set attains its maximum and minimum values.
 \end{theorem}
 
-\noindent\textbf{Importance:} This is one of the most important existence theorems in analysis. It guarantees that optimization problems have solutions under reasonable conditions, making it fundamental for calculus, optimization theory, and many applications in science and engineering.
-
-\begin{theorem}[Intermediate Value Theorem]
+\noindent\begin{importance}
+\textbf{Importance:}This is one of the most important existence theorems in analysis. It guarantees that optimization problems have solutions under reasonable conditions, making it fundamental for calculus, optimization theory, and many applications in science and engineering.
+\end{importance}\begin{theorem}[Intermediate Value Theorem]
 If $f$ is continuous on $[a,b]$ and $f(a) < c < f(b)$, then there exists $x \in (a,b)$ such that $f(x) = c$.
 \end{theorem}
 
-\noindent\textbf{Importance:} This theorem formalizes the intuitive idea that a continuous function cannot "jump" over values. It's essential for proving the existence of solutions to equations and is the foundation for many numerical methods like the bisection method and intermediate value property.
-
-\begin{theorem}[Continuous Image of Connected Set]
+\noindent\begin{importance}
+\textbf{Importance:}This theorem formalizes the intuitive idea that a continuous function cannot "jump" over values. It's essential for proving the existence of solutions to equations and is the foundation for many numerical methods like the bisection method and intermediate value property.
+\end{importance}\begin{theorem}[Continuous Image of Connected Set]
 The continuous image of a connected set is connected.
 \end{theorem}
 
-\noindent\textbf{Importance:} This theorem shows that connectedness is preserved under continuous functions, making it a topological invariant. This is essential for many applications where we want to transfer connectedness properties from one space to another through continuous mappings.
-
-\begin{theorem}[Continuous Image of Compact Set]
+\noindent\begin{importance}
+\textbf{Importance:}This theorem shows that connectedness is preserved under continuous functions, making it a topological invariant. This is essential for many applications where we want to transfer connectedness properties from one space to another through continuous mappings.
+\end{importance}\begin{theorem}[Continuous Image of Compact Set]
 The continuous image of a compact set is compact.
 \end{theorem}
 
-\noindent\textbf{Importance:} This theorem shows that compactness is preserved under continuous functions. It's crucial for many applications in analysis, particularly for proving that continuous functions on compact domains have bounded ranges and attain their extrema.
-
-\begin{theorem}[Continuous Image of Bounded Set]
+\noindent\begin{importance}
+\textbf{Importance:}This theorem shows that compactness is preserved under continuous functions. It's crucial for many applications in analysis, particularly for proving that continuous functions on compact domains have bounded ranges and attain their extrema.
+\end{importance}\begin{theorem}[Continuous Image of Bounded Set]
 The continuous image of a bounded set is bounded.
 \end{theorem}
 
-\noindent\textbf{Importance:} This theorem ensures that continuous functions preserve boundedness, which is essential for many applications in analysis and optimization. It's particularly important when working with continuous functions on bounded domains.
-
+\noindent\begin{importance}
+\textbf{Importance:}This theorem ensures that continuous functions preserve boundedness, which is essential for many applications in analysis and optimization. It's particularly important when working with continuous functions on bounded domains.
+\end{importance}
 \begin{problembox}[4.13: Zero Function on Rationals]
 \begin{problemstatement}
 Let \( f \) be continuous on \([a, b]\) and let \( f(x) = 0 \) when \( x \) is rational. Prove that \( f(x) = 0 \) for every \( x \) in \([a, b]\).
@@ -1021,34 +1064,36 @@ which is continuous on $(0,1)$ and surjects onto $(0,1]$.
 
 \section{Continuity in metric spaces}
 
-\subsection*{Essential Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Compact Metric Space]
 A metric space $(S,d)$ is compact if every open cover has a finite subcover.
 \end{definition}
 
-\noindent\textbf{Importance:} Compactness is a fundamental topological property that generalizes the notion of "finite" to infinite sets. It ensures that sequences have convergent subsequences and that continuous functions attain their extrema. Compact spaces have many desirable properties that make them essential in analysis and topology.
-
-\begin{theorem}[Cantor's Intersection Theorem]
+\noindent\begin{importance}
+\textbf{Importance:}Compactness is a fundamental topological property that generalizes the notion of "finite" to infinite sets. It ensures that sequences have convergent subsequences and that continuous functions attain their extrema. Compact spaces have many desirable properties that make them essential in analysis and topology.
+\end{importance}\begin{theorem}[Cantor's Intersection Theorem]
 Let $(F_n)$ be a nested sequence of nonempty closed sets in a complete metric space with $\text{diam}(F_n) \to 0$. Then $\bigcap_{n=1}^{\infty} F_n$ contains exactly one point.
 \end{theorem}
 
-\noindent\textbf{Importance:} This theorem is a powerful tool for proving the existence of unique points satisfying certain conditions. It's particularly useful in fixed point theory and iterative methods, where one constructs nested sets that "shrink" to a single point. It's also fundamental for the construction of real numbers.
-
-\begin{theorem}[Continuity and Open Sets]
+\noindent\begin{importance}
+\textbf{Importance:}This theorem is a powerful tool for proving the existence of unique points satisfying certain conditions. It's particularly useful in fixed point theory and iterative methods, where one constructs nested sets that "shrink" to a single point. It's also fundamental for the construction of real numbers.
+\end{importance}\begin{theorem}[Continuity and Open Sets]
 A function $f: S \to T$ is continuous if and only if $f^{-1}(U)$ is open in $S$ for every open set $U$ in $T$.
 \end{theorem}
 
-\noindent\textbf{Importance:} This theorem provides a purely topological characterization of continuity that doesn't rely on metrics or sequences. It's the foundation for the modern definition of continuity in topology and is essential for understanding how continuous functions preserve topological properties.
-
-\begin{theorem}[Continuity and Closed Sets]
+\noindent\begin{importance}
+\textbf{Importance:}This theorem provides a purely topological characterization of continuity that doesn't rely on metrics or sequences. It's the foundation for the modern definition of continuity in topology and is essential for understanding how continuous functions preserve topological properties.
+\end{importance}\begin{theorem}[Continuity and Closed Sets]
 A function $f: S \to T$ is continuous if and only if $f^{-1}(C)$ is closed in $S$ for every closed set $C$ in $T$.
 \end{theorem}
 
-\noindent\textbf{Importance:} This is the dual characterization of continuity using closed sets instead of open sets. It's often more convenient to work with closed sets in certain contexts, especially when dealing with compactness or when we want to show that certain sets are closed.
+\noindent\begin{importance}
+\textbf{Importance:}This is the dual characterization of continuity using closed sets instead of open sets. It's often more convenient to work with closed sets in certain contexts, especially when dealing with compactness or when we want to show that certain sets are closed.
 
 In Exercises 4.29 through 4.33, we assume that $f:S\to T$ is a function from one metric space $(S,d_S)$ to another $(T,d_T)$.
-
+\end{importance}
 \begin{problembox}[4.29: Continuity via Interior]
 \begin{problemstatement}
 Assume that $f : S \rightarrow T$ is a function from one metric space $(S, d_S)$ to another $(T, d_T)$. Prove that $f$ is continuous on $S$ if, and only if,
@@ -1162,32 +1207,34 @@ Suppose $f$ is continuous and injective with image $[0,1]^2$. Remove a point $p\
 
 \section{Connectedness}
 
-\subsection*{Essential Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Path-Connected Space]
 A metric space $S$ is path-connected if for any two points $x,y \in S$ there exists a continuous function $f: [0,1] \to S$ with $f(0) = x$ and $f(1) = y$.
 \end{definition}
 
-\noindent\textbf{Importance:} Path-connectedness is a stronger form of connectedness that ensures any two points can be joined by a continuous path. It's more intuitive than general connectedness and is often easier to verify in practice. Path-connected spaces are important in many geometric and topological applications.
-
-\begin{theorem}[Connectedness Characterization]
+\noindent\begin{importance}
+\textbf{Importance:}Path-connectedness is a stronger form of connectedness that ensures any two points can be joined by a continuous path. It's more intuitive than general connectedness and is often easier to verify in practice. Path-connected spaces are important in many geometric and topological applications.
+\end{importance}\begin{theorem}[Connectedness Characterization]
 A metric space $S$ is connected if and only if the only subsets of $S$ that are both open and closed are $\emptyset$ and $S$.
 \end{theorem}
 
-\noindent\textbf{Importance:} This theorem provides a practical way to test for connectedness by checking for "clopen" (closed and open) subsets. It's often easier to work with this characterization than the original definition, especially when proving that spaces are disconnected.
-
-\begin{theorem}[Connected Subsets of $\mathbb{R}$]
+\noindent\begin{importance}
+\textbf{Importance:}This theorem provides a practical way to test for connectedness by checking for "clopen" (closed and open) subsets. It's often easier to work with this characterization than the original definition, especially when proving that spaces are disconnected.
+\end{importance}\begin{theorem}[Connected Subsets of $\mathbb{R}$]
 The only connected subsets of $\mathbb{R}$ are intervals (including single points and the empty set).
 \end{theorem}
 
-\noindent\textbf{Importance:} This theorem provides a complete classification of connected subsets of the real line. It's fundamental for understanding the structure of the real numbers and is essential for the intermediate value theorem and many other results in analysis.
-
-\begin{theorem}[Closure of Connected Set]
+\noindent\begin{importance}
+\textbf{Importance:}This theorem provides a complete classification of connected subsets of the real line. It's fundamental for understanding the structure of the real numbers and is essential for the intermediate value theorem and many other results in analysis.
+\end{importance}\begin{theorem}[Closure of Connected Set]
 The closure of a connected set is connected.
 \end{theorem}
 
-\noindent\textbf{Importance:} This theorem shows that connectedness is preserved when taking closures, which is important for many applications where we need to work with closed sets or complete spaces. It's particularly useful in analysis where we often need to consider closures of sets.
-
+\noindent\begin{importance}
+\textbf{Importance:}This theorem shows that connectedness is preserved when taking closures, which is important for many applications where we need to work with closed sets or complete spaces. It's particularly useful in analysis where we often need to consider closures of sets.
+\end{importance}
 \begin{problembox}[4.36: Disconnected Metric Spaces]
 \begin{problemstatement}
 Prove that a metric space $S$ is disconnected if, and only if, there is a nonempty subset $A$ of $S$, $A \neq S$, which is both open and closed in $S$.
@@ -1423,40 +1470,42 @@ The map $x\mapsto d(x,a)$ is continuous $S\to[0,\infty)$. Since $S$ is connected
 
 \section{Uniform Continuity}
 
-\subsection*{Essential Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Uniform Continuity]
 A function $f: S \to T$ between metric spaces is uniformly continuous if for every $\varepsilon > 0$ there exists $\delta > 0$ such that $d_S(x,y) < \delta$ implies $d_T(f(x), f(y)) < \varepsilon$ for all $x,y \in S$.
 \end{definition}
 
-\noindent\textbf{Importance:} Uniform continuity is a stronger form of continuity that ensures the same $\delta$ works for all points in the domain. This is crucial for many applications where we need to control the behavior of functions uniformly across their entire domain, such as in integration theory and approximation theory.
-
-\begin{definition}[Lipschitz Functions]
+\noindent\begin{importance}
+\textbf{Importance:}Uniform continuity is a stronger form of continuity that ensures the same $\delta$ works for all points in the domain. This is crucial for many applications where we need to control the behavior of functions uniformly across their entire domain, such as in integration theory and approximation theory.
+\end{importance}\begin{definition}[Lipschitz Functions]
 A function $f: S \to T$ between metric spaces is called Lipschitz continuous (or simply Lipschitz) if there exists a constant $L > 0$ such that for all $x, y \in S$,
 \[d_T(f(x), f(y)) \leq L \cdot d_S(x, y).\]
 The smallest such constant $L$ is called the Lipschitz constant of $f$. If $L = 1$, we say $f$ is 1-Lipschitz or nonexpansive.
 \end{definition}
 
-\noindent\textbf{Importance:} Lipschitz functions provide a quantitative measure of how much a function can stretch distances. They are automatically uniformly continuous and play a crucial role in analysis, optimization, and differential equations. The 1-Lipschitz property means the function never increases distances between points.
-
-\begin{theorem}[Uniform Continuity on Compact Sets]
+\noindent\begin{importance}
+\textbf{Importance:}Lipschitz functions provide a quantitative measure of how much a function can stretch distances. They are automatically uniformly continuous and play a crucial role in analysis, optimization, and differential equations. The 1-Lipschitz property means the function never increases distances between points.
+\end{importance}\begin{theorem}[Uniform Continuity on Compact Sets]
 A continuous function on a compact metric space is uniformly continuous.
 \end{theorem}
 
-\noindent\textbf{Importance:} This is one of the most important theorems in analysis, showing that on compact domains, the stronger property of uniform continuity comes "for free" from ordinary continuity. This is essential for many applications in calculus, integration, and approximation theory.
-
-\begin{theorem}[Distance Function Properties]
+\noindent\begin{importance}
+\textbf{Importance:}This is one of the most important theorems in analysis, showing that on compact domains, the stronger property of uniform continuity comes "for free" from ordinary continuity. This is essential for many applications in calculus, integration, and approximation theory.
+\end{importance}\begin{theorem}[Distance Function Properties]
 Let $A$ be a nonempty subset of a metric space $(S,d)$. The distance function $f_A(x) = \inf\{d(x,y) : y \in A\}$ is uniformly continuous and satisfies $\overline{A} = \{x : f_A(x) = 0\}$.
 \end{theorem}
 
-\noindent\textbf{Importance:} This theorem shows that distance functions are well-behaved and provides a useful tool for characterizing closures of sets. The uniform continuity of distance functions makes them valuable in many applications, particularly in optimization and approximation theory.
-
-\begin{theorem}[Urysohn's Lemma]
+\noindent\begin{importance}
+\textbf{Importance:}This theorem shows that distance functions are well-behaved and provides a useful tool for characterizing closures of sets. The uniform continuity of distance functions makes them valuable in many applications, particularly in optimization and approximation theory.
+\end{importance}\begin{theorem}[Urysohn's Lemma]
 Let $A$ and $B$ be disjoint closed subsets of a metric space $(S,d)$. Then there exist disjoint open sets $U$ and $V$ such that $A \subseteq U$ and $B \subseteq V$.
 \end{theorem}
 
-\noindent\textbf{Importance:} This is a fundamental result in topology that shows metric spaces have good separation properties. It's essential for constructing continuous functions with specific properties and is the foundation for many results in functional analysis and topology.
-
+\noindent\begin{importance}
+\textbf{Importance:}This is a fundamental result in topology that shows metric spaces have good separation properties. It's essential for constructing continuous functions with specific properties and is the foundation for many results in functional analysis and topology.
+\end{importance}
 \begin{problembox}[4.50: Uniform Implies Continuous]
 \begin{problemstatement}
 Prove that a function which is uniformly continuous on $S$ is also continuous on $S$.
@@ -1556,7 +1605,8 @@ Define $g(x)=f_A(x)-f_B(x)$, which is continuous as a difference of Lipschitz fu
 
 \section{Discontinuities}
 
-\subsection*{Essential Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Types of Discontinuities]
 Let $f$ be defined on an interval containing $c$ except possibly at $c$ itself.
@@ -1567,8 +1617,9 @@ Let $f$ be defined on an interval containing $c$ except possibly at $c$ itself.
 \end{enumerate}
 \end{definition}
 
-\noindent\textbf{Importance:} This classification provides a systematic way to understand and categorize the different ways functions can fail to be continuous. It's essential for understanding the behavior of functions near problematic points and for developing techniques to handle discontinuities in analysis and applications.
-
+\noindent\begin{importance}
+\textbf{Importance:}This classification provides a systematic way to understand and categorize the different ways functions can fail to be continuous. It's essential for understanding the behavior of functions near problematic points and for developing techniques to handle discontinuities in analysis and applications.
+\end{importance}
 \begin{problembox}[4.58: Classification of Discontinuities]
 \begin{problemstatement}
 Locate and classify the discontinuities of the functions $f$ defined on $\mathbb{R}^1$ by the following equations:
@@ -1639,7 +1690,8 @@ Not applicable as stated here: Exercise 4.11 in this text does not list specific
 
 \section{Monotonic Functions}
 
-\subsection*{Essential Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Monotonic Function]
 A function $f: [a,b] \to \mathbb{R}$ is:
@@ -1651,9 +1703,9 @@ A function $f: [a,b] \to \mathbb{R}$ is:
 \end{enumerate}
 \end{definition}
 
-\noindent\textbf{Importance:} Monotonic functions have many desirable properties that make them easier to work with than general functions. They have well-behaved limits, countable discontinuities, and preserve order. These properties make them fundamental in analysis, optimization, and many applications.
-
-\begin{theorem}[Monotonic Function Properties]
+\noindent\begin{importance}
+\textbf{Importance:}Monotonic functions have many desirable properties that make them easier to work with than general functions. They have well-behaved limits, countable discontinuities, and preserve order. These properties make them fundamental in analysis, optimization, and many applications.
+\end{importance}\begin{theorem}[Monotonic Function Properties]
 Let $f$ be monotonic on $[a,b]$. Then:
 \begin{enumerate}
 \item $f$ has one-sided limits at every point in $(a,b)$
@@ -1662,8 +1714,9 @@ Let $f$ be monotonic on $[a,b]$. Then:
 \end{enumerate}
 \end{theorem}
 
-\noindent\textbf{Importance:} This theorem provides fundamental properties of monotonic functions that make them much more manageable than general functions. The fact that discontinuities are countable and that continuity points are dense makes monotonic functions essential in many areas of analysis and applications.
-
+\noindent\begin{importance}
+\textbf{Importance:}This theorem provides fundamental properties of monotonic functions that make them much more manageable than general functions. The fact that discontinuities are countable and that continuity points are dense makes monotonic functions essential in many areas of analysis and applications.
+\end{importance}
 \begin{problembox}[4.60: Local Increasing Implies Increasing]
 \begin{problemstatement}
 Let $f$ be defined in the open interval $(a, b)$ and assume that for each interior point $x$ of $(a, b)$ there exists a 1-ball $B(x)$ in which $f$ is increasing. Prove that $f$ is an increasing function throughout $(a, b)$.
@@ -1779,21 +1832,22 @@ A strictly increasing function on $\mathbb{R}$ has only jump discontinuities. A 
 
 \section{Metric spaces and fixed points}
 
-\subsection*{Essential Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Contraction Mapping]
 A function $f: S \to S$ on a metric space $(S,d)$ is a contraction if there exists $\alpha \in [0,1)$ such that $d(f(x), f(y)) \leq \alpha d(x,y)$ for all $x,y \in S$.
 \end{definition}
 
-\noindent\textbf{Importance:} Contraction mappings are functions that "shrink" distances by a fixed factor less than 1. This property makes them essential for fixed point theory and iterative methods. They provide a powerful tool for proving existence and uniqueness of solutions to equations and for developing numerical algorithms.
-
-\begin{theorem}[Contraction Mapping Theorem]
+\noindent\begin{importance}
+\textbf{Importance:}Contraction mappings are functions that "shrink" distances by a fixed factor less than 1. This property makes them essential for fixed point theory and iterative methods. They provide a powerful tool for proving existence and uniqueness of solutions to equations and for developing numerical algorithms.
+\end{importance}\begin{theorem}[Contraction Mapping Theorem]
 Let $(S,d)$ be a complete metric space and $f: S \to S$ a contraction. Then $f$ has a unique fixed point $p$, and for any $x \in S$, the sequence $f^n(x)$ converges to $p$.
 \end{theorem}
 
-\noindent\textbf{Importance:} This is one of the most important theorems in analysis, providing a powerful method for proving existence and uniqueness of solutions to equations. It guarantees that iterative methods converge to the unique solution and provides explicit error bounds. This theorem is the foundation for many numerical algorithms and existence proofs.
-
-\begin{itemize}
+\noindent\begin{importance}
+\textbf{Importance:}This is one of the most important theorems in analysis, providing a powerful method for proving existence and uniqueness of solutions to equations. It guarantees that iterative methods converge to the unique solution and provides explicit error bounds. This theorem is the foundation for many numerical algorithms and existence proofs.
+\end{importance}\begin{itemize}
 \item Existence and uniqueness of solutions to equations
 \item Numerical methods and iterative algorithms
 \item Differential equations and boundary value problems
@@ -1805,8 +1859,9 @@ Let $(S,d)$ be a complete metric space and $f: S \to S$ a contraction. Then $f$ 
 If $f: \mathbb{R}^n \to \mathbb{R}^n$ is continuous and injective, then $f$ is open.
 \end{theorem}
 
-\noindent\textbf{Importance:} This is a deep result in topology that shows that continuous injective maps preserve the topological structure of Euclidean spaces. It's essential for understanding the behavior of continuous functions and is fundamental in differential topology and geometric analysis.
-
+\noindent\begin{importance}
+\textbf{Importance:}This is a deep result in topology that shows that continuous injective maps preserve the topological structure of Euclidean spaces. It's essential for understanding the behavior of continuous functions and is fundamental in differential topology and geometric analysis.
+\end{importance}
 \begin{problembox}[4.66: The Metric Space of Bounded Functions]
 \begin{problemstatement}
 Let $B(S)$ denote the set of all real-valued functions which are defined and bounded on a nonempty set $S$. If $f \in B(S)$, let $\|f\| = \sup_{x \in S} |f(x)|$. The number $\|f\|$ is called the "sup norm" of $f$.

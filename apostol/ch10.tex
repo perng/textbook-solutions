@@ -2,7 +2,8 @@
 
 \section{Upper functions}
 
-\subsection*{Essential Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Step Function]
 A function $s$ defined on an interval $I$ is called a step function if there exists a partition of $I$ into a finite number of subintervals such that $s$ is constant on each open subinterval. The integral of a step function is defined as the sum of the products of the constant values and the lengths of the corresponding subintervals.
@@ -1585,25 +1586,22 @@ Since $f$ is of bounded variation, the integral $\int_0^1 x^y \, df(x)$ converge
 
 \section{Measurable functions}
 
-\subsection*{Essential Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Measurable Function]
 A function $f$ defined on a measurable set $E$ is called measurable if for every real number $a$, the set $\{x \in E : f(x) > a\}$ is measurable. Equivalently, $f$ is measurable if the preimage of every open set is measurable.
 \end{definition}
 
-\noindent\textbf{Importance:} Measurable functions are the natural class of functions for Lebesgue integration. They form a much larger class than continuous functions and are closed under most operations we want to perform in analysis. The measurability condition ensures that we can meaningfully integrate these functions.
-
-
-
-\begin{definition}[Lebesgue Measure]
+\noindent\begin{importance}
+\textbf{Importance:}Measurable functions are the natural class of functions for Lebesgue integration. They form a much larger class than continuous functions and are closed under most operations we want to perform in analysis. The measurability condition ensures that we can meaningfully integrate these functions.
+\end{importance}\begin{definition}[Lebesgue Measure]
 The Lebesgue measure on $\mathbb{R}$ is the unique translation-invariant measure that assigns to each interval $[a, b]$ its length $b - a$. It extends to all Lebesgue measurable sets through the Carathéodory construction.
 \end{definition}
 
-\noindent\textbf{Importance:} Lebesgue measure provides the foundation for modern integration theory. Its translation invariance and countable additivity make it the natural measure for most applications in analysis. The construction of non-measurable sets shows the necessity of careful measure theory.
-
-
-
-\begin{theorem}[Properties of Measurable Functions]
+\noindent\begin{importance}
+\textbf{Importance:}Lebesgue measure provides the foundation for modern integration theory. Its translation invariance and countable additivity make it the natural measure for most applications in analysis. The construction of non-measurable sets shows the necessity of careful measure theory.
+\end{importance}\begin{theorem}[Properties of Measurable Functions]
 \begin{enumerate}[label=(\alph*)]
 \item If $f$ and $g$ are measurable, then $f + g$, $fg$, $\max(f, g)$, and $\min(f, g)$ are measurable.
 \item If $\{f_n\}$ is a sequence of measurable functions converging pointwise almost everywhere to $f$, then $f$ is measurable.
@@ -1611,20 +1609,15 @@ The Lebesgue measure on $\mathbb{R}$ is the unique translation-invariant measure
 \end{enumerate}
 \end{theorem}
 
-\noindent\textbf{Importance:} These properties show that measurable functions form a very robust class that is closed under the operations we need for analysis. The fact that limits of measurable functions are measurable is particularly important for integration theory and functional analysis.
-
-
-
-\begin{theorem}[Vitali's Non-Measurable Set]
+\noindent\begin{importance}
+\textbf{Importance:}These properties show that measurable functions form a very robust class that is closed under the operations we need for analysis. The fact that limits of measurable functions are measurable is particularly important for integration theory and functional analysis.
+\end{importance}\begin{theorem}[Vitali's Non-Measurable Set]
 There exists a subset of $\mathbb{R}$ that is not Lebesgue measurable. This is constructed using the axiom of choice by selecting one element from each equivalence class of the relation $x \sim y$ if $x - y$ is rational.
 \end{theorem}
 
-\noindent\textbf{Importance:} This result shows that not all sets can be measured in a reasonable way, which justifies the careful development of measure theory. It demonstrates the necessity of the measurability condition and shows that the axiom of choice has profound consequences for analysis.
-
-
-
-
-
+\noindent\begin{importance}
+\textbf{Importance:}This result shows that not all sets can be measured in a reasonable way, which justifies the careful development of measure theory. It demonstrates the necessity of the measurability condition and shows that the axiom of choice has profound consequences for analysis.
+\end{importance}
 \begin{problembox}[10.34: Measurability of derivative]
 \begin{problemstatement}
 If $f$ is Lebesgue-integrable on an open interval $I$ and if $f'(x)$ exists almost everywhere on $I$, prove that $f'$ is measurable on $I$.
@@ -1720,33 +1713,28 @@ For the function $f = \chi_E - \chi_{I-E}$, we have $|f| = 1$ everywhere on $I$,
 However, $f$ is not measurable because if it were, then $\chi_E = \frac{f + |f|}{2}$ would also be measurable, which contradicts the first part.\qed
 \section{Square-integrable functions}
 
-\subsection*{Essential Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[$L^2$ Space]
 The space $L^2(I)$ consists of all measurable functions $f$ on an interval $I$ such that $\int_I |f|^2 < \infty$. The $L^2$ norm is defined by $\|f\|_2 = \left(\int_I |f|^2\right)^{1/2}$, and the inner product is $\langle f, g \rangle = \int_I f \overline{g}$.
 \end{definition}
 
-\noindent\textbf{Importance:} $L^2$ is a Hilbert space, which means it has a complete inner product structure. This makes it the natural setting for many problems in analysis, physics, and engineering. The $L^2$ norm provides a way to measure the "size" of functions that is compatible with integration.
-
-
-
-\begin{definition}[Cauchy-Schwarz Inequality]
+\noindent\begin{importance}
+\textbf{Importance:}$L^2$ is a Hilbert space, which means it has a complete inner product structure. This makes it the natural setting for many problems in analysis, physics, and engineering. The $L^2$ norm provides a way to measure the "size" of functions that is compatible with integration.
+\end{importance}\begin{definition}[Cauchy-Schwarz Inequality]
 For any functions $f, g \in L^2(I)$, we have $|\langle f, g \rangle| \leq \|f\|_2 \|g\|_2$.
 \end{definition}
 
-\noindent\textbf{Importance:} This is one of the most fundamental inequalities in analysis. It provides a way to bound inner products in terms of norms and is essential for proving many results in functional analysis. It also ensures that the inner product is well-defined and continuous.
-
-
-
-\begin{theorem}[Riesz-Fischer Theorem]
+\noindent\begin{importance}
+\textbf{Importance:}This is one of the most fundamental inequalities in analysis. It provides a way to bound inner products in terms of norms and is essential for proving many results in functional analysis. It also ensures that the inner product is well-defined and continuous.
+\end{importance}\begin{theorem}[Riesz-Fischer Theorem]
 $L^2(I)$ is complete with respect to the $L^2$ norm. That is, every Cauchy sequence in $L^2(I)$ converges to a function in $L^2(I)$.
 \end{theorem}
 
-\noindent\textbf{Importance:} This result shows that $L^2$ is a complete metric space, making it a Hilbert space. Completeness is essential for many analytical techniques, including the use of fixed point theorems and the convergence of series. This theorem is the foundation for much of functional analysis.
-
-
-
-\begin{theorem}[Convergence Properties]
+\noindent\begin{importance}
+\textbf{Importance:}This result shows that $L^2$ is a complete metric space, making it a Hilbert space. Completeness is essential for many analytical techniques, including the use of fixed point theorems and the convergence of series. This theorem is the foundation for much of functional analysis.
+\end{importance}\begin{theorem}[Convergence Properties]
 \begin{enumerate}[label=(\alph*)]
 \item If $f_n \to f$ in $L^2$ norm, then there exists a subsequence that converges to $f$ almost everywhere.
 \item If $f_n \to f$ uniformly on a compact interval and each $f_n$ is continuous, then $f_n \to f$ in $L^2$ norm.
@@ -1754,12 +1742,9 @@ $L^2(I)$ is complete with respect to the $L^2$ norm. That is, every Cauchy seque
 \end{enumerate}
 \end{theorem}
 
-\noindent\textbf{Importance:} These properties show how different types of convergence relate to each other in $L^2$. The relationship between norm convergence and almost everywhere convergence is particularly important for applications. The continuity of the inner product is essential for functional analysis.
-
-
-
-
-
+\noindent\begin{importance}
+\textbf{Importance:}These properties show how different types of convergence relate to each other in $L^2$. The relationship between norm convergence and almost everywhere convergence is particularly important for applications. The continuity of the inner product is essential for functional analysis.
+\end{importance}
 \begin{problembox}[10.38: Norm convergence]
 \begin{problemstatement}
 If $\lim_{n \to \infty} \| f_n - f \| = 0$, prove that $\lim_{n \to \infty} \| f_n \| = \| f \|$.
@@ -1855,7 +1840,7 @@ Therefore:
 \end{align*}
 
 Since both $\| f_n - f \|$ and $\| g_n - g \|$ approach 0 as $n \to \infty$, we have:
-\[\lim_{n \to \infty} \int_0^x f_n \cdot g_n = \int_0^x f \cdot g\]
+\[\lim_{n \to \infty} \int_0^x f_n \cdot g_n = \int_0^x f \cdot g\]\qed
 
 \begin{techniquessection}[Solving and Proving Techniques]
 

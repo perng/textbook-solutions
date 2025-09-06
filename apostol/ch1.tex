@@ -203,7 +203,8 @@ This contradicts our initial assumption that $S$ is a nonempty set.
 Therefore, the original assumption must be false, and every nonempty set of positive integers must contain a smallest member.\qed
 
 \section{Rational and Irrational Numbers}
-\subsection*{Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{theorem}[Geometric Series Formula]
 For $|r| < 1$, the infinite geometric series converges:
@@ -216,20 +217,26 @@ For a finite geometric series:
 \]
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} The geometric series is one of the most fundamental infinite series in mathematics. It provides the foundation for understanding power series, Taylor series, and many other important series expansions. This formula is essential for calculus, analysis, and many applications in physics and engineering.
+\end{importance}
 
 \begin{theorem}[Terminating Decimal Criterion]
 A rational number $\frac{p}{q}$ has a terminating decimal expansion if and only if the prime factorization of $q$ contains only powers of $2$ and $5$.
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} This theorem provides a precise criterion for determining when a rational number has a finite decimal representation. It connects number theory (prime factorization) to decimal arithmetic, making it easy to predict the behavior of decimal expansions. This result is essential for understanding decimal representations and their applications.
+\end{importance}
 
 
 \begin{theorem}[Irrationality of Square Roots]
 If $n$ is a positive integer that is not a perfect square, then $\sqrt{n}$ is irrational.
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} This theorem provides a large class of irrational numbers and is fundamental for understanding the relationship between algebra and geometry. It shows that many naturally occurring numbers (like $\sqrt{2}$, $\sqrt{3}$, etc.) are irrational, which is essential for geometry, algebra, and many areas of mathematics. The proof technique used here is a classic example of proof by contradiction.
+\end{importance}
 
 
 
@@ -237,7 +244,9 @@ If $n$ is a positive integer that is not a perfect square, then $\sqrt{n}$ is ir
 Between any two real numbers, there exist both rational and irrational numbers.
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} This theorem shows that both rational and irrational numbers are densely distributed throughout the real number line. This property is fundamental for understanding the structure of the real numbers and is essential for many results in analysis, topology, and approximation theory. It demonstrates that the real number system is rich and complex.
+\end{importance}
 
 
 
@@ -746,22 +755,25 @@ Thus, our assumption that there is a largest index $j$ where $a_j \neq b_j$ must
 \textit{5. Uniqueness:} Suppose $x$ has two different representations, $\sum \frac{a_k}{k!} = \sum \frac{b_k}{k!}$. Let $j$ be the largest index where $a_j \neq b_j$. Assume $a_j > b_j$. Then $\frac{a_j - b_j}{j!} = \sum_{k=1}^{j-1} \frac{b_k - a_k}{k!}$. The left side is $\ge 1/j!$. The right side is bounded above by $\sum_{k=1}^{j-1} \frac{k-1}{k!} < 1/j!$, a contradiction. Thus, all coefficients must be the same.\qed
 \section{Upper Bounds}
 
-\subsection*{Definitions and Theorems for Upper Bounds}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 
 \begin{theorem}[Completeness Axiom]
 Every nonempty set of real numbers that is bounded above has a supremum.
 \end{theorem}
 
-\noindent\textbf{Importance:} The Completeness Axiom is the fundamental property that distinguishes the real numbers from the rational numbers. It ensures that the real number system has no "gaps" and is essential for all of calculus and analysis. This axiom is the foundation for proving the existence of limits, continuity, and many other important results in mathematics.
-
-
+\noindent\begin{importance}
+\textbf{Importance:}The Completeness Axiom is the fundamental property that distinguishes the real numbers from the rational numbers. It ensures that the real number system has no "gaps" and is essential for all of calculus and analysis. This axiom is the foundation for proving the existence of limits, continuity, and many other important results in mathematics.
+\end{importance}
 
 \begin{theorem}[Uniqueness of Supremum and Infimum]
 If a set has a supremum (infimum), it is unique.
 \end{theorem}
 
-\noindent\textbf{Importance:} This theorem ensures that suprema and infima are well-defined concepts. Without uniqueness, we couldn't meaningfully talk about "the" supremum or "the" infimum of a set. This result is essential for the logical consistency of real analysis and is used implicitly in many proofs throughout mathematics.
+\noindent\begin{importance}
+\textbf{Importance:}This theorem ensures that suprema and infima are well-defined concepts. Without uniqueness, we couldn't meaningfully talk about "the" supremum or "the" infimum of a set. This result is essential for the logical consistency of real analysis and is used implicitly in many proofs throughout mathematics.
+\end{importance}
 
 \begin{theorem}[Archimedean Property]
 For any positive real numbers $a$ and $b$, there exists a positive integer $n$ such that $na > b$.
@@ -772,9 +784,9 @@ For any positive real numbers $a$ and $b$, there exists a positive integer $n$ s
 Let $S$ and $T$ be nonempty subsets of $\mathbb{R}$ such that $s \leq t$ for all $s \in S$ and $t \in T$. If $T$ has a supremum, then $S$ has a supremum and $\sup S \leq \sup T$.
 \end{theorem}
 
-\noindent\textbf{Importance:} This theorem provides a powerful tool for comparing suprema of different sets. It's essential for many proofs in analysis where we need to establish inequalities between suprema. This result is particularly useful in functional analysis, measure theory, and optimization theory where we often need to compare bounds of different sets or functions.
-
-
+\noindent\begin{importance}
+\textbf{Importance:}This theorem provides a powerful tool for comparing suprema of different sets. It's essential for many proofs in analysis where we need to establish inequalities between suprema. This result is particularly useful in functional analysis, measure theory, and optimization theory where we often need to compare bounds of different sets or functions.
+\end{importance}
 \begin{problembox}[1.18: Uniqueness of Supremum and Infimum ]
 \begin{problemstatement}
 Show that the $\sup$ and $\inf$ of a set are uniquely determined whenever they exist.
@@ -1129,28 +1141,25 @@ For any real numbers $a$ and $b$ and positive integer $n$:
 \]
 \end{theorem}
 
-\noindent\textbf{Importance:} The Binomial Theorem is one of the most fundamental results in algebra and combinatorics. It provides a formula for expanding powers of binomials and is essential for understanding polynomials, probability theory, and many areas of mathematics. The binomial coefficients that appear in this theorem are fundamental in combinatorics and have applications throughout mathematics.
-
-
+\noindent\begin{importance}
+\textbf{Importance:}The Binomial Theorem is one of the most fundamental results in algebra and combinatorics. It provides a formula for expanding powers of binomials and is essential for understanding polynomials, probability theory, and many areas of mathematics. The binomial coefficients that appear in this theorem are fundamental in combinatorics and have applications throughout mathematics.
+\end{importance}
 
 \begin{theorem}[Pigeonhole Principle]
 If $n$ objects are placed into $m$ containers where $n > m$, then at least one container must contain more than one object.
 \end{theorem}
 
-\noindent\textbf{Importance:} The Pigeonhole Principle is a simple but powerful tool in combinatorics and discrete mathematics. It provides a way to prove the existence of certain patterns or properties without explicitly constructing them. This principle is essential for many existence proofs and has applications in computer science, number theory, and many other areas.
-
-
+\noindent\begin{importance}
+\textbf{Importance:}The Pigeonhole Principle is a simple but powerful tool in combinatorics and discrete mathematics. It provides a way to prove the existence of certain patterns or properties without explicitly constructing them. This principle is essential for many existence proofs and has applications in computer science, number theory, and many other areas.
+\end{importance}
 
 \begin{theorem}[Dirichlet's Approximation Theorem]
 For any real number $x$ and positive integer $N$, there exist integers $h$ and $k$ with $0 < k \leq N$ such that $|kx - h| < 1/N$.
 \end{theorem}
 
-\noindent\textbf{Importance:} Dirichlet's Approximation Theorem is a fundamental result in Diophantine approximation that shows how well real numbers can be approximated by rational numbers. It's essential for understanding the distribution of rational numbers and has applications in number theory, analysis, and many areas of mathematics. This theorem is the foundation for more advanced results in Diophantine approximation.
-
-
-
-
-
+\noindent\begin{importance}
+\textbf{Importance:}Dirichlet's Approximation Theorem is a fundamental result in Diophantine approximation that shows how well real numbers can be approximated by rational numbers. It's essential for understanding the distribution of rational numbers and has applications in number theory, analysis, and many areas of mathematics. This theorem is the foundation for more advanced results in Diophantine approximation.
+\end{importance}
 \begin{problembox}[1.23: Lagrange's Identity ]
 \begin{problemstatement}
 Prove Lagrange's identity for real numbers:
@@ -1428,7 +1437,7 @@ Each full cycle sums to 0. So total sum:
 \begin{problembox}[1.29: Basic Identities for Complex Conjugates ]
 \begin{problemstatement}
 If \( z = x + iy \), where \( x \) and \( y \) are real, the complex conjugate of \( z \) is \( \overline{z} = x - iy \). Prove the following:
-\begin{enumerate}[label=\alph*)]
+\begin{enumerate}[label=(\alph*)]
 \item \( \overline{z_1 + z_2} = \overline{z_1} + \overline{z_2} \),
 \item \( \overline{z_1 z_2} = \overline{z_1} \cdot \overline{z_2} \),
 \item \( z \cdot \overline{z} = |z|^2 \),
@@ -1443,7 +1452,7 @@ If \( z = x + iy \), where \( x \) and \( y \) are real, the complex conjugate o
 \bigskip\noindent\textbf{Solution:}
 Let \( z = x + iy \) and \( w = u + iv \) be two complex numbers.
 
-\begin{enumerate}[label=\alph*)]
+\begin{enumerate}[label=(\alph*)]
 
 \item \textbf{Conjugate of a sum:}
 \[
@@ -1470,13 +1479,15 @@ z + \overline{z} = (x + iy) + (x - iy) = 2x = 2 \Re(z).
 \frac{z - \overline{z}}{i} = \frac{(x + iy) - (x - iy)}{i} = \frac{2iy}{i} = 2y = 2 \Im(z).
 \]
 
-\end{enumerate}\qed
+\end{enumerate}
+
+\qed
 
 
 \begin{problembox}[1.30: Geometric Descriptions of Complex Sets ]
 \begin{problemstatement}
 Describe geometrically the set of complex numbers \( z \) which satisfies each of the following conditions:
-\begin{enumerate}[label=\alph*)]
+\begin{enumerate}[label=(\alph*)]
 \item \( |z| = 1 \),
 \item \( |z| < 1 \),
 \item \( |z| \leq 1 \),
@@ -1490,7 +1501,7 @@ Describe geometrically the set of complex numbers \( z \) which satisfies each o
 \noindent\textbf{Strategy:} We will use the properties of complex conjugates and the relationship between complex numbers and their real/imaginary parts to translate each condition into geometric terms. For the last condition, we'll complete the square to identify the geometric shape.
 
 \bigskip\noindent\textbf{Solution:}
-\begin{enumerate}[label=\alph*)]
+\begin{enumerate}[label=(\alph*)]
 \item The unit circle centered at the origin.
 \item The open unit disk centered at the origin.
 \item The closed unit disk centered at the origin.
@@ -1697,7 +1708,7 @@ This visualization shows the equilateral triangle formed by the cube roots of un
 \begin{problembox}[1.32: Inequality with Complex Numbers ]
 \begin{problemstatement}
 If \( a \) and \( b \) are complex numbers, prove:
-\begin{enumerate}[label=\alph*)]
+\begin{enumerate}[label=(\alph*)]
 \item \( |a - b|^2 \leq (1 + |a|^2)(1 + |b|^2) \),
 \item If \( a \neq 0 \), then \( |a + b| = |a| + |b| \) if and only if \( \frac{b}{a} \) is real and nonnegative.
 \end{enumerate}
@@ -1707,7 +1718,7 @@ If \( a \) and \( b \) are complex numbers, prove:
 \noindent\textbf{Strategy:} For part (a), we'll expand both sides and show that the difference is non-negative. For part (b), we'll use the fact that equality in the triangle inequality occurs when the complex numbers are collinear and point in the same direction.
 
 \bigskip\noindent\textbf{Solution:}
-\begin{enumerate}[label=\alph*)]
+\begin{enumerate}[label=(\alph*)]
 \item Compute:
 \[
 |a - b|^2 = (a - b)(\overline{a - b}) = |a|^2 + |b|^2 - a\overline{b} - \overline{a}b.
@@ -1730,7 +1741,9 @@ Thus, \( |a - b|^2 \leq (1 + |a|^2)(1 + |b|^2) \).
 |a + b| = |a + ka| = |a|(1 + k) = |a| + |b|.
 \]
 Thus, \( \frac{b}{a} = k \geq 0 \). Conversely, if \( |a + b| = |a| + |b| \), then \( a\overline{b} + \overline{a}b = 2|a||b| \), so \( \frac{b}{a} \) is real and nonnegative.
-\end{enumerate}\qed
+\end{enumerate}
+
+\qed
 
 
 \begin{problembox}[1.33: Equality Condition for Complex Difference ]
@@ -1792,7 +1805,7 @@ Recall the definition of the inverse tangent: given a real number \( t \), \( \t
 -\frac{\pi}{2} < \theta < \frac{\pi}{2}, \quad \text{and} \quad \tan \theta = t.
 \]
 If \( z = x + iy \), show that:
-\begin{enumerate}[label=\alph*)]
+\begin{enumerate}[label=(\alph*)]
 \item \( \arg(z) = \tan^{-1}\left( \frac{y}{x} \right) \), if \( x > 0 \),
 \item \( \arg(z) = \tan^{-1}\left( \frac{y}{x} \right) + \pi \), if \( x < 0 \), \( y \geq 0 \),
 \item \( \arg(z) = \tan^{-1}\left( \frac{y}{x} \right) - \pi \), if \( x < 0 \), \( y < 0 \),
@@ -1805,12 +1818,14 @@ If \( z = x + iy \), show that:
 
 \bigskip\noindent\textbf{Solution:}
 For \( z = x + iy \), \( \arg(z) \) is the angle \( \theta \in (-\pi, \pi] \) such that \( z = |z| e^{i\theta} \).
-\begin{enumerate}[label=\alph*)]
+\begin{enumerate}[label=(\alph*)]
 \item If \( x > 0 \), \( z \) is in Quadrant I or IV, and \( \tan \theta = \frac{y}{x} \), so \( \theta = \tan^{-1}\left( \frac{y}{x} \right) \).
 \item If \( x < 0 \), \( y \geq 0 \), \( z \) is in Quadrant II. \( \tan^{-1}\left( \frac{y}{x} \right) \in (-\frac{\pi}{2}, 0] \), so add \( \pi \) to get \( \theta \in (\frac{\pi}{2}, \pi] \).
 \item If \( x < 0 \), \( y < 0 \), \( z \) is in Quadrant III. \( \tan^{-1}\left( \frac{y}{x} \right) \in (0, \frac{\pi}{2}] \), so subtract \( \pi \) to get \( \theta \in (-\pi, -\frac{\pi}{2}] \).
 \item If \( x = 0 \), \( z = iy \). If \( y > 0 \), \( \theta = \frac{\pi}{2} \); if \( y < 0 \), \( \theta = -\frac{\pi}{2} \).
-\end{enumerate}\qed
+\end{enumerate}
+
+\qed
 
 
 \begin{problembox}[1.36: Pseudo-Ordering on Complex Numbers ]
@@ -1848,6 +1863,37 @@ Define the following pseudo-ordering on complex numbers: $z_1 < z_2$ if $|z_1| <
     So, $z_1 z < z_2 z$. The order relation was reversed from $z_2 < z_1$ to $z_1 z < z_2 z$. The axiom is violated.
 \end{itemize}
 \textbf{Conclusion:} Axioms 6 and 9 are satisfied; Axiom 7 and 8 is not applicable.
+
+\bigskip\noindent\textbf{Solution:}
+The pseudo-ordering on complex numbers is defined by $z_1 < z_2$ if either $|z_1| < |z_2|$ or $|z_1| = |z_2|$ and $\arg(z_1) < \arg(z_2)$.
+
+\textbf{Axiom 6 (Trichotomy):} For any $z_1, z_2 \in \mathbb{C}$, exactly one of the following holds:
+\begin{enumerate}[label=(\alph*)]
+\item $|z_1| < |z_2|$, in which case $z_1 < z_2$
+\item $|z_1| > |z_2|$, in which case $z_2 < z_1$  
+\item $|z_1| = |z_2|$, in which case we compare arguments:
+\begin{enumerate}[label=(\roman*)]
+\item $\arg(z_1) < \arg(z_2)$, so $z_1 < z_2$
+\item $\arg(z_1) > \arg(z_2)$, so $z_2 < z_1$
+\item $\arg(z_1) = \arg(z_2)$, so $z_1 = z_2$
+\end{enumerate}
+\end{enumerate}
+Therefore, Axiom 6 is \textbf{satisfied}.
+
+\textbf{Axiom 7 (Translation Invariance):} This axiom is \textbf{not satisfied}. Consider $z_1 = 1$ and $z_2 = 2$. We have $z_1 < z_2$ since $|1| = 1 < |2| = 2$. However, with $z = -2$, we get $z_1 + z = -1$ and $z_2 + z = 0$. Since $|0| = 0 < |-1| = 1$, we have $z_2 + z < z_1 + z$, reversing the order.
+
+\textbf{Axiom 8 (Multiplication Invariance):} This axiom is \textbf{not satisfied}. Consider $z_1 = -1 = e^{i\pi}$ and $z_2 = -i = e^{-i\pi/2}$. Since $|z_1| = |z_2| = 1$ and $\arg(z_2) = -\pi/2 < \pi = \arg(z_1)$, we have $z_2 < z_1$. However, with $z = i$, we get $z_1 z = -i$ and $z_2 z = 1$. Since $|-i| = |1| = 1$ and $\arg(-i) = -\pi/2 < 0 = \arg(1)$, we have $z_1 z < z_2 z$, again reversing the order.
+
+\textbf{Axiom 9 (Transitivity):} If $z_1 < z_2$ and $z_2 < z_3$, then either:
+\begin{enumerate}[label=(\alph*)]
+\item $|z_1| < |z_2| < |z_3|$, so $|z_1| < |z_3|$ and $z_1 < z_3$
+\item $|z_1| < |z_2| = |z_3|$, so $|z_1| < |z_3|$ and $z_1 < z_3$
+\item $|z_1| = |z_2| < |z_3|$, so $|z_1| < |z_3|$ and $z_1 < z_3$
+\item $|z_1| = |z_2| = |z_3|$ and $\arg(z_1) < \arg(z_2) < \arg(z_3)$, so $\arg(z_1) < \arg(z_3)$ and $z_1 < z_3$
+\end{enumerate}
+Therefore, Axiom 9 is \textbf{satisfied}.
+
+In summary, Axioms 6 and 9 are satisfied, while Axioms 7 and 8 are not satisfied.\qed
 
 
 
@@ -1939,7 +1985,7 @@ Let \( \alpha = e^{2\pi i/n} \). Then \( \alpha^n = 1 \), so it's a root of \( x
 
 \begin{problembox}[1.41: Inequalities and Boundedness of cos z ]
 \begin{problemstatement}
-\begin{enumerate}[label=\alph*)]
+\begin{enumerate}[label=(\alph*)]
 \item Prove that \( |z^i| < e^{\pi} \) for all complex \( z \ne 0 \).
 \item Prove that there is no constant \( M > 0 \) such that \( |\cos z| < M \) for all complex \( z \).
 \end{enumerate}
@@ -1949,10 +1995,12 @@ Let \( \alpha = e^{2\pi i/n} \). Then \( \alpha^n = 1 \), so it's a root of \( x
 \noindent\textbf{Strategy:} For part (a), we'll use the definition $z^i = e^{i\log z}$ and analyze the modulus in terms of the argument. For part (b), we'll use the fact that $\cos(iy) = \cosh y$ which grows exponentially as $y \to \infty$.
 
 \bigskip\noindent\textbf{Solution:}
-\begin{enumerate}[label=\alph*)]
+\begin{enumerate}[label=(\alph*)]
 \item For \( z = re^{i\theta} \), \( z^i = e^{i(\ln r + i\theta)} = e^{-\theta} e^{i \ln r} \), so \( |z^i| = e^{-\theta} \). Since \( \theta \in (-\pi, \pi] \), \( |z^i| \leq e^{\pi} \), strict unless \( \theta = -\pi \).
 \item For \( z = iy \), \( \cos(iy) = \cosh y \), which is unbounded as \( |y| \to \infty \). Thus, no \( M > 0 \) exists.
-\end{enumerate}\qed
+\end{enumerate}
+
+\qed
 
 
 \begin{problembox}[1.42: Complex Exponential via Real and Imaginary Parts ]
@@ -1979,7 +2027,7 @@ z^w = e^{u \log |z| - v \arg z} e^{i(v \log |z| + u \arg z)}.
 
 \begin{problembox}[1.43: Logarithmic Identities for Complex Powers ]
 \begin{problemstatement}
-\begin{enumerate}[label=\alph*)]
+\begin{enumerate}[label=(\alph*)]
 \item Prove that \( \log(z^w) = w \log z + 2\pi i n \), where \( n \) is an integer.
 \item Prove that \( (z^w)^\alpha = z^{w\alpha} e^{2\pi i n \alpha} \), where \( n \) is an integer.
 \end{enumerate}
@@ -1989,7 +2037,7 @@ z^w = e^{u \log |z| - v \arg z} e^{i(v \log |z| + u \arg z)}.
 \noindent\textbf{Strategy:} For part (a), we'll use the definition $z^w = e^{w \log z}$ and the fact that $\log(e^w) = w + 2\pi i n$. For part (b), we'll use the result from part (a) and the definition of complex exponentiation.
 
 \bigskip\noindent\textbf{Solution:}
-\begin{enumerate}[label=\alph*)]
+\begin{enumerate}[label=(\alph*)]
 \item Since \( z^w = e^{w \log z} \):
 \[
 \log(z^w) = \log(e^{w \log z}) = w \log z + 2\pi i n.
@@ -1998,12 +2046,14 @@ z^w = e^{u \log |z| - v \arg z} e^{i(v \log |z| + u \arg z)}.
 \[
 (z^w)^\alpha = e^{\alpha \log(z^w)} = e^{\alpha(w \log z + 2\pi i n)} = z^{w\alpha} e^{2\pi i n \alpha}.
 \]
-\end{enumerate}\qed
+\end{enumerate}
+
+\qed
 
 
 \begin{problembox}[1.44: Conditions for De Moivre's Formula ]
 \begin{problemstatement}
-\begin{enumerate}[label=\roman*)]
+\begin{enumerate}[label=(\roman*)]
 \item If \( \theta \) and \( a \) are real numbers, \( -\pi < \theta \leq +\pi \), prove that
 \[
 (\cos \theta + i \sin \theta)^a = \cos(a\theta) + i \sin(a\theta).
@@ -2017,7 +2067,7 @@ z^w = e^{u \log |z| - v \arg z} e^{i(v \log |z| + u \arg z)}.
 \noindent\textbf{Strategy:} We will use the fact that $\cos \theta + i \sin \theta = e^{i\theta}$ and the definition of complex exponentiation. For part (b), we'll provide a specific counterexample. For part (c), we'll use the fact that integer powers don't have branch cut issues.
 
 \bigskip\noindent\textbf{Solution:}
-\begin{enumerate}[label=\roman*)]
+\begin{enumerate}[label=(\roman*)]
 \item Since \( \cos \theta + i \sin \theta = e^{i\theta} \):
 \[
 (\cos \theta + i \sin \theta)^a = (e^{i\theta})^a = e^{i a \theta} = \cos(a\theta) + i \sin(a\theta).
@@ -2028,7 +2078,9 @@ z^w = e^{u \log |z| - v \arg z} e^{i(v \log |z| + u \arg z)}.
 \]
 The restriction ensures the principal branch.
 \item For integer \( a \), \( (e^{i\theta})^a = e^{i a \theta} \), and multiples of \( 2\pi \) cancel, so the formula holds for all \( \theta \).
-\end{enumerate}\qed
+\end{enumerate}
+
+\qed
 
 
 \begin{problembox}[1.45: Deriving Trigonometric Identities from De Moivre's Theorem ]
@@ -2304,7 +2356,9 @@ Sum of squares uses trigonometric identities, yielding:
 \[
 \sum_{k=1}^m \cot^4 \left( \frac{\pi k}{2m+1} \right) = \frac{m(2m-1)(4m^2 + 10m - 9)}{45}.
 \]
-\end{enumerate}\qed
+\end{enumerate}
+
+\qed
 
 
 \begin{problembox}[1.50: Product Formula for \( \sin \) ]
@@ -2400,7 +2454,7 @@ n = 2^{n-1} \prod_{k=1}^{n-1} \sin\left( \frac{\pi k}{n} \right) \implies \prod_
 \end{tikzpicture}
 \end{center}
 
-This visualization shows the 6th roots of unity on the unit circle. The blue arrows show the distances from $z = 1$ to the other roots, which are related to the sine values in the product formula. For $n = 6$, the product equals $\frac{6}{2^5} = \frac{3}{16}$.
+This visualization shows the 6th roots of unity on the unit circle. The blue arrows show the distances from $z = 1$ to the other roots, which are related to the sine values in the product formula. For $n = 6$, the product equals $\frac{6}{2^5} = \frac{3}{16}$.\qed
 
 \begin{techniquessection}[Solving and Proving Techniques]
 

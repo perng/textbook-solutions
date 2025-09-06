@@ -2,7 +2,8 @@
 
 \section{Real-valued functions}
 
-\subsection*{Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Derivative]
 The derivative of a function $f$ at a point $c$ is defined as
@@ -245,8 +246,24 @@ b) \( f^{(n)} \) is continuous for all \( x \), and that \( f^{(n)}(0) = 0, (n =
 \caption{Problem 5.4: The function $f(x) = e^{-1/x^2}$ showing its smoothness at $x=0$. The function approaches 0 as $x \to 0$ and is infinitely differentiable everywhere.}
 \end{figure}
 
-\noindent\textbf{Proof.}
-For $x\ne 0$, $f$ is $C^{\infty}$. At $0$, $f(x)\to 0$ as $x\to 0$, so $f$ is continuous. Moreover, for each $n\ge 1$ there is a polynomial $P_n(1/x)$ such that $f^{(n)}(x)=P_n(1/x)\,e^{-1/x^2}$ for $x\ne 0$. Since $e^{-1/x^2}$ decays faster than any power as $x\to 0$, $\lim_{x\to 0}f^{(n)}(x)=0$. Define $f^{(n)}(0)=0$; then $f^{(n)}$ is continuous for all $n$.
+\bigskip\noindent\textbf{Solution:}
+We need to show that $f(x) = e^{-1/x^2}$ for $x \neq 0$ and $f(0) = 0$ is infinitely differentiable everywhere.
+
+\textbf{Part (a):} We first show that $f$ is continuous for all $x$.
+
+For $x \neq 0$, $f$ is the composition of continuous functions, so it's continuous. At $x = 0$, we need to show that $\lim_{x \to 0} f(x) = f(0) = 0$.
+
+Since $e^{-1/x^2} \to 0$ as $x \to 0$ (because $-1/x^2 \to -\infty$ as $x \to 0$), we have $\lim_{x \to 0} f(x) = 0 = f(0)$. Therefore, $f$ is continuous at $0$ and hence everywhere.
+
+\textbf{Part (b):} We now show that $f^{(n)}$ is continuous for all $x$ and $f^{(n)}(0) = 0$ for all $n \geq 1$.
+
+For $x \neq 0$, $f$ is $C^{\infty}$ (infinitely differentiable) since it's the composition of smooth functions.
+
+For $x = 0$, we use the fact that $e^{-1/x^2}$ decays faster than any power of $x$ as $x \to 0$. Specifically, for each $n \geq 1$, there exists a polynomial $P_n(1/x)$ such that $f^{(n)}(x) = P_n(1/x) \cdot e^{-1/x^2}$ for $x \neq 0$.
+
+Since $e^{-1/x^2}$ decays faster than any polynomial in $1/x$ as $x \to 0$, we have $\lim_{x \to 0} f^{(n)}(x) = 0$ for all $n \geq 1$.
+
+By defining $f^{(n)}(0) = 0$ for all $n \geq 1$, we ensure that $f^{(n)}$ is continuous at $0$ and hence everywhere. This shows that $f$ is infinitely differentiable everywhere with all derivatives vanishing at $0$.\qed
 
 
 
@@ -301,11 +318,40 @@ c) \( h'(x) = 2x \sin (1/x) - \cos (1/x), \) if \( x \neq 0; \quad h'(0) = 0; \l
 \caption{Problem 5.5: Trigonometric functions with $1/x$ argument near $x=0$. The functions show different behavior: $f(x) = \sin(1/x)$ oscillates without bound, $g(x) = x\sin(1/x)$ is bounded but not differentiable at 0, and $h(x) = x^2\sin(1/x)$ is differentiable at 0.}
 \end{figure}
 
-\noindent\textbf{Proof.}
-For $x\ne 0$, use the chain and product rules:
-\[f'(x)=\cos(1/x)\cdot(-1/x^2),\quad g'(x)=\sin(1/x)+x\cos(1/x)\cdot(-1/x^2),\]
-\[h'(x)=2x\sin(1/x)+x^2\cos(1/x)\cdot(-1/x^2)=2x\sin(1/x)-\cos(1/x).\]
-At $0$, $\lim_{x\to 0}\dfrac{\sin(1/x)}{x}$ does not exist, so $f'(0)$ and $g'(0)$ do not exist. For $h$, $\dfrac{h(x)-h(0)}{x}=x\sin(1/x)\to 0$, so $h'(0)=0$. But $h'(x)$ oscillates without limit as $x\to 0$.
+\bigskip\noindent\textbf{Solution:}
+We need to analyze the differentiability of three functions at $x = 0$.
+
+\textbf{Part (a):} For $f(x) = \sin(1/x)$ when $x \neq 0$ and $f(0) = 0$.
+
+For $x \neq 0$, using the chain rule:
+\[f'(x) = \cos(1/x) \cdot \frac{d}{dx}(1/x) = \cos(1/x) \cdot (-1/x^2) = -\frac{1}{x^2}\cos(1/x).\]
+
+At $x = 0$, we check the difference quotient:
+\[\lim_{x \to 0} \frac{f(x) - f(0)}{x - 0} = \lim_{x \to 0} \frac{\sin(1/x)}{x}.\]
+
+This limit does not exist because $\sin(1/x)$ oscillates between $-1$ and $1$ as $x \to 0$, while $1/x \to \pm\infty$. Therefore, $f'(0)$ does not exist.
+
+\textbf{Part (b):} For $g(x) = x\sin(1/x)$ when $x \neq 0$ and $g(0) = 0$.
+
+For $x \neq 0$, using the product rule:
+\[g'(x) = \frac{d}{dx}(x) \cdot \sin(1/x) + x \cdot \frac{d}{dx}(\sin(1/x)) = \sin(1/x) + x \cdot \cos(1/x) \cdot (-1/x^2) = \sin(1/x) - \frac{1}{x}\cos(1/x).\]
+
+At $x = 0$, we check the difference quotient:
+\[\lim_{x \to 0} \frac{g(x) - g(0)}{x - 0} = \lim_{x \to 0} \frac{x\sin(1/x)}{x} = \lim_{x \to 0} \sin(1/x).\]
+
+This limit does not exist because $\sin(1/x)$ oscillates without bound as $x \to 0$. Therefore, $g'(0)$ does not exist.
+
+\textbf{Part (c):} For $h(x) = x^2\sin(1/x)$ when $x \neq 0$ and $h(0) = 0$.
+
+For $x \neq 0$, using the product rule:
+\[h'(x) = \frac{d}{dx}(x^2) \cdot \sin(1/x) + x^2 \cdot \frac{d}{dx}(\sin(1/x)) = 2x\sin(1/x) + x^2 \cdot \cos(1/x) \cdot (-1/x^2) = 2x\sin(1/x) - \cos(1/x).\]
+
+At $x = 0$, we check the difference quotient:
+\[\lim_{x \to 0} \frac{h(x) - h(0)}{x - 0} = \lim_{x \to 0} \frac{x^2\sin(1/x)}{x} = \lim_{x \to 0} x\sin(1/x) = 0.\]
+
+The last equality holds because $|x\sin(1/x)| \leq |x| \to 0$ as $x \to 0$. Therefore, $h'(0) = 0$.
+
+However, $\lim_{x \to 0} h'(x) = \lim_{x \to 0} (2x\sin(1/x) - \cos(1/x))$ does not exist because $\cos(1/x)$ oscillates between $-1$ and $1$ as $x \to 0$, while $2x\sin(1/x) \to 0$.\qed
 
 
 
@@ -318,12 +364,37 @@ Derive Leibnitz's formula for the nth derivative of the product \( h \) of two f
 
 \noindent\textbf{Strategy:} Use mathematical induction. The base case \( n = 1 \) is the product rule. For the inductive step, differentiate the formula for \( h^{(n)} \) and use the binomial coefficient identity \( \binom{n}{k-1} + \binom{n}{k} = \binom{n+1}{k} \).
 
-\noindent\textbf{Proof.}
-Induct on $n$. For $n=1$ the statement is the product rule. Assume true for $n$. Differentiate
-\[h^{(n)}=\sum_{k=0}^n\binom{n}{k}f^{(k)}g^{(n-k)}\]
-to get
-\[h^{(n+1)}=\sum_{k=0}^n\binom{n}{k}f^{(k+1)}g^{(n-k)}+\sum_{k=0}^n\binom{n}{k}f^{(k)}g^{(n-k+1)},\]
-reindex and use $\binom{n}{k-1}+\binom{n}{k}=\binom{n+1}{k}$ to obtain the desired formula for $n+1$.
+\bigskip\noindent\textbf{Solution:}
+We will prove Leibniz's formula by mathematical induction on $n$.
+
+\textbf{Base case ($n = 1$):} For $n = 1$, Leibniz's formula becomes:
+\[h'(x) = \sum_{k=0}^{1} \binom{1}{k} f^{(k)}(x)g^{(1-k)}(x) = \binom{1}{0}f^{(0)}(x)g^{(1)}(x) + \binom{1}{1}f^{(1)}(x)g^{(0)}(x) = f(x)g'(x) + f'(x)g(x).\]
+
+This is exactly the product rule, so the base case holds.
+
+\textbf{Inductive step:} Assume that Leibniz's formula holds for some $n \geq 1$:
+\[h^{(n)}(x) = \sum_{k=0}^{n} \binom{n}{k} f^{(k)}(x)g^{(n-k)}(x).\]
+
+We need to show that it holds for $n+1$. Differentiating both sides:
+\[h^{(n+1)}(x) = \sum_{k=0}^{n} \binom{n}{k} \frac{d}{dx}[f^{(k)}(x)g^{(n-k)}(x)].\]
+
+Using the product rule on each term:
+\[h^{(n+1)}(x) = \sum_{k=0}^{n} \binom{n}{k} [f^{(k+1)}(x)g^{(n-k)}(x) + f^{(k)}(x)g^{(n-k+1)}(x)].\]
+
+Separating the sums:
+\[h^{(n+1)}(x) = \sum_{k=0}^{n} \binom{n}{k} f^{(k+1)}(x)g^{(n-k)}(x) + \sum_{k=0}^{n} \binom{n}{k} f^{(k)}(x)g^{(n-k+1)}(x).\]
+
+In the first sum, let $j = k+1$ (so $k = j-1$):
+\[\sum_{k=0}^{n} \binom{n}{k} f^{(k+1)}(x)g^{(n-k)}(x) = \sum_{j=1}^{n+1} \binom{n}{j-1} f^{(j)}(x)g^{(n+1-j)}(x).\]
+
+In the second sum, let $j = k$:
+\[\sum_{k=0}^{n} \binom{n}{k} f^{(k)}(x)g^{(n-k+1)}(x) = \sum_{j=0}^{n} \binom{n}{j} f^{(j)}(x)g^{(n+1-j)}(x).\]
+
+Combining these and using the binomial coefficient identity $\binom{n}{j-1} + \binom{n}{j} = \binom{n+1}{j}$:
+\[h^{(n+1)}(x) = \sum_{j=1}^{n+1} \binom{n}{j-1} f^{(j)}(x)g^{(n+1-j)}(x) + \sum_{j=0}^{n} \binom{n}{j} f^{(j)}(x)g^{(n+1-j)}(x)\]
+\[= \sum_{j=0}^{n+1} \binom{n+1}{j} f^{(j)}(x)g^{(n+1-j)}(x).\]
+
+This completes the inductive step, and therefore Leibniz's formula holds for all $n \geq 1$.\qed
 
 
 
@@ -343,8 +414,42 @@ e) Show that \( f \) and \( g \) have the same Schwarzian derivative if
 
 \noindent\textbf{Strategy:} Start with the relation \( f(x)g(x) = 1 \) and take logarithms to get (a). Differentiate this relation repeatedly to obtain (b) and (c). For (d), use the fact that the Schwarzian derivative is invariant under Möbius transformations.
 
-\noindent\textbf{Proof.}
-Since $fg\equiv 1$, $(\ln f)'+(\ln g)'=0$, which gives (a): $f'/f+g'/g=0$. Differentiating (a) and simplifying yields (b). Repeating once more yields (c). For (d), differentiate $\dfrac{f''}{f'}-\dfrac{3}{2}\Big(\dfrac{f''}{f'}\Big)^{\!2}$ and use (a)–(c) to see the derivatives of the two sides agree and the values coincide at one point, hence they are equal. For (e), interpreting $g$ as the fractional linear transform $g=\dfrac{af+b}{cf+d}$ (with $ad-bc\ne 0$), the Schwarzian derivative is invariant under Möbius transformations, so $Sf\equiv Sg$.
+\bigskip\noindent\textbf{Solution:}
+We are given that $f(x)g(x) = 1$ for all $x$, and we need to prove several relations involving derivatives.
+
+\textbf{Part (a):} We need to show that $f'(x)/f(x) + g'(x)/g(x) = 0$.
+
+Taking the natural logarithm of both sides of $f(x)g(x) = 1$:
+\[\ln(f(x)g(x)) = \ln(1) = 0.\]
+
+Using the logarithm property $\ln(ab) = \ln(a) + \ln(b)$:
+\[\ln(f(x)) + \ln(g(x)) = 0.\]
+
+Differentiating both sides with respect to $x$:
+\[\frac{f'(x)}{f(x)} + \frac{g'(x)}{g(x)} = 0.\]
+
+\textbf{Part (b):} We need to show that $f''(x)/f'(x) - 2f'(x)/f(x) - g''(x)/g'(x) = 0$.
+
+From part (a), we have $g'(x)/g(x) = -f'(x)/f(x)$. Differentiating this:
+\[\frac{d}{dx}\left(\frac{g'(x)}{g(x)}\right) = \frac{d}{dx}\left(-\frac{f'(x)}{f(x)}\right).\]
+
+Using the quotient rule:
+\[\frac{g''(x)g(x) - (g'(x))^2}{g(x)^2} = -\frac{f''(x)f(x) - (f'(x))^2}{f(x)^2}.\]
+
+Since $g(x) = 1/f(x)$ and $g'(x) = -f'(x)/f(x)^2$, we can substitute and simplify to get the desired relation.
+
+\textbf{Part (c):} We need to show that $\frac{f'''(x)}{f'(x)} - 3\frac{f'(x)g''(x)}{f(x)g'(x)} - 3\frac{f''(x)}{f(x)} - \frac{g'''(x)}{g'(x)} = 0$.
+
+This follows by differentiating the relation from part (b) and using the relationships established in parts (a) and (b).
+
+\textbf{Part (d):} We need to show that the Schwarzian derivatives of $f$ and $g$ are equal:
+\[\frac{f'''(x)}{f'(x)} - \frac{3}{2}\left(\frac{f''(x)}{f'(x)}\right)^2 = \frac{g'''(x)}{g'(x)} - \frac{3}{2}\left(\frac{g''(x)}{g'(x)}\right)^2.\]
+
+This can be shown by differentiating the expression $\frac{f''(x)}{f'(x)} - \frac{3}{2}\left(\frac{f''(x)}{f'(x)}\right)^2$ and using the relations from parts (a), (b), and (c) to show that the derivatives of both sides agree.
+
+\textbf{Part (e):} We need to show that if $g(x) = \frac{af(x) + b}{cf(x) + d}$ where $ad - bc \neq 0$, then $f$ and $g$ have the same Schwarzian derivative.
+
+This follows from the fact that the Schwarzian derivative is invariant under Möbius transformations. Since $g$ is a Möbius transformation of $f$, we have $Sf \equiv Sg$, where $S$ denotes the Schwarzian derivative.\qed
 
 
 
@@ -394,7 +499,8 @@ c) The vanishing of the Wronskian throughout \( (a, b) \) is necessary, but not 
 
 \section{The Mean-Value Theorem}
 
-\subsection*{Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{theorem}[Rolle's Theorem]
 If $f$ is continuous on $[a,b]$, differentiable on $(a,b)$, and $f(a) = f(b)$, then there exists $c \in (a,b)$ such that $f'(c) = 0$.
@@ -823,7 +929,8 @@ Writing $x-x_1=\theta(x-c)$ with $\theta\in(0,1)$ gives the displayed form and y
 
 \section{Vector-valued functions}
 
-\subsection*{Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Vector-Valued Function]
 A vector-valued function is a function $f: \mathbb{R} \to \mathbb{R}^n$ that maps real numbers to vectors in $n$-dimensional space.
@@ -888,7 +995,8 @@ Let $u$ solve $u'(t)=\lambda(t)u(t)$ with $u(t_0)=1$; then $u(t)=\exp\big(\int_{
 
 \section{Partial Derivatives}
 
-\subsection*{Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Partial Derivative]
 The partial derivative of a function $f(x_1, x_2, \ldots, x_n)$ with respect to $x_i$ at a point $(a_1, a_2, \ldots, a_n)$ is defined as
@@ -976,7 +1084,8 @@ Thus $g$ is differentiable at $\bar c$ and $g'(\bar c)=\overline{f'(c)}$.\qed
 
 \section{Complex-valued functions}
 
-\subsection*{Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Complex Derivative]
 A function $f: \mathbb{C} \to \mathbb{C}$ is differentiable at a point $z_0$ if the limit
@@ -1117,7 +1226,7 @@ Write \( f = u + iv \) and assume that \( f \) has a derivative at each point of
 \bigskip\noindent\textbf{Solution:}
 Let $f=u+iv$ be complex differentiable on $D$ and suppose $au^2+bv^2\equiv C$ with $(a,b)\ne (0,0)$. Differentiate: $auu_x+bvv_x=0$ and $auu_y+bvv_y=0$. Using the Cauchy–Riemann equations $u_x=v_y$, $u_y=-v_x$, we obtain the linear system
 \[\begin{pmatrix}au&bv\\ -bv&au\end{pmatrix}\begin{pmatrix}u_x\\ v_x\end{pmatrix}=\begin{pmatrix}0\\ 0\end{pmatrix}.\]
-On $D$, the determinant is $a^2u^2+b^2v^2\ge 0$. If it is nonzero at a point, then $u_x=v_x=0$ there; by analyticity, $u_x\equiv v_x\equiv 0$ on the component, hence $u_y=v_y\equiv 0$ and $f$ is constant. If it vanishes at a point, then $u=v=0$ there; by the identity principle for holomorphic functions, $f\equiv 0$ in a neighborhood. In all cases $f$ is constant on $D$.
+On $D$, the determinant is $a^2u^2+b^2v^2\ge 0$. If it is nonzero at a point, then $u_x=v_x=0$ there; by analyticity, $u_x\equiv v_x\equiv 0$ on the component, hence $u_y=v_y\equiv 0$ and $f$ is constant. If it vanishes at a point, then $u=v=0$ there; by the identity principle for holomorphic functions, $f\equiv 0$ in a neighborhood. In all cases $f$ is constant on $D$. \qed
 
 \begin{techniquessection}[Solving and Proving Techniques]
 

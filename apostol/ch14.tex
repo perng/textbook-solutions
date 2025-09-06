@@ -1,7 +1,8 @@
 \chapter{Multiple Riemann Integrals}
 \section{Multiple Integrals}
 
-\subsection*{Essential Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Riemann Integral on Rectangles]
 For a bounded function $f$ on a rectangle $Q = [a_1, b_1] \times \cdots \times [a_n, b_n]$, the Riemann integral is defined as the common value of the upper and lower Darboux sums when they exist:
@@ -235,7 +236,8 @@ let \( S = \bigcup_{k=1}^{\infty} S(p_k) \), and let \( Q = [0, 1] \times [0, 1]
 \end{enumerate}\qed
 \section{Jordan Content}
 
-\subsection*{Essential Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Jordan Outer and Inner Content]
 For a bounded set $S \subset \mathbb{R}^n$, the Jordan outer content is:
@@ -244,23 +246,21 @@ The Jordan inner content is:
 \[c_*(S) = \sup\{\sum_{k=1}^m \text{vol}(Q_k) : \bigcup_{k=1}^m Q_k \subset S, Q_k \text{ are disjoint rectangles}\}\]
 \end{definition}
 
-\noindent\textbf{Importance:} Jordan content provides a way to measure the "size" of bounded sets in $\mathbb{R}^n$ and is a precursor to Lebesgue measure.
-
-\begin{definition}[Jordan-Measurable Sets]
+\noindent\begin{importance}
+\textbf{Importance:}Jordan content provides a way to measure the "size" of bounded sets in $\mathbb{R}^n$ and is a precursor to Lebesgue measure.
+\end{importance}\begin{definition}[Jordan-Measurable Sets]
 A bounded set $S \subset \mathbb{R}^n$ is Jordan-measurable if $c^*(S) = c_*(S)$. The common value is called the Jordan content of $S$, denoted $c(S)$.
 \end{definition}
 
-\noindent\textbf{Importance:} Jordan-measurable sets are those for which we can meaningfully assign a "volume" or "content" and form the natural domain for Riemann integration.
-
-\begin{theorem}[Jordan-Measurability Criterion]
+\noindent\begin{importance}
+\textbf{Importance:}Jordan-measurable sets are those for which we can meaningfully assign a "volume" or "content" and form the natural domain for Riemann integration.
+\end{importance}\begin{theorem}[Jordan-Measurability Criterion]
 A bounded set $S \subset \mathbb{R}^n$ is Jordan-measurable if and only if its boundary $\partial S$ has Jordan content zero.
 \end{theorem}
 
-\noindent\textbf{Importance:} This criterion provides a practical way to determine whether a set is Jordan-measurable. It shows that the "thickness" of the boundary is what determines measurability. This is essential for understanding which regions can be used for integration.
-
-
-
-\begin{theorem}[Sets of Content Zero]
+\noindent\begin{importance}
+\textbf{Importance:}This criterion provides a practical way to determine whether a set is Jordan-measurable. It shows that the "thickness" of the boundary is what determines measurability. This is essential for understanding which regions can be used for integration.
+\end{importance}\begin{theorem}[Sets of Content Zero]
 The following sets have Jordan content zero:
 \begin{enumerate}[label=(\alph*)]
 \item Countable sets in $\mathbb{R}^n$
@@ -270,21 +270,16 @@ The following sets have Jordan content zero:
 \end{enumerate}
 \end{theorem}
 
-\noindent\textbf{Importance:} This theorem identifies important classes of sets that have zero content. These results are essential for integration theory, as they show that "thin" sets don't contribute to integrals. The fact that graphs of continuous functions have zero content is particularly important.
-
-
-
-\begin{theorem}[Cavalieri's Principle for Jordan Content]
+\noindent\begin{importance}
+\textbf{Importance:}This theorem identifies important classes of sets that have zero content. These results are essential for integration theory, as they show that "thin" sets don't contribute to integrals. The fact that graphs of continuous functions have zero content is particularly important.
+\end{importance}\begin{theorem}[Cavalieri's Principle for Jordan Content]
 If $S$ is a Jordan-measurable region in $\mathbb{R}^n$ and $f$ is continuous on $S$, then the ordinate set of $f$ over $S$ has $(n+1)$-dimensional Jordan content equal to:
 \[\int_S f(x_1, \ldots, x_n) \, d(x_1, \ldots, x_n)\]
 \end{theorem}
 
-\noindent\textbf{Importance:} This principle connects integration with geometric content, showing that the integral of a function over a region equals the volume of the region "under the graph" of the function. This is the foundation for volume calculations and many applications in physics and engineering.
-
-
-
-
-
+\noindent\begin{importance}
+\textbf{Importance:}This principle connects integration with geometric content, showing that the integral of a function over a region equals the volume of the region "under the graph" of the function. This is the foundation for volume calculations and many applications in physics and engineering.
+\end{importance}
 \begin{problembox}[14.8: Jordan Content of Finite Accumulation Points]
 \begin{problemstatement}
 Let \( S \) be a bounded set in \( \mathbb{R}^n \) having at most a finite number of accumulation points. Prove that \( c(S) = 0 \).
@@ -339,49 +334,41 @@ Vertical sections at $x\in S$ are intervals of length $f(x)$; outside $S$ they a
 Geometrically: for $n=1$, the area under the curve $y=f(x)$ over $S\subset\mathbb R$; for $n=2$, the volume under the surface $z=f(x,y)$ over a planar region $S$.\qed
 \section{Advanced Topics}
 
-\subsection*{Essential Definitions and Theorems}
+\begin{definitionssection}{Definitions and Theorems}
+\end{definitionssection}
 
 \begin{definition}[Almost Everywhere Properties]
 A property holds almost everywhere (a.e.) on a set $S$ if it holds on $S$ except possibly on a set of Jordan content zero. For Riemann integrable functions, this concept is essential for understanding when functions are equal or have certain properties.
 \end{definition}
 
-\noindent\textbf{Importance:} The concept of "almost everywhere" allows us to ignore sets of zero content when working with integrals. This is crucial for many results in integration theory, as it provides a way to handle functions that may differ on negligible sets without affecting the integral.
-
-
-
-\begin{theorem}[Mean Value Theorem for Multiple Integrals]
+\noindent\begin{importance}
+\textbf{Importance:}The concept of "almost everywhere" allows us to ignore sets of zero content when working with integrals. This is crucial for many results in integration theory, as it provides a way to handle functions that may differ on negligible sets without affecting the integral.
+\end{importance}\begin{theorem}[Mean Value Theorem for Multiple Integrals]
 If $f$ is continuous on a Jordan-measurable region $S \subset \mathbb{R}^n$, then there exists an interior point $x_0 \in S$ such that:
 \[\int_S f(x) \, dx = f(x_0) \cdot c(S)\]
 \end{theorem}
 
-\noindent\textbf{Importance:} This theorem extends the fundamental mean value theorem to multiple integrals. It shows that the integral of a continuous function over a region equals the value of the function at some point times the content of the region. This is essential for understanding average values and for many applications in physics and engineering.
-
-
-
-\begin{theorem}[Equality of Mixed Partial Derivatives]
+\noindent\begin{importance}
+\textbf{Importance:}This theorem extends the fundamental mean value theorem to multiple integrals. It shows that the integral of a continuous function over a region equals the value of the function at some point times the content of the region. This is essential for understanding average values and for many applications in physics and engineering.
+\end{importance}\begin{theorem}[Equality of Mixed Partial Derivatives]
 If $f$ is continuous on a rectangle $Q = [a, b] \times [c, d]$, then for the iterated integral:
 \[F(x_1, x_2) = \int_a^{x_1} \left(\int_c^{x_2} f(x, y) \, dy\right) dx\]
 we have:
 \[D_{1,2} F(x_1, x_2) = D_{2,1} F(x_1, x_2) = f(x_1, x_2)\]
 \end{theorem}
 
-\noindent\textbf{Importance:} This theorem shows that the order of differentiation doesn't matter for iterated integrals of continuous functions. It's a key result connecting integration and differentiation in multiple variables and is essential for many applications in differential equations and analysis.
-
-
-
-\begin{theorem}[Fundamental Theorem of Calculus for Multiple Variables]
+\noindent\begin{importance}
+\textbf{Importance:}This theorem shows that the order of differentiation doesn't matter for iterated integrals of continuous functions. It's a key result connecting integration and differentiation in multiple variables and is essential for many applications in differential equations and analysis.
+\end{importance}\begin{theorem}[Fundamental Theorem of Calculus for Multiple Variables]
 If $f$ is continuous on a rectangle $Q$, then the iterated integral:
 \[F(x_1, x_2) = \int_a^{x_1} \int_c^{x_2} f(x, y) \, dy \, dx\]
 satisfies:
 \[D_1 F(x_1, x_2) = \int_c^{x_2} f(x_1, y) \, dy, \quad D_2 F(x_1, x_2) = \int_a^{x_1} f(x, x_2) \, dx\]
 \end{theorem}
 
-\noindent\textbf{Importance:} This theorem extends the fundamental theorem of calculus to multiple variables. It shows how to differentiate iterated integrals and is essential for understanding the relationship between integration and differentiation in higher dimensions.
-
-
-
-
-
+\noindent\begin{importance}
+\textbf{Importance:}This theorem extends the fundamental theorem of calculus to multiple variables. It shows how to differentiate iterated integrals and is essential for understanding the relationship between integration and differentiation in higher dimensions.
+\end{importance}
 \begin{problembox}[14.12: Zero Integral Implies Zero Function]
 \begin{problemstatement}
 Assume that \( f \in R \) on \( S \) and suppose \( \int_S f(x) \, dx = 0 \). (\( S \) is a subset of \( \mathbb{R}^n \)). Let \( A = \{ x : x \in S, f(x) < 0 \} \) and assume that \( c(A) = 0 \). Prove that there exists a set \( B \) of measure zero such that \( f(x) = 0 \) for each \( x \) in \( S - B \).
