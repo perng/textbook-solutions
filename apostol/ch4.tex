@@ -31,43 +31,57 @@ A metric space is a set $S$ together with a function $d: S \times S \to [0,\inft
 \end{enumerate}
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} Metric spaces provide the most general setting for studying convergence, continuity, and topology. They abstract the notion of distance from Euclidean space to any set where we can define a reasonable distance function. This abstraction is crucial for modern analysis and topology.
+\end{importance}
 
 \begin{theorem}[Reverse Triangle Inequality]
 For any metric space $(S,d)$ and $x,y,z \in S$: $|d(x,y) - d(x,z)| \leq d(y,z)$
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} This inequality is essential for proving that distance functions are continuous and for establishing bounds on how distances change. It's a direct consequence of the triangle inequality and is used extensively in analysis to control the behavior of distance functions.
+\end{importance}
 
 \begin{theorem}[Geometric Sequence Convergence]
 If $|z| < 1$, then $z^n \to 0$. If $|z| > 1$, then $(z^n)$ diverges.
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} This is one of the most fundamental convergence results in analysis. It provides a simple criterion for when powers of a complex number converge to zero, which is essential for understanding power series, geometric series, and many iterative processes.
+\end{importance}
 
 \begin{theorem}[Ratio Test]
 Let $(a_n)$ be a sequence of positive numbers. If $\limsup_{n \to \infty} \frac{a_{n+1}}{a_n} < 1$, then $\sum a_n$ converges. If $\liminf_{n \to \infty} \frac{a_{n+1}}{a_n} > 1$, then $\sum a_n$ diverges.
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} The ratio test is one of the most powerful and practical convergence tests for series. It compares consecutive terms to determine convergence, making it particularly useful for series with factorial or exponential terms. The use of limsup and liminf makes it robust even when the ratio doesn't have a simple limit.
+\end{importance}
 
 \begin{theorem}[Sequential Compactness]
 A metric space is compact if and only if every sequence has a convergent subsequence.
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} This theorem provides a practical way to test for compactness using sequences, which is often easier than working with open covers. It connects the topological notion of compactness to the analytical concept of sequential convergence, making it a powerful tool in analysis.
+\end{importance}
 
 \begin{theorem}[Heine-Borel Theorem]
 A subset of $\mathbb{R}^n$ is compact if and only if it is closed and bounded.
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} This is one of the most important theorems in analysis, providing a simple and practical characterization of compactness in Euclidean spaces. It connects the abstract notion of compactness to the concrete geometric properties of being closed and bounded, making it easy to identify compact sets in practice.
+\end{importance}
 
 \begin{definition}[Connected Space]
 A metric space $S$ is connected if it cannot be written as the union of two disjoint nonempty open sets.
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} Connectedness formalizes the intuitive idea that a space is "in one piece" and cannot be split into separate parts. It's essential for the intermediate value theorem and many existence proofs. Connected spaces preserve important properties under continuous functions and are fundamental in topology and analysis.
+\end{importance}
 
 \begin{problembox}[4.1: Limits of Sequences]
 \begin{problemstatement}

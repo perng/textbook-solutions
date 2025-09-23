@@ -11,7 +11,9 @@ For a function $f: S \to \mathbb{R}$ where $S \subseteq \mathbb{R}^n$, the $k$-t
 where $e_k$ is the $k$-th standard basis vector.
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} Partial derivatives measure how a function changes when we vary one variable while keeping the others fixed. They are the building blocks for understanding how multivariable functions behave and are essential for optimization, differential equations, and many applications in physics and engineering.
+\end{importance}
 
 
 
@@ -20,7 +22,9 @@ The directional derivative of $f$ at $x$ in the direction of a unit vector $u$ i
 \[f'(x; u) = \lim_{h \to 0} \frac{f(x + hu) - f(x)}{h}\]
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} Directional derivatives generalize partial derivatives to arbitrary directions. They tell us how fast a function changes as we move in a specific direction, which is crucial for understanding the local behavior of functions and for optimization algorithms.
+\end{importance}
 
 
 
@@ -30,7 +34,9 @@ A function $f: S \to \mathbb{R}^m$ is differentiable at an interior point $c$ of
 The matrix representation of $Df(c)$ is called the Jacobian matrix.
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} Fréchet differentiability provides the most general and powerful notion of differentiability for multivariable functions. It ensures that the function can be well-approximated by a linear function near the point, which is essential for calculus, optimization, and differential equations.
+\end{importance}
 
 
 
@@ -43,7 +49,9 @@ If $f$ is differentiable at $x$, then:
 \end{enumerate}
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} This theorem connects the different notions of derivatives and shows that differentiability is a strong condition that implies the existence of all partial and directional derivatives. The relationship $f'(x; u) = Df(x)u$ is particularly important for applications.
+\end{importance}
 
 
 
@@ -52,7 +60,9 @@ If $f: \mathbb{R}^n \to \mathbb{R}^m$ is differentiable at $x$ and $g: \mathbb{R
 \[D(g \circ f)(x) = Dg(f(x)) \cdot Df(x)\]
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} The chain rule is one of the most fundamental results in calculus. It allows us to compute derivatives of complicated functions by breaking them down into simpler parts. This is essential for optimization, differential equations, and many applications in science and engineering.
+\end{importance}
 
 
 

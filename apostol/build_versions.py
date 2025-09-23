@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Script to build both versions of the Apostol solutions book:
-1. With problem statements
+1. With all content (problem statements, definitions, theorems, techniques)
 2. Solutions only
 """
 
@@ -10,30 +10,21 @@ import subprocess
 import shutil
 from pathlib import Path
 
-def modify_flags(show_problems=True, show_definitions=True):
-    """Modify the showproblems and showdefinitions flags in apostol.tex"""
+def modify_flags(show_content=True):
+    """Modify the showcontent flag in apostol.tex"""
     tex_file = "apostol.tex"
     
     with open(tex_file, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    if show_problems:
-        # Set flag to show problems
-        content = content.replace(r'\showproblemsfalse', r'\showproblemstrue')
-        content = content.replace(r'\showproblemstrue  % Change this to', r'\showproblemstrue  % Change this to')
+    if show_content:
+        # Set flag to show all content (problems, definitions, theorems, techniques)
+        content = content.replace(r'\showcontentfalse', r'\showcontenttrue')
+        content = content.replace(r'\showcontenttrue  % Change this to', r'\showcontenttrue  % Change this to')
     else:
-        # Set flag to hide problems
-        content = content.replace(r'\showproblemstrue', r'\showproblemsfalse')
-        content = content.replace(r'\showproblemsfalse  % Change this to', r'\showproblemsfalse  % Change this to')
-    
-    if show_definitions:
-        # Set flag to show definitions/theorems/techniques
-        content = content.replace(r'\showdefinitionsfalse', r'\showdefinitionstrue')
-        content = content.replace(r'\showdefinitionstrue  % Change this to', r'\showdefinitionstrue  % Change this to')
-    else:
-        # Set flag to hide definitions/theorems/techniques
-        content = content.replace(r'\showdefinitionstrue', r'\showdefinitionsfalse')
-        content = content.replace(r'\showdefinitionsfalse  % Change this to', r'\showdefinitionsfalse  % Change this to')
+        # Set flag to hide all content (show solutions only)
+        content = content.replace(r'\showcontenttrue', r'\showcontentfalse')
+        content = content.replace(r'\showcontentfalse  % Change this to', r'\showcontentfalse  % Change this to')
     
     with open(tex_file, 'w', encoding='utf-8') as f:
         f.write(content)
@@ -64,18 +55,18 @@ def main():
     output_dir = Path("output")
     output_dir.mkdir(exist_ok=True)
     
-    # Version 1: With problem statements and definitions/theorems
-    print("\n1. Building version WITH problem statements and definitions/theorems...")
-    modify_flags(show_problems=True, show_definitions=True)
+    # Version 1: With all content (problem statements, definitions, theorems, techniques)
+    print("\n1. Building version WITH all content...")
+    modify_flags(show_content=True)
     if compile_latex():
         shutil.copy("apostol.pdf", output_dir / "apostol_with_problems.pdf")
         print("✓ Successfully created apostol_with_problems.pdf")
     else:
-        print("✗ Failed to compile version with problems")
+        print("✗ Failed to compile version with all content")
     
     # Version 2: Solutions only (no problems, no definitions/theorems/techniques)
-    print("\n2. Building version WITHOUT problem statements and definitions/theorems...")
-    modify_flags(show_problems=False, show_definitions=False)
+    print("\n2. Building version WITHOUT all content (solutions only)...")
+    modify_flags(show_content=False)
     if compile_latex():
         shutil.copy("apostol.pdf", output_dir / "apostol_solutions_only.pdf")
         print("✓ Successfully created apostol_solutions_only.pdf")

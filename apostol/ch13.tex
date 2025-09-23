@@ -11,7 +11,9 @@ For a $C^1$ map $f = (f_1, \ldots, f_n): \mathbb{R}^n \to \mathbb{R}^n$, the Jac
 where $Df(x)$ is the derivative matrix of $f$ at $x$.
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} The Jacobian determinant measures how the transformation $f$ changes volumes and orientations locally. It's essential for change of variables in multiple integrals, understanding local invertibility, and coordinate transformations. The sign of the Jacobian indicates whether the transformation preserves or reverses orientation.
+\end{importance}
 
 
 
@@ -20,7 +22,9 @@ If $h = f \circ g$ where $f, g: \mathbb{R}^n \to \mathbb{R}^n$ are differentiabl
 \[J_h(x) = J_f(g(x)) \cdot J_g(x)\]
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} This rule allows us to compute Jacobians of complicated transformations by breaking them down into simpler ones. It's essential for understanding how multiple coordinate changes combine and for proving properties of composite transformations.
+\end{importance}
 
 
 
@@ -29,7 +33,9 @@ If $f: \mathbb{R}^n \to \mathbb{R}^n$ is $C^1$ in a neighborhood of $x_0$ and $J
 \[Df^{-1}(f(x_0)) = [Df(x_0)]^{-1}\]
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} This theorem provides conditions under which a function has a local inverse, which is crucial for solving systems of equations, coordinate transformations, and understanding the local behavior of differentiable maps. The condition $J_f(x_0) \neq 0$ is essential.
+\end{importance}
 
 
 
@@ -38,7 +44,9 @@ For compatible vectors $u, v \in \mathbb{R}^n$:
 \[\det(I + uv^T) = 1 + v^T u\]
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} This lemma provides an efficient way to compute determinants of matrices that differ from the identity by a rank-one matrix. It's particularly useful for computing Jacobians of certain types of transformations and for understanding how small perturbations affect determinants.
+\end{importance}
 
 
 

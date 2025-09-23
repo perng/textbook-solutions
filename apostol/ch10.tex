@@ -9,7 +9,9 @@
 A function $s$ defined on an interval $I$ is called a step function if there exists a partition of $I$ into a finite number of subintervals such that $s$ is constant on each open subinterval. The integral of a step function is defined as the sum of the products of the constant values and the lengths of the corresponding subintervals.
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} Step functions are the building blocks of the Lebesgue integral. They provide the simplest class of functions for which integration is well-defined and serve as the foundation for approximating more complex functions. The integral of step functions is intuitive and provides the starting point for the Lebesgue theory.
+\end{importance}
 
 
 
@@ -17,7 +19,9 @@ A function $s$ defined on an interval $I$ is called a step function if there exi
 A function $f$ defined on an interval $I$ is called an upper function if there exists an increasing sequence of step functions $\{s_n\}$ that converges pointwise almost everywhere to $f$. The integral of $f$ is defined as $\int_I f = \lim_{n \to \infty} \int_I s_n$.
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} Upper functions extend the concept of integration from step functions to a much larger class of functions. They provide a natural way to define integrals for non-negative functions and are essential for the development of the full Lebesgue integral. The monotone convergence property makes them particularly useful for limit operations.
+\end{importance}
 
 
 
@@ -25,7 +29,9 @@ A function $f$ defined on an interval $I$ is called an upper function if there e
 If $s$ and $t$ are step functions on $I$ with $s \leq t$, then $\int_I s \leq \int_I t$.
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} This fundamental property ensures that integration preserves order, which is essential for the consistency of the integral. It allows us to compare integrals of different functions and is the foundation for many important inequalities in analysis. This property extends to all Lebesgue integrable functions.
+\end{importance}
 
 
 
@@ -38,7 +44,9 @@ For any functions $f$ and $g$ on an interval $I$, we have:
 \end{align*}
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} These algebraic properties of max and min functions are crucial for the development of the Lebesgue integral. They allow us to decompose complex functions into simpler components and are essential for proving many fundamental properties of integration. These identities are used extensively in functional analysis and measure theory.
+\end{importance}
 
 
 
@@ -46,7 +54,9 @@ For any functions $f$ and $g$ on an interval $I$, we have:
 If $\{f_n\}$ is an increasing sequence of upper functions that converges pointwise almost everywhere to a function $f$, then $f$ is an upper function and $\int_I f = \lim_{n \to \infty} \int_I f_n$.
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} This is one of the most powerful results in integration theory. It allows us to interchange limits and integrals under very general conditions, which is essential for many applications in analysis. This theorem is the foundation for the Lebesgue dominated convergence theorem and is crucial for functional analysis.
+\end{importance}
 
 
 

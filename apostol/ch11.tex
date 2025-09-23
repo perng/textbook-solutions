@@ -9,7 +9,9 @@
 A collection of functions $\{\varphi_n\}$ defined on an interval $[a, b]$ is called an orthogonal system if $\langle \varphi_m, \varphi_n \rangle = 0$ for all $m \neq n$, where $\langle f, g \rangle = \int_a^b f(x) \overline{g(x)} \, dx$ is the inner product. If in addition $\|\varphi_n\| = 1$ for all $n$, the system is called orthonormal.
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} Orthogonal systems provide the foundation for Fourier analysis and many other areas of mathematics. They allow us to decompose complex functions into simpler components and are essential for understanding function spaces. The orthogonality property makes calculations much simpler and provides geometric intuition for function approximation.
+\end{importance}
 
 
 
@@ -17,7 +19,9 @@ A collection of functions $\{\varphi_n\}$ defined on an interval $[a, b]$ is cal
 For a function $f$ and an orthonormal system $\{\varphi_n\}$, the Fourier coefficients are defined as $c_n = \langle f, \varphi_n \rangle = \int_a^b f(x) \overline{\varphi_n(x)} \, dx$. The Fourier series of $f$ is the formal sum $\sum_{n=0}^{\infty} c_n \varphi_n(x)$.
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} Fourier coefficients provide the best approximation of a function in terms of the given orthogonal system. They encode the "frequency content" of the function and are essential for understanding how functions can be represented as infinite series. The study of convergence of Fourier series is central to harmonic analysis.
+\end{importance}
 
 
 
@@ -25,7 +29,9 @@ For a function $f$ and an orthonormal system $\{\varphi_n\}$, the Fourier coeffi
 For any function $f$ and orthonormal system $\{\varphi_n\}$, we have $\sum_{n=0}^{\infty} |c_n|^2 \leq \|f\|^2$, where $c_n$ are the Fourier coefficients of $f$.
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} Bessel's inequality provides a fundamental bound on the Fourier coefficients and ensures that the series $\sum |c_n|^2$ converges. This is essential for the convergence theory of Fourier series and provides a measure of how well a function can be approximated by its Fourier series. It's the foundation for many convergence results.
+\end{importance}
 
 
 
@@ -33,7 +39,9 @@ For any function $f$ and orthonormal system $\{\varphi_n\}$, we have $\sum_{n=0}
 If $\{\varphi_n\}$ is a complete orthonormal system and $f$ is square-integrable, then $\sum_{n=0}^{\infty} |c_n|^2 = \|f\|^2$, where $c_n$ are the Fourier coefficients of $f$.
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} Parseval's identity is one of the most important results in Fourier analysis. It shows that the Fourier transform preserves the "energy" of the function and provides a precise relationship between the function and its Fourier coefficients. This identity is crucial for many applications in physics and engineering.
+\end{importance}
 
 
 
@@ -41,7 +49,9 @@ If $\{\varphi_n\}$ is a complete orthonormal system and $f$ is square-integrable
 Given a linearly independent system $\{f_n\}$, there exists an orthonormal system $\{\varphi_n\}$ such that the span of $\{\varphi_0, \ldots, \varphi_n\}$ equals the span of $\{f_0, \ldots, f_n\}$ for each $n$.
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} The Gram-Schmidt process provides a systematic way to construct orthonormal bases from any linearly independent system. This is essential for many applications where we need to work with orthogonal functions but only have access to non-orthogonal ones. It's a fundamental tool in linear algebra and functional analysis.
+\end{importance}
 
 
 

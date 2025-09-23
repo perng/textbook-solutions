@@ -9,7 +9,9 @@ For a bounded function $f$ on a rectangle $Q = [a_1, b_1] \times \cdots \times [
 \[\int_Q f = \inf\{U(f, P) : P \text{ is a partition}\} = \sup\{L(f, P) : P \text{ is a partition}\}\]
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} This definition extends the concept of Riemann integration to higher dimensions. The integrability criterion based on vanishing total oscillation provides a practical way to determine when functions are integrable. This is the foundation for multiple integration theory.
+\end{importance}
 
 
 
@@ -19,7 +21,9 @@ For a partition $P$ of a rectangle $Q$, the upper and lower Darboux sums are:
 where $M_R(f) = \sup\{f(x) : x \in R\}$ and $m_R(f) = \inf\{f(x) : x \in R\}$.
 \end{definition}
 
+\begin{importance}
 \noindent\textbf{Importance:} These sums provide the fundamental tools for defining and computing multiple integrals. They give upper and lower bounds for the integral and are essential for proving integrability criteria and convergence results.
+\end{importance}
 
 
 
@@ -28,7 +32,9 @@ If $f \in R[a, b]$ and $g \in R[c, d]$, then the product function $h(x, y) = f(x
 \[\int_{[a,b] \times [c,d]} f(x)g(y) \, d(x, y) = \left(\int_a^b f(x) \, dx\right) \left(\int_c^d g(y) \, dy\right)\]
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} This theorem allows us to factor multiple integrals when the integrand separates into a product of functions of different variables. It's essential for computing many integrals and is the foundation for Fubini's theorem and iterated integration.
+\end{importance}
 
 
 
@@ -36,7 +42,9 @@ If $f \in R[a, b]$ and $g \in R[c, d]$, then the product function $h(x, y) = f(x
 If a bounded function $f$ on a rectangle $Q$ is monotone in each variable separately, then $f$ is Riemann integrable on $Q$.
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} This theorem provides a large class of functions that are guaranteed to be integrable. Monotone functions are common in applications, and this result ensures that many practical problems can be solved using Riemann integration.
+\end{importance}
 
 
 
@@ -45,7 +53,9 @@ If $f$ is continuous (or piecewise continuous) on a rectangle $Q = [a, b] \times
 \[\int_Q f(x, y) \, d(x, y) = \int_a^b \left(\int_c^d f(x, y) \, dy\right) dx = \int_c^d \left(\int_a^b f(x, y) \, dx\right) dy\]
 \end{theorem}
 
+\begin{importance}
 \noindent\textbf{Importance:} This theorem allows us to compute multiple integrals by iterated integration, which is often much easier than direct computation. It's the fundamental tool for evaluating double and triple integrals and is essential for applications in physics, engineering, and probability.
+\end{importance}
 
 
 
