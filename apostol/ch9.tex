@@ -31,9 +31,11 @@ b + \frac{1}{n} & \text{if } x \text{ is rational, say } x = \frac{a}{b}, \quad 
 \end{cases}\]
 Let \( h_n(x) = f_n(x) g_n(x) \).
 
-a) Prove that both \(\{f_n\}\) and \(\{g_n\}\) converge uniformly on every bounded interval.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that both \(\{f_n\}\) and \(\{g_n\}\) converge uniformly on every bounded interval.
 
-b) Prove that \(\{h_n\}\) does not converge uniformly on any bounded interval.
+\item Prove that \(\{h_n\}\) does not converge uniformly on any bounded interval.
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -57,9 +59,11 @@ However, this bound is not uniform. Let's fix this: for any \( \varepsilon > 0 \
 \begin{problemstatement}
 Assume that \( f_n \to f \) uniformly on \( S \), \( g_n \to g \) uniformly on \( S \).
 
-a) Prove that \( f_n + g_n \to f + g \) uniformly on \( S \).
+\begin{enumerate}[label=(\alph*)]
+\item Prove that \( f_n + g_n \to f + g \) uniformly on \( S \).
 
-b) Let \( h_n(x) = f_n(x) g_n(x) \), \( h(x) = f(x) g(x) \), if \( x \in S \). Exercise 9.2 shows that the assertion \( h_n \to h \) uniformly on \( S \) is, in general, incorrect. Prove that it is correct if each \( f_n \) and each \( g_n \) is bounded on \( S \).
+\item Let \( h_n(x) = f_n(x) g_n(x) \), \( h(x) = f(x) g(x) \), if \( x \in S \). Exercise 9.2 shows that the assertion \( h_n \to h \) uniformly on \( S \) is, in general, incorrect. Prove that it is correct if each \( f_n \) and each \( g_n \) is bounded on \( S \).
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -102,9 +106,11 @@ proving that \( h_n \to h \) uniformly on \( S \).\qed
 
 \begin{problembox}[9.5: Pointwise vs uniform convergence]
 \begin{problemstatement}
-a) Let \( f_n(x) = 1/(nx + 1) \) if \( 0 < x < 1, n = 1, 2, \ldots \). Prove that \( \{f_n\} \) converges pointwise but not uniformly on (0, 1).
+\begin{enumerate}[label=(\alph*)]
+\item Let \( f_n(x) = 1/(nx + 1) \) if \( 0 < x < 1, n = 1, 2, \ldots \). Prove that \( \{f_n\} \) converges pointwise but not uniformly on (0, 1).
 
-b) Let \( g_n(x) = x/(nx + 1) \) if \( 0 < x < 1, n = 1, 2, \ldots \). Prove that \( g_n \to 0 \) uniformly on (0, 1).
+\item Let \( g_n(x) = x/(nx + 1) \) if \( 0 < x < 1, n = 1, 2, \ldots \). Prove that \( g_n \to 0 \) uniformly on (0, 1).
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -196,9 +202,11 @@ By (ii), for \( n > m \) and any \( k \in A \), we have \( |f_{k+n}(x) - f(x)| <
 
 \begin{problembox}[9.9: Dini's theorem]
 \begin{problemstatement}
-a) Use Exercise 9.8 to prove the following theorem of Dini: If \( \{f_n\} \) is a sequence of real-valued continuous functions converging pointwise to a continuous limit function \( f \) on a compact set \( S \), and if \( f_n(x) \geq f_{n+1}(x) \) for each \( x \) in \( S \) and every \( n = 1, 2, \ldots \), then \( f_n \to f \) uniformly on \( S \).
+\begin{enumerate}[label=(\alph*)]
+\item Use Exercise 9.8 to prove the following theorem of Dini: If \( \{f_n\} \) is a sequence of real-valued continuous functions converging pointwise to a continuous limit function \( f \) on a compact set \( S \), and if \( f_n(x) \geq f_{n+1}(x) \) for each \( x \) in \( S \) and every \( n = 1, 2, \ldots \), then \( f_n \to f \) uniformly on \( S \).
 
-b) Use the sequence in Exercise 9.5(a) to show that compactness of \( S \) is essential in Dini's theorem.
+\item Use the sequence in Exercise 9.5(a) to show that compactness of \( S \) is essential in Dini's theorem.
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -309,11 +317,13 @@ This proves uniform convergence of \( \sum f_n(x)g_n(x) \).\qed
 \begin{problemstatement}
 Let \( f_n(x) = x/(1 + nx^2) \) if \( x \in R, n = 1, 2, \ldots \). Find the limit function \( f \) of the sequence \(\{f_n\}\) and the limit function \( g \) of the sequence \(\{f'_n\}\).
 
-a) Prove that \( f'(x) \) exists for every \( x \) but that \( f'(0) \neq g(0) \). For what values of \( x \) is \( f'(x) = g(x) \)?
+\begin{enumerate}[label=(\alph*)]
+\item Prove that \( f'(x) \) exists for every \( x \) but that \( f'(0) \neq g(0) \). For what values of \( x \) is \( f'(x) = g(x) \)?
 
-b) In what subintervals of \( R \) does \( f_n \to f \) uniformly?
+\item In what subintervals of \( R \) does \( f_n \to f \) uniformly?
 
-c) In what subintervals of \( R \) does \( f'_n \to g \) uniformly?
+\item In what subintervals of \( R \) does \( f'_n \to g \) uniformly?
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -596,9 +606,11 @@ Therefore, \( f = g \) almost everywhere on [a, b]. Since both \( f \) and \( g 
 \begin{problemstatement}
 Let \( f_n(x) = \cos^n x \) if \( 0 \leq x \leq \pi \).
 
-a) Prove that l.i.m.\(_{n\to\infty}\) \( f_n = 0 \) on [0, \(\pi\)] but that \( \{f_n(\pi)\} \) does not converge.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that l.i.m.\(_{n\to\infty}\) \( f_n = 0 \) on [0, \(\pi\)] but that \( \{f_n(\pi)\} \) does not converge.
 
-b) Prove that \( \{f_n\} \) converges pointwise but not uniformly on [0, \(\pi/2\)].
+\item Prove that \( \{f_n\} \) converges pointwise but not uniformly on [0, \(\pi/2\)].
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -667,7 +679,11 @@ Therefore, the radius of convergence \( r \) satisfies:
 \begin{problemstatement}
 Given that the power series \( \sum_{n=0}^{\infty} a_nz^n \) has radius of convergence 2. Find the radius of convergence of each of the following series:
 
-a) \( \sum_{n=0}^{\infty} a_n^k z^n \),    b) \( \sum_{n=0}^{\infty} a_nz^{kn} \),    c) \( \sum_{n=0}^{\infty} a_nz^{n^2} \).
+\begin{enumerate}[label=(\alph*)]
+\item \( \sum_{n=0}^{\infty} a_n^k z^n \),    
+\item \( \sum_{n=0}^{\infty} a_nz^{kn} \),    
+\item \( \sum_{n=0}^{\infty} a_nz^{n^2} \).
+\end{enumerate}
 
 In (a) and (b), \( k \) is a fixed positive integer.
 \end{problemstatement}
@@ -714,9 +730,11 @@ Therefore:
 \begin{problemstatement}
 Let \( f(x) = e^{-1/x^2} \) if \( x \neq 0 \), \( f(0) = 0 \).
 
-a) Show that \( f^{(n)}(0) \) exists for all \( n \geq 1 \).
+\begin{enumerate}[label=(\alph*)]
+\item Show that \( f^{(n)}(0) \) exists for all \( n \geq 1 \).
 
-b) Show that the Taylor's series about 0 generated by \( f \) converges everywhere on \( R \) but that it represents \( f \) only at the origin.
+\item Show that the Taylor's series about 0 generated by \( f \) converges everywhere on \( R \) but that it represents \( f \) only at the origin.
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -743,9 +761,11 @@ This series converges everywhere on \( R \) (it's identically 0), but it only eq
 \begin{problemstatement}
 Show that the binomial series \( (1 + x)^\alpha = \sum_{n=0}^\infty \binom{\alpha}{n} x^n \) exhibits the following behavior at the points \( x = \pm 1 \).
 
-a) If \( x = -1 \), the series converges for \( \alpha \geq 0 \) and diverges for \( \alpha < 0 \).
+\begin{enumerate}[label=(\alph*)]
+\item If \( x = -1 \), the series converges for \( \alpha \geq 0 \) and diverges for \( \alpha < 0 \).
 
-b) If \( x = 1 \), the series diverges for \( \alpha \leq -1 \), converges conditionally for \( \alpha \) in the interval \(-1 < \alpha < 0 \), and converges absolutely for \( \alpha \geq 0 \).
+\item If \( x = 1 \), the series diverges for \( \alpha \leq -1 \), converges conditionally for \( \alpha \) in the interval \(-1 < \alpha < 0 \), and converges absolutely for \( \alpha \geq 0 \).
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -838,23 +858,25 @@ But we also have \( \lim_{x \to 1^-} \sum a_n x^n = A \). Therefore, \( S = A \)
 \begin{problemstatement}
 For each real \( t \), define \( f_t(x) = xe^{xt}/(e^x - 1) \) if \( x \in R \), \( x \neq 0 \), \( f_t(0) = 1 \).
 
-a) Show that there is a disk \( B(0; \delta) \) in which \( f_t \) is represented by a power series in \( x \).
+\begin{enumerate}[label=(\alph*)]
+\item Show that there is a disk \( B(0; \delta) \) in which \( f_t \) is represented by a power series in \( x \).
 
-b) Define \( P_0(t), P_1(t), P_2(t), \ldots \), by the equation
+\item Define \( P_0(t), P_1(t), P_2(t), \ldots \), by the equation
 \[f_t(x) = \sum_{n=0}^\infty P_n(t) \frac{x^n}{n!}, \quad \text{if } x \in B(0; \delta),\]
 and use the identity
 \[\sum_{n=0}^\infty P_n(t) \frac{x^n}{n!} = e^{tx} \sum_{n=0}^\infty P_n(0) \frac{x^n}{n!}\]
 to prove that \( P_n(t) = \sum_{k=0}^n \binom{n}{k} P_k(0)t^{n-k} \). This shows that each function \( P_n \) is a polynomial. These are the Bernoulli polynomials. The numbers \( B_n = P_n(0) \) (\( n = 0, 1, 2, \ldots \)) are called the Bernoulli numbers. Derive the following further properties:
 
-c) \( B_0 = 1, \quad B_1 = -\frac{1}{2}, \quad \sum_{k=0}^{n-1} \binom{n}{k} B_k = 0, \quad \text{if } n = 2, 3, \ldots \)
+\item \( B_0 = 1, \quad B_1 = -\frac{1}{2}, \quad \sum_{k=0}^{n-1} \binom{n}{k} B_k = 0, \quad \text{if } n = 2, 3, \ldots \)
 
-d) \( P_n'(t) = nP_{n-1}(t), \quad \text{if } n = 1, 2, \ldots \)
+\item \( P_n'(t) = nP_{n-1}(t), \quad \text{if } n = 1, 2, \ldots \)
 
-e) \( P_n(t + 1) - P_n(t) = nt^{n-1} \quad \text{if } n = 1, 2, \ldots \)
+\item \( P_n(t + 1) - P_n(t) = nt^{n-1} \quad \text{if } n = 1, 2, \ldots \)
 
-f) \( P_n(1 - t) = (-1)^n P_n(t) \quad g) B_{2n+1} = 0 \quad \text{if } n = 1, 2, \ldots \)
+\item \( P_n(1 - t) = (-1)^n P_n(t) \quad g) B_{2n+1} = 0 \quad \text{if } n = 1, 2, \ldots \)
 
-h) \( 1^n + 2^n + \cdots + (k - 1)^n = \frac{P_{n+1}(k) - P_{n+1}(0)}{n + 1} \quad (n = 2, 3, \ldots ) \).
+\item \( 1^n + 2^n + \cdots + (k - 1)^n = \frac{P_{n+1}(k) - P_{n+1}(0)}{n + 1} \quad (n = 2, 3, \ldots ) \).
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 

@@ -104,9 +104,11 @@ Hence the lower integral is $\ge \alpha(b)-\alpha(d)>0$, so $\int_a^b f\,d\alpha
 \begin{problemstatement}
 The following definition of a Riemann-Stieltjes integral is often used in the literature: We say $f$ is integrable with respect to $\alpha$ if there exists a real number $A$ having the property that for every $\epsilon > 0$, there exists a $\delta > 0$ such that for every partition $P$ of $[a, b]$ with norm $\|P\| < \delta$ and for every choice of $t_k$ in $[x_{k-1}, x_k]$, we have $|S(P, f, \alpha) - A| < \epsilon$.
 
-a) Show that if $\int_a^b f d\alpha$ exists according to this definition, then it also exists according to Definition 7.1 and the two integrals are equal.
+\begin{enumerate}[label=(\alph*)]
+\item  Show that if $\int_a^b f d\alpha$ exists according to this definition, then it also exists according to Definition 7.1 and the two integrals are equal.
 
-b) Let $f(x) = \alpha(x) = 0$ for $a \leq x < c$, $f(x) = \alpha(x) = 1$ for $c < x \leq b$, $f(c) = 0$, $\alpha(c) = 1$. Show that $\int_a^b f d\alpha$ exists according to Definition 7.1 but does not exist by this second definition.
+\item  Let $f(x) = \alpha(x) = 0$ for $a \leq x < c$, $f(x) = \alpha(x) = 1$ for $c < x \leq b$, $f(c) = 0$, $\alpha(c) = 1$. Show that $\int_a^b f d\alpha$ exists according to Definition 7.1 but does not exist by this second definition.
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -182,9 +184,11 @@ Since $A(1)=a_1$ and the jump at $1$ is included in the left limit, the endpoint
 \begin{problemstatement}
 Use Euler's summation formula, or integration by parts in a Stieltjes integral, to derive the following identities:
 
-a) \[ \sum_{k=1}^n \frac{1}{k^s} = \frac{1}{n^{s-1}} + s \int_1^n \frac{[x]}{x^{s+1}} dx \quad \text{if } s \neq 1. \]
+\begin{enumerate}[label=(\alph*)]
+\item \[ \sum_{k=1}^n \frac{1}{k^s} = \frac{1}{n^{s-1}} + s \int_1^n \frac{[x]}{x^{s+1}} dx \quad \text{if } s \neq 1. \]
 
-b) \[ \sum_{k=1}^n \frac{1}{k} = \log n - \int_1^n \frac{x - [x]}{x^2} dx + 1. \]
+\item \[ \sum_{k=1}^n \frac{1}{k} = \log n - \int_1^n \frac{x - [x]}{x^2} dx + 1. \]
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -286,13 +290,15 @@ This is usually proved by studying a related function $\mathcal{G}$ given by
 \[\mathcal{G}(x) = \sum_{p \leq x} \log p,\]
 where again the sum is extended over all primes $p \leq x$. Both functions $\pi$ and $\mathcal{G}$ are step functions with jumps at the primes. This exercise shows how the Riemann-Stieltjes integral can be used to relate these two functions.
 
-a) If $x \geq 2$, prove that $\pi(x)$ and $\mathcal{G}(x)$ can be expressed as the following Riemann-Stieltjes integrals:
+\begin{enumerate}[label=(\alph*)]
+\item If $x \geq 2$, prove that $\pi(x)$ and $\mathcal{G}(x)$ can be expressed as the following Riemann-Stieltjes integrals:
 \[\mathcal{G}(x) = \int_{3/2}^{x} \log t d\pi(t), \quad \pi(x) = \int_{3/2}^{x} \frac{1}{\log t} d\mathcal{G}(t).\]
 NOTE. The lower limit can be replaced by any number in the open interval (1, 2).
 
-b) If $x \geq 2$, use integration by parts to show that
+\item If $x \geq 2$, use integration by parts to show that
 \[\mathcal{G}(x) = \pi(x) \log x - \int_{2}^{x} \frac{\pi(t)}{t} dt,\]
 \[\pi(x) = \frac{\mathcal{G}(x)}{\log x} + \int_{2}^{x} \frac{\mathcal{G}(t)}{t \log^{2} t} dt.\]
+\end{enumerate}
 
 These equations can be used to prove that the prime number theorem is equivalent to the relation $\lim_{x \to \infty} \mathcal{G}(x)/x = 1$.
 \end{problemstatement}
@@ -317,9 +323,11 @@ These show the equivalence of the prime number theorem with $\mathcal{G}(x)\sim 
 \begin{problembox}[7.11: Properties of Integrals]
 \begin{problemstatement}
 If $\alpha \neq \infty$ on $[a, b]$, prove that we have
-a) \[\int_{a}^{b} f dx = \int_{a}^{c} f dx + \int_{c}^{b} f dx, \quad (a < c < b),\]
-b) \[\int_{a}^{b} (f + g) dx \leq \int_{a}^{b} f dx + \int_{a}^{b} g dx,\]
-c) \[\int_{a}^{b} (f + g) dx \geq \int_{a}^{b} f dx + \int_{a}^{b} g dx.\]
+\begin{enumerate}[label=(\alph*)]
+\item \[\int_{a}^{b} f dx = \int_{a}^{c} f dx + \int_{c}^{b} f dx, \quad (a < c < b),\]
+\item \[\int_{a}^{b} (f + g) dx \leq \int_{a}^{b} f dx + \int_{a}^{b} g dx,\]
+\item \[\int_{a}^{b} (f + g) dx \geq \int_{a}^{b} f dx + \int_{a}^{b} g dx.\]
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -352,10 +360,12 @@ Take $\alpha(x)=x$ and define $f(x)=1$ if $x$ is rational and $f(x)=-1$ if $x$ i
 \begin{problembox}[7.13: Integral Representation]
 \begin{problemstatement}
 Let $\alpha$ be a continuous function of bounded variation on $[a, b]$. Assume $g \in R(\alpha)$ on $[a, b]$ and define $\beta(x) = \int_{\alpha}^{\beta} g(t) d\alpha(t)$ if $x \in [a, b]$. Show that:
-a) If $f \neq \infty$ on $[a, b]$, there exists a point $x_0$ in $[a, b]$ such that
+\begin{enumerate}[label=(\alph*)]
+\item If $f \neq \infty$ on $[a, b]$, there exists a point $x_0$ in $[a, b]$ such that
 \[\int_{a}^{b} f dB = f(a) \int_{a}^{x_0} g dx + f(b) \int_{x_0}^{b} g dx.\]
-b) If, in addition, $f$ is continuous on $[a, b]$, we also have
+\item If, in addition, $f$ is continuous on $[a, b]$, we also have
 \[\int_{a}^{b} f(x)g(x) d\alpha(x) = f(a) \int_{a}^{x_0} g dx + f(b) \int_{x_0}^{b} g dx.\]
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -517,9 +527,11 @@ By 7.4 the strong Riemann definition holds, hence the right-endpoint sums conver
 \begin{problemstatement}
 Define 
 \[f(x) = \left( \int_0^x e^{-t^2} dt \right)^2, \quad g(x) = \int_0^1 \frac{e^{-x^2(t^2+1)}}{t^2 + 1} dt.\]
-a) Show that $g'(x) + f'(x) = 0$ for all $x$ and deduce that $g(x) + f(x) = \pi / 4$.
-b) Use (a) to prove that 
+\begin{enumerate}[label=(\alph*)]
+\item Show that $g'(x) + f'(x) = 0$ for all $x$ and deduce that $g(x) + f(x) = \pi / 4$.
+\item Use (a) to prove that 
 \[\lim_{x \to \infty} \int_0^x e^{-t^2} dt = \frac{1}{2} \sqrt{\pi}.\]
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -572,9 +584,11 @@ For a partition $P$, the polygonal length is $\sum\|f(x_k)-f(x_{k-1})\|$. By the
 \begin{problemstatement}
 If $f^{(n+1)}$ is continuous on $[a, x]$, define 
 \[I_n(x) = \frac{1}{n!} \int_a^x (x - t)^n f^{(n+1)}(t) dt.\]
-a) Show that 
+\begin{enumerate}[label=(\alph*)]
+\item Show that 
 \[I_{k-1}(x) - I_k(x) = \frac{f^{(k)}(a)(x - a)^k}{k!}, \quad k = 1, 2, \ldots, n.\]
-b) Use (a) to express the remainder in Taylor's formula (Theorem 5.19) as an integral.
+\item Use (a) to express the remainder in Taylor's formula (Theorem 5.19) as an integral.
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -596,13 +610,15 @@ so the remainder is $R_n(x)=I_n(x)=\dfrac{1}{n!}\int_a^x (x-t)^n f^{(n+1)}(t)dt$
 \begin{problemstatement}
 Let $f$ be continuous on $[0, a]$. If $x \in [0, a]$, define $f_0(x) = f(x)$ and let 
 \[f_{n+1}(x) = \frac{1}{n!} \int_0^x (x - t)^n f(t) dt, \quad n = 0, 1, 2, \ldots\]
-a) Show that the nth derivative of $f_n$ exists and equals $f$.
-b) Prove the following theorem of M. Fekete: The number of changes in sign of $f$ in $[0, a]$ is not less than the number of changes in sign in the ordered set of numbers 
+\begin{enumerate}[label=(\alph*)]
+\item Show that the nth derivative of $f_n$ exists and equals $f$.
+\item Prove the following theorem of M. Fekete: The number of changes in sign of $f$ in $[0, a]$ is not less than the number of changes in sign in the ordered set of numbers 
 \[f(a), f_1(a), \ldots, f_n(a).\]
 Hint. Use mathematical induction.
 
-c) Use (b) to prove the following theorem of L. Fejér: The number of changes in sign of $f$ in $[0, a]$ is not less than the number of changes in sign in the ordered set
+\item Use (b) to prove the following theorem of L. Fejér: The number of changes in sign of $f$ in $[0, a]$ is not less than the number of changes in sign in the ordered set
 \[f(0), \quad \int_{a}^{b} f(t) dt, \quad \int_{a}^{b} t f(t) dt, \quad \ldots, \quad \int_{a}^{b} t^{n} f(t) dt.\]
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -647,11 +663,13 @@ A function $f$ of two real variables is defined for each point $(x, y)$ in the u
 2y, & \text{if } x \text{ is irrational}.
 \end{cases}\]
 
-a) Compute $\int_{0}^{1} f(x, y) dx$ and $\int_{0}^{1} f(x, y) dx$ in terms of $y$.
+\begin{enumerate}[label=(\alph*)]
+\item Compute $\int_{0}^{1} f(x, y) dx$ and $\int_{0}^{1} f(x, y) dx$ in terms of $y$.
 
-b) Show that $\int_{0}^{1} f(x, y) dy$ exists for each fixed $x$ and compute $\int_{0}^{1} f(x, y) dy$ in terms of $x$ and $t$ for $0 \leq x \leq 1, 0 \leq t \leq 1$.
+\item Show that $\int_{0}^{1} f(x, y) dy$ exists for each fixed $x$ and compute $\int_{0}^{1} f(x, y) dy$ in terms of $x$ and $t$ for $0 \leq x \leq 1, 0 \leq t \leq 1$.
 
-c) Let $F(x) = \int_{0}^{1} f(x, y) dy$. Show that $\int_{0}^{1} F(x) dx$ exists and find its value.
+\item Let $F(x) = \int_{0}^{1} f(x, y) dy$. Show that $\int_{0}^{1} F(x) dx$ exists and find its value.
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -672,11 +690,13 @@ c) Let $F(x) = \int_{0}^{1} f(x, y) dy$. Show that $\int_{0}^{1} F(x) dx$ exists
 \begin{problemstatement}
 Let $f$ be defined on $[0, 1]$ as follows: $f(0) = 0; \text{ if } 2^{-n-1} < x \leq 2^{-n}, \text{ then } f(x) = 2^{-n}, \text{ for } n = 0, 1, 2, \ldots$
 
-a) Give two reasons why $\int_{0}^{1} f(x) dx$ exists.
+\begin{enumerate}[label=(\alph*)]
+\item Give two reasons why $\int_{0}^{1} f(x) dx$ exists.
 
-b) Let $F(x) = \int_{0}^{1} f(t) dt$. Show that for $0 < x \leq 1$ we have
+\item Let $F(x) = \int_{0}^{1} f(t) dt$. Show that for $0 < x \leq 1$ we have
 \[F(x) = xA(x) - \frac{1}{3} A(x)^{2},\]
 where $A(x) = 2^{-1-\lfloor \log x / \log 2 \rfloor}$ and where $[y]$ is the greatest integer in $y$.
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -784,10 +804,12 @@ Write $h(x)=\exp(g(x)\log f(x))$. Since $f\ge m>0$ and $f,g\in R$, the functions
 \begin{problembox}[7.32: Cantor Set Properties]
 \begin{problemstatement}
 Let $I = [0, 1]$ and let $A_1 = I - (\frac{1}{3}, \frac{2}{3})$ be that subset of $I$ obtained by removing those points which lie in the open middle third of $I$; that is, $A_1 = [0, \frac{1}{3}] \cup [\frac{2}{3}, 1]$. Let $A_2$ be that subset of $A_1$ obtained by removing the open middle third of $[0, \frac{1}{3}]$ and of $[\frac{2}{3}, 1]$. Continue this process and define $A_3, A_4, \ldots$. The set $C = \bigcap_{n=1}^{\infty} A_n$ is called the Cantor set. Prove that:
-a) $C$ is a compact set having measure zero.
-b) $x \in C$ if, and only if, $x = \sum_{n=1}^{\infty} a_n^{3-n}$, where each $a_n$ is either 0 or 2.
-c) $C$ is uncountable.
-d) Let $f(x) = 1$ if $x \in C, f(x) = 0$ if $x \notin C$. Prove that $f \in R$ on $[0, 1]$.
+\begin{enumerate}[label=(\alph*)]
+\item $C$ is a compact set having measure zero.
+\item $x \in C$ if, and only if, $x = \sum_{n=1}^{\infty} a_n^{3-n}$, where each $a_n$ is either 0 or 2.
+\item $C$ is uncountable.
+\item Let $f(x) = 1$ if $x \in C, f(x) = 0$ if $x \notin C$. Prove that $f \in R$ on $[0, 1]$.
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -809,17 +831,19 @@ d) Let $f(x) = 1$ if $x \in C, f(x) = 0$ if $x \notin C$. Prove that $f \in R$ o
 \begin{problembox}[7.33: Irrationality of $\pi^2$]
 \begin{problemstatement}
 This exercise outlines a proof (due to Ivan Niven) that $\pi^2$ is irrational. Let $f(x) = x^n(1 - x)^n/n!$. Prove that:
-a) $0 < f(x) < 1/n!$ if $0 < x < 1$.
-b) Each $k$th derivative $f^{(k)}(0)$ and $f^{(k)}(1)$ is an integer.
+\begin{enumerate}[label=(\alph*)]
+\item $0 < f(x) < 1/n!$ if $0 < x < 1$.
+\item Each $k$th derivative $f^{(k)}(0)$ and $f^{(k)}(1)$ is an integer.
 
 Now assume that $\pi^2 = a/b$, where $a$ and $b$ are positive integers, and let
 \[F(x) = b^n \sum_{k=0}^{n} (-1)^k f^{(2k)}(x) \pi^{2n-2k}.\]
 
 Prove that:
-c) $F(0)$ and $F(1)$ are integers.
-d) $\pi^2 a^n f(x) \sin \pi x = \frac{d}{dx} \{ F'(x) \sin \pi x - \pi F(x) \cos \pi x \}$.
-e) $F(1) + F(0) = \pi a^n \int_{0}^{1} f(x) \sin \pi x dx$.
-f) Use (a) in (e) to deduce that $0 < F(1) + F(0) < 1$ if $n$ is sufficiently large. This contradicts (c) and shows that $\pi^2$ (and hence $\pi$) is irrational.
+\item $F(0)$ and $F(1)$ are integers.
+\item $\pi^2 a^n f(x) \sin \pi x = \frac{d}{dx} \{ F'(x) \sin \pi x - \pi F(x) \cos \pi x \}$.
+\item $F(1) + F(0) = \pi a^n \int_{0}^{1} f(x) \sin \pi x dx$.
+\item Use (a) in (e) to deduce that $0 < F(1) + F(0) < 1$ if $n$ is sufficiently large. This contradicts (c) and shows that $\pi^2$ (and hence $\pi$) is irrational.
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -928,8 +952,10 @@ and recall that $C[a,b]$ is a complete metrics space (Exercise 4.67).
 Given a function $g$ in $C[a, b]$, and a function $K$ continuous on the rectangle $Q = [a, b] \times [a, b]$, consider the function $T$ defined on $C[a, b]$ by the equation 
 \[T(\varphi)(x) = g(x) + \lambda \int_a^b K(x, t)\varphi(t) dt,\]
 where $\lambda$ is a given constant.
-a) Prove that $T$ maps $C[a, b]$ into itself.
-b) If $|K(x, y)| \leq M$ on $Q$, where $M > 0$, and if $|\lambda| < M^{-1}(b - a)^{-1}$, prove that $T$ is a contraction of $C[a, b]$ and hence has a fixed point $\varphi$ which is a solution of the integral equation $\varphi(x) = g(x) + \lambda \int_a^b K(x, t)\varphi(t) dt$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that $T$ maps $C[a, b]$ into itself.
+\item If $|K(x, y)| \leq M$ on $Q$, where $M > 0$, and if $|\lambda| < M^{-1}(b - a)^{-1}$, prove that $T$ is a contraction of $C[a, b]$ and hence has a fixed point $\varphi$ which is a solution of the integral equation $\varphi(x) = g(x) + \lambda \int_a^b K(x, t)\varphi(t) dt$.
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
@@ -950,15 +976,17 @@ If $|\lambda|<\big(M(b-a)\big)^{-1}$, $T$ is a contraction, hence has a unique f
 \begin{problembox}[7.37: Existence and Uniqueness of Differential Equations]
 \begin{problemstatement}
 Assume $f$ is continuous on a rectangle $Q = [a - h, a + h] \times [b - k, b + k]$, where $h > 0, k > 0$.
-a) Let $\varphi$ be a function, continuous on $[a - h, a + h]$, such that $(x, \varphi(x)) \in Q$ for all $x$ in $[a - h, a + h]$. If $0 < c \leq h$, prove that $\varphi$ satisfies the differential equation $y' = f(x, y)$ on $(a - c, a + c)$ and the initial condition $\varphi(a) = b$ if, and only if, $\varphi$ satisfies the integral equation 
+\begin{enumerate}[label=(\alph*)]
+\item Let $\varphi$ be a function, continuous on $[a - h, a + h]$, such that $(x, \varphi(x)) \in Q$ for all $x$ in $[a - h, a + h]$. If $0 < c \leq h$, prove that $\varphi$ satisfies the differential equation $y' = f(x, y)$ on $(a - c, a + c)$ and the initial condition $\varphi(a) = b$ if, and only if, $\varphi$ satisfies the integral equation 
 \[\varphi(x) = b + \int_a^x f(t, \varphi(t)) dt \quad \text{on} \quad (a - c, a + c).\]
-b) Assume that $|f(x, y)| \leq M$ on $Q$, where $M > 0$, and let $c = \min \{h, k/M\}$. Let $S$ denote the metric subspace of $C[a - c, a + c]$ consisting of all $\varphi$ such that $|\varphi(x) - b| \leq Mc$ on $[a - c, a + c]$. Prove that $S$ is a closed subspace of $C[a - c, a + c]$ and hence that $S$ is itself a complete metric space.
-c) Prove that the function $T$ defined on $S$ by the equation 
+\item Assume that $|f(x, y)| \leq M$ on $Q$, where $M > 0$, and let $c = \min \{h, k/M\}$. Let $S$ denote the metric subspace of $C[a - c, a + c]$ consisting of all $\varphi$ such that $|\varphi(x) - b| \leq Mc$ on $[a - c, a + c]$. Prove that $S$ is a closed subspace of $C[a - c, a + c]$ and hence that $S$ is itself a complete metric space.
+\item Prove that the function $T$ defined on $S$ by the equation 
 \[T(\varphi)(x) = b + \int_a^x f(t, \varphi(t)) dt\]
 maps $S$ into itself.
-d) Now assume that $f$ satisfies a Lipschitz condition of the form 
+\item Now assume that $f$ satisfies a Lipschitz condition of the form 
 \[|f(x, y) - f(x, z)| \leq A|y - z|\]
 for every pair of points $(x, y)$ and $(x, z)$ in $Q$, where $A > 0$. Prove that $T$ is a contraction of $S$ if $h < 1/A$. Deduce that for $h < 1/A$ the differential equation $y' = f(x, y)$ has exactly one solution $y = \varphi(x)$ on $(a - c, a + c)$ such that $\varphi(a) = b$.
+\end{enumerate}
 \end{problemstatement}
 \end{problembox}
 
