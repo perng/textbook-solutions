@@ -565,7 +565,8 @@ Prove that (a) always implies (b), and give an example in which (b) holds but (a
 \noindent\textbf{Strategy:} For the implication, use the triangle inequality to bound the symmetric difference by the sum of two one-sided differences. For the counterexample, construct a function that is symmetric around $x$ but discontinuous at $x$.
 
 \bigskip\noindent\textbf{Solution:}
-(a) $\Rightarrow$ (b): By the triangle inequality,
+\begin{enumerate}[label=(\alph*)]
+\item $\Rightarrow$ (b): By the triangle inequality,
 \[
 |f(x+h)-f(x-h)|\le |f(x+h)-f(x)|+|f(x)-f(x-h)|\to 0.
 \]
@@ -829,15 +830,17 @@ For each \( x \) in \([0, 1]\), let \( f(x) = x \) if \( x \) is rational, and l
 \noindent\textbf{Strategy:} For (a) and (b), consider cases based on whether $x$ is rational or irrational. For (c), use the density of rationals and irrationals to test continuity. For (d), use the intermediate value property. For (e), analyze the possible combinations of rational/irrational inputs.
 
 \bigskip\noindent\textbf{Solution:}
-(a) If $x$ rational then $f(x)=x$ and $f(f(x))=f(x)=x$. If $x$ irrational then $f(x)=1-x$ is also irrational, hence $f(f(x))=1-(1-x)=x$.
+\begin{enumerate}[label=(\alph*)]
+\item If $x$ rational then $f(x)=x$ and $f(f(x))=f(x)=x$. If $x$ irrational then $f(x)=1-x$ is also irrational, hence $f(f(x))=1-(1-x)=x$.
 
-(b) If $x$ rational then $1-x$ is rational, so $f(x)=x$ and $f(1-x)=1-x$; sum is $1$. If $x$ irrational then $f(x)=1-x$ and $1-x$ is irrational, so $f(1-x)=x$; sum is $1$.
+\item If $x$ rational then $1-x$ is rational, so $f(x)=x$ and $f(1-x)=1-x$; sum is $1$. If $x$ irrational then $f(x)=1-x$ and $1-x$ is irrational, so $f(1-x)=x$; sum is $1$.
 
-(c) At $x=\tfrac12$, both definitions give $f(\tfrac12)=\tfrac12$, and nearby values are close to $\tfrac12$, so continuity holds. Elsewhere, approach $x\ne\tfrac12$ by rationals giving values near $x$ and by irrationals giving values near $1-x\ne x$, so discontinuous.
+\item At $x=\tfrac12$, both definitions give $f(\tfrac12)=\tfrac12$, and nearby values are close to $\tfrac12$, so continuity holds. Elsewhere, approach $x\ne\tfrac12$ by rationals giving values near $x$ and by irrationals giving values near $1-x\ne x$, so discontinuous.
 
-(d) For any $y\in[0,1]$, if $y\le \tfrac12$ take irrational $x=1-y$ to get $f(x)=y$; if $y\ge \tfrac12$ take rational $x=y$.
+\item For any $y\in[0,1]$, if $y\le \tfrac12$ take irrational $x=1-y$ to get $f(x)=y$; if $y\ge \tfrac12$ take rational $x=y$.
 
-(e) If $x+y\le 1$, then $f(x+y)$ equals $x+y$ or $1-(x+y)$. In each case, subtracting $f(x)+f(y)$ yields a value in $\{0,1,-1\}\subset \mathbb{Q}$. If $x+y>1$, reduce to the previous case by writing $f(x+y)=f(1-(2-(x+y)))$ and using (b); in all cases the difference is rational.\qed
+\item If $x+y\le 1$, then $f(x+y)$ equals $x+y$ or $1-(x+y)$. In each case, subtracting $f(x)+f(y)$ yields a value in $\{0,1,-1\}\subset \mathbb{Q}$. If $x+y>1$, reduce to the previous case by writing $f(x+y)=f(1-(2-(x+y)))$ and using (b); in all cases the difference is rational.
+\end{enumerate}\qed
 
 \begin{problembox}[4.18: Additive Functional Equation]
 \begin{problemstatement}
@@ -990,9 +993,10 @@ Let \( f \) be a function defined on \([0, 1]\) with the following property: For
 \noindent\textbf{Strategy:} For (a), use the intermediate value theorem and the fact that a continuous function on an interval that is not one-to-one must turn around, creating values with three or more preimages. For (b), construct a piecewise function with two branches. For (c), use the fact that any continuous subinterval would violate the "exactly two" property.
 
 \bigskip\noindent\textbf{Solution:}
-(a) If $f$ is continuous on $[0,1]$, its image is an interval. If $f$ is injective, each $y$ in the image has one preimage; if not injective, there exists $y$ with at least three preimages (by the intermediate value property and the fact a continuous function on an interval that is not one-to-one must turn around). Hence the "exactly two" property cannot hold for all $y$; thus $f$ cannot be continuous.
+\begin{enumerate}[label=(\alph*)]
+\item If $f$ is continuous on $[0,1]$, its image is an interval. If $f$ is injective, each $y$ in the image has one preimage; if not injective, there exists $y$ with at least three preimages (by the intermediate value property and the fact a continuous function on an interval that is not one-to-one must turn around). Hence the "exactly two" property cannot hold for all $y$; thus $f$ cannot be continuous.
 
-(b) Define
+\item Define
 \[
 f(x)=\begin{cases}
 2x,& x\in(0,\tfrac12),\\
@@ -1003,7 +1007,8 @@ f(x)=\begin{cases}
 \]
 Then $f((0,\tfrac12))=f((\tfrac12,1))=(0,1)$, so every $y\in(0,1)$ has exactly two preimages. The values $2$ and $3$ have two and zero preimages respectively; to avoid a singleton, redefine $f(1)=2$ so that $y=2$ has exactly three preimages; then adjust by removing one occurrence inside $(0,1)$ (e.g., set $f(1/4)=0$ and remove $0$ from the range elsewhere). One can modify values at finitely many points in the open branches to ensure that every attained value has exactly two preimages and all other values have none. Such a function is necessarily discontinuous.
 
-(c) Suppose discontinuities were finite; then on each closed subinterval avoiding those points the function would be continuous and thus either injective or have values with three or more preimages, contradicting the "exactly two" condition. Hence discontinuities must be infinite (indeed dense).\qed
+\item Suppose discontinuities were finite; then on each closed subinterval avoiding those points the function would be continuous and thus either injective or have values with three or more preimages, contradicting the "exactly two" condition. Hence discontinuities must be infinite (indeed dense).
+\end{enumerate}\qed
 
 \begin{problembox}[4.28: Continuous Image Examples]
 \begin{problemstatement}
@@ -1056,7 +1061,8 @@ To solve this problem, we need to understand how continuous functions preserve c
 \end{enumerate}
 
 \bigskip\noindent\textbf{Solution:}
-(a) Possible. Define
+\begin{enumerate}[label=(\alph*)]
+\item Possible. Define
 \[
 f(x)=\begin{cases}
 2x,& x\in(0,\tfrac12],\\
@@ -1065,17 +1071,18 @@ f(x)=\begin{cases}
 \]
 which is continuous on $(0,1)$ and surjects onto $(0,1]$.
 
-(b) Impossible: the continuous image of the connected set $(0,1)$ must be connected, but $(0,1)\cup(1,2)$ is disconnected.
+\item Impossible: the continuous image of the connected set $(0,1)$ must be connected, but $(0,1)\cup(1,2)$ is disconnected.
 
-(c) Impossible: a continuous image of a connected set is connected, but the rationals are totally disconnected.
+\item Impossible: a continuous image of a connected set is connected, but the rationals are totally disconnected.
 
-(d) Impossible: $S$ is compact, so any continuous image is compact; $(0,1)$ is not compact.
+\item Impossible: $S$ is compact, so any continuous image is compact; $(0,1)$ is not compact.
 
-(e) Impossible: a continuous image of a compact set is compact, but $\mathbb{R}^2$ is not compact.
+\item Impossible: a continuous image of a compact set is compact, but $\mathbb{R}^2$ is not compact.
 
-(f) Impossible: $S$ is compact, so any continuous image is compact; $(0,1)\times(0,1)$ is not compact.
+\item Impossible: $S$ is compact, so any continuous image is compact; $(0,1)\times(0,1)$ is not compact.
 
-(g) Impossible: $(0,1)^2$ is bounded, hence its continuous image is bounded; $\mathbb{R}^2$ is unbounded.\qed
+\item Impossible: $(0,1)^2$ is bounded, hence its continuous image is bounded; $\mathbb{R}^2$ is unbounded.
+\end{enumerate}\qed
 
 \section{Continuity in metric spaces}
 
@@ -1602,9 +1609,11 @@ for each $x$ in $S$. The number $f_A(x)$ is called the distance from $x$ to $A$.
 \noindent\textbf{Strategy:} For (a), use the reverse triangle inequality to show that $|f_A(x) - f_A(z)| \leq d(x,z)$, making $f_A$ 1-Lipschitz and hence uniformly continuous. For (b), use the definition of closure: $x \in \overline{A}$ if and only if there exists a sequence in $A$ converging to $x$, which is equivalent to $f_A(x) = 0$.
 
 \bigskip\noindent\textbf{Solution:}
-(a) For all $x,z$ and $y\in A$, $|d(x,y)-d(z,y)|\le d(x,z)$. Taking infimum over $y$ gives $|f_A(x)-f_A(z)|\le d(x,z)$, so $f_A$ is $1$-Lipschitz.
+\begin{enumerate}[label=(\alph*)]
+\item For all $x,z$ and $y\in A$, $|d(x,y)-d(z,y)|\le d(x,z)$. Taking infimum over $y$ gives $|f_A(x)-f_A(z)|\le d(x,z)$, so $f_A$ is $1$-Lipschitz.
 
-(b) If $x\in\overline{A}$, there exist $y_n\in A$ with $d(x,y_n)\to 0$, so $f_A(x)=0$. Conversely, if $f_A(x)=0$, pick $y_n\in A$ with $d(x,y_n)<1/n$; then $y_n\to x$, hence $x\in\overline{A}$.\qed
+\item If $x\in\overline{A}$, there exist $y_n\in A$ with $d(x,y_n)\to 0$, so $f_A(x)=0$. Conversely, if $f_A(x)=0$, pick $y_n\in A$ with $d(x,y_n)<1/n$; then $y_n\to x$, hence $x\in\overline{A}$.
+\end{enumerate}\qed
 
 \begin{problembox}[4.57: Separation by Open Sets]
 \begin{problemstatement}
@@ -1681,13 +1690,15 @@ Locate and classify the discontinuities of the functions $f$ defined on $\mathbb
     \end{figure}
 
 \bigskip\noindent\textbf{Solution:}
-(a) Removable at $0$: $\lim_{x\to0}(\sin x)/x=1\ne f(0)$; redefining $f(0)=1$ yields continuity.
+\begin{enumerate}[label=(\alph*)]
+\item Removable at $0$: $\lim_{x\to0}(\sin x)/x=1\ne f(0)$; redefining $f(0)=1$ yields continuity.
 
-(b) Essential at $0$: along $x\to 0^+$, $e^{1/x}\to+\infty$; along $x\to0^-$, $e^{1/x}\to 0$. No finite limit; discontinuity of essential type.
+\item Essential at $0$: along $x\to 0^+$, $e^{1/x}\to+\infty$; along $x\to0^-$, $e^{1/x}\to 0$. No finite limit; discontinuity of essential type.
 
-(c) Essential at $0$: the term $e^{1/x}$ behaves as in (b) and $\sin(1/x)$ oscillates; no limit exists.
+\item Essential at $0$: the term $e^{1/x}$ behaves as in (b) and $\sin(1/x)$ oscillates; no limit exists.
 
-(d) Essential at $0$: as $x\to0^-$, $e^{1/x}\to0$ so $f\to 1$; as $x\to0^+$, $e^{1/x}\to+\infty$ and $f\to 0$ except near points where $e^{1/x}=1$ causing poles; thus infinitely many essential singularities accumulating at $0$; no limit.
+\item Essential at $0$: as $x\to0^-$, $e^{1/x}\to0$ so $f\to 1$; as $x\to0^+$, $e^{1/x}\to+\infty$ and $f\to 0$ except near points where $e^{1/x}=1$ causing poles; thus infinitely many essential singularities accumulating at $0$; no limit.
+\end{enumerate}
 
 
 \qed
@@ -1806,11 +1817,13 @@ Let $f$ be an increasing function defined on $[a, b]$ and let $x_1, \ldots, x_n$
     \caption{The function $f(x)$ is strictly increasing but has a jump discontinuity at $x=1/2$, creating a gap in the range that makes the inverse discontinuous.}
     \end{figure}
 \bigskip\noindent\textbf{Solution:}
-(a) For increasing $f$, right and left limits exist. The jumps on disjoint points add up and are bounded by the total variation $f(b-)-f(a+)$. A telescoping partition argument gives the inequality.
+\begin{enumerate}[label=(\alph*)]
+\item For increasing $f$, right and left limits exist. The jumps on disjoint points add up and are bounded by the total variation $f(b-)-f(a+)$. A telescoping partition argument gives the inequality.
 
-(b) For each $m\in\mathbb{N}$, the set of points where the jump $\ge 1/m$ is finite by (a). The discontinuity set is the countable union over $m$, hence countable.
+\item For each $m\in\mathbb{N}$, the set of points where the jump $\ge 1/m$ is finite by (a). The discontinuity set is the countable union over $m$, hence countable.
 
-(c) In any open subinterval, if all points were discontinuities, jumps would sum to infinity or violate (a). Therefore at least one point is a continuity point.\qed
+\item In any open subinterval, if all points were discontinuities, jumps would sum to infinity or violate (a). Therefore at least one point is a continuity point.
+\end{enumerate}\qed
 
 \begin{problembox}[4.64: Strictly Increasing with Discontinuous Inverse]
 \begin{problemstatement}
@@ -1891,9 +1904,11 @@ Let $B(S)$ denote the set of all real-valued functions which are defined and bou
 \noindent\textbf{Strategy:} For (a), verify the metric axioms using properties of the sup norm. For (b), use the hint to show that for each $x \in S$, the sequence $(f_n(x))$ is Cauchy in $\mathbb{R}$ and converges to some $f(x)$. Then show that the resulting function $f$ is bounded and that $f_n \to f$ in the sup norm.
 
 \bigskip\noindent\textbf{Solution:}
-(a) Nonnegativity, symmetry, and triangle inequality follow from properties of the sup norm; $\|f-g\|=0$ iff $f=g$.
+\begin{enumerate}[label=(\alph*)]
+\item Nonnegativity, symmetry, and triangle inequality follow from properties of the sup norm; $\|f-g\|=0$ iff $f=g$.
 
-(b) If $(f_n)$ is Cauchy in sup norm, then for each $x$, $(f_n(x))$ is Cauchy in $\mathbb{R}$ and converges to some $f(x)$. Uniform Cauchy-ness yields $\|f_n-f\|\to 0$, so $f\in B(S)$ and $f_n\to f$ in $d$.\qed
+\item If $(f_n)$ is Cauchy in sup norm, then for each $x$, $(f_n(x))$ is Cauchy in $\mathbb{R}$ and converges to some $f(x)$. Uniform Cauchy-ness yields $\|f_n-f\|\to 0$, so $f\in B(S)$ and $f_n\to f$ in $d$.
+\end{enumerate}\qed
 
 \begin{problembox}[4.67: The Metric Space of Continuous Bounded Functions]
 \begin{problemstatement}
@@ -1908,9 +1923,11 @@ Refer to Exercise 4.66 and let $C(S)$ denote the subset of $B(S)$ consisting of 
 \noindent\textbf{Strategy:} For (a), use the fact that the uniform limit of continuous functions is continuous. For (b), use the result that closed subspaces of complete metric spaces are complete, or repeat the proof from Exercise 4.66 and use uniform convergence to preserve continuity.
 
 \bigskip\noindent\textbf{Solution:}
-(a) If $f_n\in C(S)$ and $\|f_n-f\|\to 0$, then $f$ is the uniform limit of continuous functions, hence continuous. Thus $f\in C(S)$; $C(S)$ is closed.
+\begin{enumerate}[label=(\alph*)]
+\item If $f_n\in C(S)$ and $\|f_n-f\|\to 0$, then $f$ is the uniform limit of continuous functions, hence continuous. Thus $f\in C(S)$; $C(S)$ is closed.
 
-(b) Closed subspaces of complete metric spaces are complete. Alternatively, repeat the proof in 4.66 and use uniform convergence to pass continuity to the limit.\qed
+\item Closed subspaces of complete metric spaces are complete. Alternatively, repeat the proof in 4.66 and use uniform convergence to pass continuity to the limit.
+\end{enumerate}\qed
 
 \begin{problembox}[4.68: Application of the Fixed-Point Theorem]
 \begin{problemstatement}
@@ -1961,13 +1978,14 @@ Refer to the proof of the fixed-point theorem (Theorem 4.48) for notation.
     \end{figure}
     
 \bigskip\noindent\textbf{Solution:}
-(a) In a contraction with constant $\alpha\in(0,1)$, $d(p_{n+k},p_{n+k+1})\le \alpha^{n+k}d(x,f(x))$. Hence
+\begin{enumerate}[label=(\alph*)]
+\item In a contraction with constant $\alpha\in(0,1)$, $d(p_{n+k},p_{n+k+1})\le \alpha^{n+k}d(x,f(x))$. Hence
 \[
 d(p_n,p)\le \sum_{k=0}^{\infty} d(p_{n+k},p_{n+k+1})\le d(x,f(x))\sum_{k=0}^{\infty}\alpha^{n+k}=\frac{\alpha^n}{1-\alpha}d(x,f(x)).
 \]
 
-(b) On $[1,\infty)$, $f'(x)=\tfrac12\big(1-\tfrac{2}{x^2}\big)$ so $|f'(x)|\le \tfrac12$, hence $f$ is a contraction with $\alpha=1/2$. Fixed points solve $x=\tfrac12(x+2/x)$, i.e., $x^2=2$, so $p=\sqrt2$. The bound in (a) gives $|p_n-\sqrt2|\le 2^{-n}|x-f(x)|\cdot\tfrac{1}{1-1/2}=2^{-n}\cdot 2|x-f(x)|$. With $x=p_0=1$, a direct induction using the mean value theorem or the quadratic convergence of the Babylonian method yields $|p_n-\sqrt2|\le 2^{-n}$.
-\qed
+\item On $[1,\infty)$, $f'(x)=\tfrac12\big(1-\tfrac{2}{x^2}\big)$ so $|f'(x)|\le \tfrac12$, hence $f$ is a contraction with $\alpha=1/2$. Fixed points solve $x=\tfrac12(x+2/x)$, i.e., $x^2=2$, so $p=\sqrt2$. The bound in (a) gives $|p_n-\sqrt2|\le 2^{-n}|x-f(x)|\cdot\tfrac{1}{1-1/2}=2^{-n}\cdot 2|x-f(x)|$. With $x=p_0=1$, a direct induction using the mean value theorem or the quadratic convergence of the Babylonian method yields $|p_n-\sqrt2|\le 2^{-n}$.
+\end{enumerate}\qed
 
 \begin{problembox}[4.69: Necessity of Conditions for Fixed-Point Theorem]
 \begin{problemstatement}
@@ -1978,9 +1996,11 @@ Show by counterexamples that the fixed-point theorem for contractions need not h
 \noindent\textbf{Strategy:} For (a), use a non-complete metric space and a contraction whose fixed point lies outside the space. For (b), use functions that are Lipschitz with constant $\geq 1$ but have no fixed points, such as translations or dilations.
 
 \bigskip\noindent\textbf{Solution:}
-(a) Let $S=(0,1)$ with usual metric and $f(x)=x/2$. Then $f$ is a contraction with fixed point $0\notin S$; no fixed point in $S$.
+\begin{enumerate}[label=(\alph*)]
+\item Let $S=(0,1)$ with usual metric and $f(x)=x/2$. Then $f$ is a contraction with fixed point $0\notin S$; no fixed point in $S$.
 
-(b) Take $S=\mathbb{R}$ and $f(x)=x+1$; Lipschitz constant $\alpha=1$ but no fixed point. Or $f(x)=2x$ with $\alpha=2$.\qed
+\item Take $S=\mathbb{R}$ and $f(x)=x+1$; Lipschitz constant $\alpha=1$ but no fixed point. Or $f(x)=2x$ with $\alpha=2$.
+\end{enumerate}\qed
 
 \begin{problembox}[4.70: Generalized Fixed-Point Theorem]
 \begin{problemstatement}
@@ -2012,11 +2032,13 @@ Let $f: S \to S$ be a function from a metric space $(S, d)$ into itself such tha
 \noindent\textbf{Strategy:} For (a), use proof by contradiction: if there were two fixed points, their distance would be preserved, contradicting the shrinking property. For (b), use the hint and compactness to find a minimum of $g(x) = d(x, f(x))$, then show this minimum must be zero. For (c), find a function that shrinks distances but is not Lipschitz with constant $< 1$.
 
 \bigskip\noindent\textbf{Solution:}
-(a) If $f(x)=x$ and $f(y)=y$ with $x\ne y$, then $d(x,y)=d(f(x),f(y))<d(x,y)$, impossible. Example without a fixed point: $S=\mathbb{R}$, $f(x)=x+1$.
+\begin{enumerate}[label=(\alph*)]
+\item If $f(x)=x$ and $f(y)=y$ with $x\ne y$, then $d(x,y)=d(f(x),f(y))<d(x,y)$, impossible. Example without a fixed point: $S=\mathbb{R}$, $f(x)=x+1$.
 
-(b) On compact $S$, $g(x)=d(x,f(x))$ attains a minimum at $p$. If $g(p)>0$, then $g(f(p))=d(f(p),f^2(p))<d(p,f(p))=g(p)$, contradiction. Hence $g(p)=0$ and $p$ is a fixed point. Uniqueness holds by (a).
+\item On compact $S$, $g(x)=d(x,f(x))$ attains a minimum at $p$. If $g(p)>0$, then $g(f(p))=d(f(p),f^2(p))<d(p,f(p))=g(p)$, contradiction. Hence $g(p)=0$ and $p$ is a fixed point. Uniqueness holds by (a).
 
-(c) Take $S=[0,1]$ and $f(x)=\sqrt{x}$. Then $d(f(x),f(y))<d(x,y)$ for $x\ne y$, but $f$ is not Lipschitz with constant $<1$ on $[0,1]$.\qed
+\item Take $S=[0,1]$ and $f(x)=\sqrt{x}$. Then $d(f(x),f(y))<d(x,y)$ for $x\ne y$, but $f$ is not Lipschitz with constant $<1$ on $[0,1]$.
+\end{enumerate}\qed
 
 \begin{problembox}[4.72: Iterated Function Systems]
 \begin{problemstatement}
@@ -2033,17 +2055,19 @@ Deduce that $q$ is a fixed point of $f$ and that $p_n \to q$.
 \noindent\textbf{Strategy:} For (a), use the shrinking property to show that each $c_{n+1} < c_n$, making the sequence decreasing and convergent. For (b), use continuity of $f$ and the shrinking property to show that if $q$ is not a fixed point, then $d(f(q), f(f(q))) < d(q, f(q))$, contradicting the definition of $c$.
 
 \bigskip\noindent\textbf{Solution:}
-(a) By the shrinking property,
+\begin{enumerate}[label=(\alph*)]
+\item By the shrinking property,
 \[
 c_{n+1}=d(p_{n+1},p_{n+2})=d(f(p_n),f(p_{n+1}))<d(p_n,p_{n+1})=c_n,
 \]
 so $(c_n)$ is strictly decreasing and converges to some $c\ge 0$.
 
-(b) If $p_{k(n)}\to q$, then $p_{k(n)+1}=f(p_{k(n)})\to f(q)$ by continuity of $f$ (which follows from the shrinking property). Hence
+\item If $p_{k(n)}\to q$, then $p_{k(n)+1}=f(p_{k(n)})\to f(q)$ by continuity of $f$ (which follows from the shrinking property). Hence
 \[
 c=\lim c_{k(n)}=\lim d(p_{k(n)},p_{k(n)+1})=d(q,f(q)),
 \]
-and similarly $c=\lim c_{k(n)+1}=d(f(q),f(f(q)))$. Applying the shrinking property to $q$ and $f(q)$ yields $d(f(q),f(f(q)))<d(q,f(q))$ unless $q=f(q)$. Therefore $c=0$ and $q$ is a fixed point. Then $c_n\to 0$ and $(p_n)$ is Cauchy; in a compact (or complete with suitable conditions) space it converges to $q$.\qed
+and similarly $c=\lim c_{k(n)+1}=d(f(q),f(f(q)))$. Applying the shrinking property to $q$ and $f(q)$ yields $d(f(q),f(f(q)))<d(q,f(q))$ unless $q=f(q)$. Therefore $c=0$ and $q$ is a fixed point. Then $c_n\to 0$ and $(p_n)$ is Cauchy; in a compact (or complete with suitable conditions) space it converges to $q$.
+\end{enumerate}\qed
 
 \begin{techniquessection}[Solving and Proving Techniques]
 

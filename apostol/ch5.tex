@@ -510,7 +510,11 @@ NOTE. A set of functions satisfying such a relation is said to be a linearly dep
 \noindent\textbf{Strategy:} For (a), use the result from Problem 5.8 about differentiating determinants. For (b), use the linear dependence relation to show that one row is a linear combination of the others. For (c), use the quotient rule to show that the ratio of the two functions is constant.
 
 \bigskip\noindent\textbf{Solution:}
-(a) Differentiate the determinant by the rule in 5.8: only the last row changes to $\big(f_1^{(n)}(x),\dots,f_n^{(n)}(x)\big)$. (b) If $\sum c_m f_m\equiv 0$ with some $c_m$ not all $0$, then each row of the Wronskian is a linear combination of the others with the same coefficients, so the determinant vanishes identically. (c) For two functions, $W=f_1 f_2'-f_1'f_2\equiv 0$ on $(a,b)$ and, say, $f_2\ne 0$ on $(a,b)$. Then $(f_1/f_2)'=\dfrac{f_1'f_2-f_1 f_2'}{f_2^2}=0$, so $f_1/f_2$ is constant and the pair is linearly dependent.\qed
+\begin{enumerate}[label=(\alph*)]
+\item Differentiate the determinant by the rule in 5.8: only the last row changes to $\big(f_1^{(n)}(x),\dots,f_n^{(n)}(x)\big)$.
+\item If $\sum c_m f_m\equiv 0$ with some $c_m$ not all $0$, then each row of the Wronskian is a linear combination of the others with the same coefficients, so the determinant vanishes identically.
+\item For two functions, $W=f_1 f_2'-f_1'f_2\equiv 0$ on $(a,b)$ and, say, $f_2\ne 0$ on $(a,b)$. Then $(f_1/f_2)'=\dfrac{f_1'f_2-f_1 f_2'}{f_2^2}=0$, so $f_1/f_2$ is constant and the pair is linearly dependent.
+\end{enumerate}\qed
 
 \section{The Mean-Value Theorem}
 
@@ -792,7 +796,11 @@ Assume \( f \) has a finite derivative in some interval \( (a, +\infty) \).
 \noindent\textbf{Strategy:} For (a), use the Mean Value Theorem to relate the difference quotient to the derivative. For (b) and (c), consider the function \( g(x) = f(x) - x \) or use integration to bound the growth of \( f \).
 
 \bigskip\noindent\textbf{Solution:}
-(a) If $f(x)\to 1$ and $f'(x)\to c$, then for fixed $h>0$ and large $x$, $\dfrac{f(x+h)-f(x)}{h}\to c$ by the mean value theorem, while the numerator $\to 0$. Hence $c=0$. (b) Let $g(x)=f(x)-x$. Then $g'(x)=f'(x)-1\to 0$. For any $\varepsilon>0$, for large $x$, $|g'(t)|<\varepsilon$ for $t\ge x$, so $|g(t)-g(x)|\le \varepsilon|t-x|$. Taking $t=x$ and $t=2x$ shows $|f(2x)-2f(x)|\le \varepsilon x$, which implies $\lim_{x\to\infty}f(x)/x=1$. (c) Similarly, if $f'(x)\to 0$, then for large $x$, $|f(x)-f(0)|\le \int_0^x|f'(t)|dt\le \varepsilon x+C$, so $|f(x)/x|\le \varepsilon+C/x\to 0$.\qed
+\begin{enumerate}[label=(\alph*)]
+\item If $f(x)\to 1$ and $f'(x)\to c$, then for fixed $h>0$ and large $x$, $\dfrac{f(x+h)-f(x)}{h}\to c$ by the mean value theorem, while the numerator $\to 0$. Hence $c=0$.
+\item Let $g(x)=f(x)-x$. Then $g'(x)=f'(x)-1\to 0$. For any $\varepsilon>0$, for large $x$, $|g'(t)|<\varepsilon$ for $t\ge x$, so $|g(t)-g(x)|\le \varepsilon|t-x|$. Taking $t=x$ and $t=2x$ shows $|f(2x)-2f(x)|\le \varepsilon x$, which implies $\lim_{x\to\infty}f(x)/x=1$.
+\item Similarly, if $f'(x)\to 0$, then for large $x$, $|f(x)-f(0)|\le \int_0^x|f'(t)|dt\le \varepsilon x+C$, so $|f(x)/x|\le \varepsilon+C/x\to 0$.
+\end{enumerate}\qed
 
 
 \begin{problembox}[5.23: Nonexistence of Function]
@@ -863,12 +871,15 @@ If \( h > 0 \) and if \( f'(x) \) exists (and is finite) for every \( x \) in \(
 \end{figure}
 
 \bigskip\noindent\textbf{Solution:}
-(a) Define $\phi(t)=f(t)-f(2a-t)$. Then $\phi$ is differentiable and by the mean value theorem there is $\theta\in(0,1)$ with
+\begin{enumerate}[label=(\alph*)]
+\item Define $\phi(t)=f(t)-f(2a-t)$. Then $\phi$ is differentiable and by the mean value theorem there is $\theta\in(0,1)$ with
 \[\frac{f(a+h)-f(a-h)}{h}=\phi'(a+\theta h)=f'(a+\theta h)+f'(a-\theta h).\]
-(b) Apply (a) to $f'$ to get
+\item Apply (a) to $f'$ to get
 \[\frac{f'(a+h)-f'(a-h)}{1}=\frac{f(a+h)-2f(a)+f(a-h)}{h}=f'(a+\lambda h)-f'(a-\lambda h).\]
-(c) If $f''(a)$ exists, by (b) the symmetric second difference quotient tends to $f''(a)$. (d) Let $f(x)=x|x|$. Then $f''(0)$ does not exist, but
-\[\frac{f(h)-2f(0)+f(-h)}{h^2}=\frac{h|h|+(-h)|-h|}{h^2}=0\to 0.\]\qed
+\item If $f''(a)$ exists, by (b) the symmetric second difference quotient tends to $f''(a)$.
+\item Let $f(x)=x|x|$. Then $f''(0)$ does not exist, but
+\[\frac{f(h)-2f(0)+f(-h)}{h^2}=\frac{h|h|+(-h)|-h|}{h^2}=0\to 0.\]
+\end{enumerate}\qed
 
 
 \begin{problembox}[5.25: Uniform Differentiability]

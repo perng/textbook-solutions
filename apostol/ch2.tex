@@ -538,9 +538,11 @@ Generalize to arbitrary unions and intersections.
 
 \noindent\textbf{Strategy:} Use the definition of inverse image and logical equivalence. For (a), show that $f(x) \in Y_1 \cup Y_2$ if and only if $f(x) \in Y_1$ or $f(x) \in Y_2$. For (b), use the fact that $f(x) \notin Y$ if and only if $x \notin f^{-1}(Y)$.
 
-\noindent\bigskip\noindent\textbf{Solution:}  
-(a) If \( x \in f^{-1}(Y_1 \cup Y_2) \), then \( f(x) \in Y_1 \cup Y_2 \Rightarrow x \in f^{-1}(Y_1) \cup f^{-1}(Y_2) \), and vice versa.  
-(b) \( f(x) \notin Y \iff x \notin f^{-1}(Y) \Rightarrow x \in S - f^{-1}(Y) \)\qed
+\noindent\bigskip\noindent\textbf{Solution:}
+\begin{enumerate}[label=(\alph*)]
+\item If \( x \in f^{-1}(Y_1 \cup Y_2) \), then \( f(x) \in Y_1 \cup Y_2 \Rightarrow x \in f^{-1}(Y_1) \cup f^{-1}(Y_2) \), and vice versa.
+\item \( f(x) \notin Y \iff x \notin f^{-1}(Y) \Rightarrow x \in S - f^{-1}(Y) \)
+\end{enumerate}\qed
 
 
 
@@ -930,9 +932,11 @@ Show that the following sets are countable:
 \caption{Disjoint intervals of positive length. Each interval contains a rational number, and since the intervals are disjoint, these rationals are distinct, creating an injection into $\mathbb{Q}$.}
 \end{figure}
 
-\bigskip\noindent\textbf{Solution:}  
-(a) Each circle is determined by a rational radius and two rational coordinates → set is countable.  
-(b) Each disjoint interval must contain a distinct rational number → inject into \( \mathbb{Q} \), which is countable.\qed
+\bigskip\noindent\textbf{Solution:}
+\begin{enumerate}[label=(\alph*)]
+\item Each circle is determined by a rational radius and two rational coordinates → set is countable.
+\item Each disjoint interval must contain a distinct rational number → inject into \( \mathbb{Q} \), which is countable.
+\end{enumerate}\qed
 
 
 

@@ -182,19 +182,20 @@ Determine all the accumulation points of the following sets in $\mathbb{R}^1$ an
 \caption{The set $\{1/n : n \in \mathbb{N}\}$ has 0 as its only accumulation point. Any neighborhood of 0 contains infinitely many points from the set.}
 \end{figure}
 
-\bigskip\noindent\textbf{Solution:} 
-(a) The set of integers has no accumulation points since each integer has a neighborhood containing no other integers. The set is closed (its complement is open) but not open.
+\bigskip\noindent\textbf{Solution:}
+\begin{enumerate}[label=(\alph*)]
+\item The set of integers has no accumulation points since each integer has a neighborhood containing no other integers. The set is closed (its complement is open) but not open.
 
-(b) The interval $(a,b)$ has accumulation points $[a,b]$. For any $x \in [a,b]$, a sequence $\{x_n\} \subset (a,b)$ with $x_n \to x$ exists (e.g., $x_n = x + (b-a)/(n+1)$ if $x < b$, or $x_n = a + (b-a)/(n+1)$ if $x = a$). The set is open (every point is interior) but not closed (its closure is $[a,b]$).
+\item The interval $(a,b)$ has accumulation points $[a,b]$. For any $x \in [a,b]$, a sequence $\{x_n\} \subset (a,b)$ with $x_n \to x$ exists (e.g., $x_n = x + (b-a)/(n+1)$ if $x < b$, or $x_n = a + (b-a)/(n+1)$ if $x = a$). The set is open (every point is interior) but not closed (its closure is $[a,b]$).
 
-(c) The set $\{1/n : n \in \mathbb{N}\}$ has 0 as its only accumulation point. The set is not closed, because its closure includes 0. It is also not open, as no point in the set has a neighborhood entirely contained within the set. Therefore, the set is neither open nor closed.
+\item The set $\{1/n : n \in \mathbb{N}\}$ has 0 as its only accumulation point. The set is not closed, because its closure includes 0. It is also not open, as no point in the set has a neighborhood entirely contained within the set. Therefore, the set is neither open nor closed.
 
+\item The set of rational numbers has all real numbers as accumulation points. The set is neither open nor closed.
 
-(d) The set of rational numbers has all real numbers as accumulation points. The set is neither open nor closed.
+\item The set $\{2^{-n} + 5^{-m} : m,n \in \mathbb{N}\}$ has accumulation points $\{2^{-n} + 5^{-m} : m,n \in \mathbb{N}\} \cup \{2^{-n} : n \in \mathbb{N}\} \cup \{5^{-m} : m \in \mathbb{N}\} \cup \{0\}$. For any $x = 2^{-k} + 5^{-l}$, take $m_n = n + l$, so $2^{-k} + 5^{-m_n} \to 2^{-k}$. Similarly, for $x = 5^{-l}$, take $n_m = m + k$, so $2^{-n_m} + 5^{-l} \to 5^{-l}$. For $x = 0$, take $n = m$, so $2^{-n} + 5^{-n} \to 0$. The set is neither open nor closed (no point is interior; closure includes accumulation points).
 
-(e) The set $\{2^{-n} + 5^{-m} : m,n \in \mathbb{N}\}$ has accumulation points $\{2^{-n} + 5^{-m} : m,n \in \mathbb{N}\} \cup \{2^{-n} : n \in \mathbb{N}\} \cup \{5^{-m} : m \in \mathbb{N}\} \cup \{0\}$. For any $x = 2^{-k} + 5^{-l}$, take $m_n = n + l$, so $2^{-k} + 5^{-m_n} \to 2^{-k}$. Similarly, for $x = 5^{-l}$, take $n_m = m + k$, so $2^{-n_m} + 5^{-l} \to 5^{-l}$. For $x = 0$, take $n = m$, so $2^{-n} + 5^{-n} \to 0$. The set is neither open nor closed (no point is interior; closure includes accumulation points).
-
-(g) The set $\{1/n + 1/m : m,n \in \mathbb{N}\}$ has accumulation points $\{k/n : k,n \in \mathbb{N}, k \leq n\} \cup \{0\}$. For $x = k/n$, take $m_i = i + n$, so $1/n + 1/m_i \to 1/n$; for $k/n$ with $k \geq 2$, set $m = n_i = i$, so $(k-1)/i + 1/i = k/i \to k/n$. For $x = 0$, take $n = m = i$, so $1/i + 1/i \to 0$. The set is neither open nor closed (no point is interior; closure includes accumulation points).
+\item The set $\{1/n + 1/m : m,n \in \mathbb{N}\}$ has accumulation points $\{k/n : k,n \in \mathbb{N}, k \leq n\} \cup \{0\}$. For $x = k/n$, take $m_i = i + n$, so $1/n + 1/m_i \to 1/n$; for $k/n$ with $k \geq 2$, set $m = n_i = i$, so $(k-1)/i + 1/i = k/i \to k/n$. For $x = 0$, take $n = m = i$, so $1/i + 1/i \to 0$. The set is neither open nor closed (no point is interior; closure includes accumulation points).
+\end{enumerate}
 
 (h) The set $\{(-1)^n/(1+1/n) : n \in \mathbb{N}\}$ has accumulation points $\{-1, 1\}$. The set is neither open nor closed.\qed
 
@@ -269,17 +270,19 @@ The same as Exercise 3.2 for the following sets in $\mathbb{R}^2$:
 \end{figure}
 
 \bigskip\noindent\textbf{Solution:}
-(a) The set $\{z \in \mathbb{C} : |z| > 1\}$ has accumulation points $\{z \in \mathbb{C} : |z| \geq 1\}$. The set is open but not closed.
+\begin{enumerate}[label=(\alph*)]
+\item The set $\{z \in \mathbb{C} : |z| > 1\}$ has accumulation points $\{z \in \mathbb{C} : |z| \geq 1\}$. The set is open but not closed.
 
-(b) The set $\{z \in \mathbb{C} : |z| \geq 1\}$ has accumulation points $\{z \in \mathbb{C} : |z| \geq 1\}$. The set is closed but not open.
+\item The set $\{z \in \mathbb{C} : |z| \geq 1\}$ has accumulation points $\{z \in \mathbb{C} : |z| \geq 1\}$. The set is closed but not open.
 
-(c) The set $\{(1/n, 1/m) : m,n \in \mathbb{N}\}$ has accumulation points $\{(1/n, 0) : n \in \mathbb{N}\} \cup \{(0, 1/m) : m \in \mathbb{N}\} \cup \{(0, 0)\}$. For $(1/k, 0)$, take $(1/k, 1/m_n)$ with $m_n \to \infty$; for $(0, 1/l)$, take $(1/n_m, 1/l)$ with $n_m \to \infty$; for $(0, 0)$, take $(1/n, 1/n)$. The set is neither open nor closed (no point is interior; closure includes accumulation points).
+\item The set $\{(1/n, 1/m) : m,n \in \mathbb{N}\}$ has accumulation points $\{(1/n, 0) : n \in \mathbb{N}\} \cup \{(0, 1/m) : m \in \mathbb{N}\} \cup \{(0, 0)\}$. For $(1/k, 0)$, take $(1/k, 1/m_n)$ with $m_n \to \infty$; for $(0, 1/l)$, take $(1/n_m, 1/l)$ with $n_m \to \infty$; for $(0, 0)$, take $(1/n, 1/n)$. The set is neither open nor closed (no point is interior; closure includes accumulation points).
 
-(d) The set $\{(x,y) : x^2 - y^2 < 1\}$ has accumulation points $\{(x,y) : x^2 - y^2 \leq 1\}$. The set is open but not closed.
+\item The set $\{(x,y) : x^2 - y^2 < 1\}$ has accumulation points $\{(x,y) : x^2 - y^2 \leq 1\}$. The set is open but not closed.
 
-(e) The set $\{(x,y) : x > 0\}$ has accumulation points $\{(x,y) : x \geq 0\}$. The set is open but not closed.
+\item The set $\{(x,y) : x > 0\}$ has accumulation points $\{(x,y) : x \geq 0\}$. The set is open but not closed.
 
-(f) The set $\{(x,y) : x \geq 0\}$ has accumulation points $\{(x,y) : x \geq 0\}$. The set is closed but not open.\qed
+\item The set $\{(x,y) : x \geq 0\}$ has accumulation points $\{(x,y) : x \geq 0\}$. The set is closed but not open.
+\end{enumerate}\qed
 
 
 \begin{problembox}[3.4: Rational and Irrational Elements in Open Sets]

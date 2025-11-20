@@ -129,7 +129,10 @@ Thus the lower integral $\ge A-\varepsilon$ and the upper integral $\le A+\varep
 \qed
 \begin{problembox}[7.4: Equivalence of Integral Definitions]
 \begin{problemstatement}
-If $f \in R$ according to Definition 7.1, prove that $\int_a^b f(x) dx$ also exists according to the definition of Exercise 7.3. [Contrast with Exercise 7.3(b).] Hint. Let $I = \int_a^b f(x) dx$, $M = \sup \{ |f(x)| : x \in [a, b] \}$. Given $\epsilon > 0$, choose $P_\epsilon$ so that $U(P_\epsilon, f) < I + \epsilon/2$ (notation of Section 7.11). Let $N$ be the number of subdivision points in $P_\epsilon$ and let $\delta = \epsilon/(2MN)$. If $\|P\| < \delta$, write 
+If $f \in R$ according to Definition 7.1, prove that $\int_a^b f(x) dx$ also exists according to the definition of Exercise 7.3. [Contrast with Exercise 7.3(b).] 
+
+\vskip 0.5cm
+Hint. Let $I = \int_a^b f(x) dx$, $M = \sup \{ |f(x)| : x \in [a, b] \}$. Given $\epsilon > 0$, choose $P_\epsilon$ so that $U(P_\epsilon, f) < I + \epsilon/2$ (notation of Section 7.11). Let $N$ be the number of subdivision points in $P_\epsilon$ and let $\delta = \epsilon/(2MN)$. If $\|P\| < \delta$, write 
 \[U(P, f) = \sum M_k(f) \Delta x_k = S_1 + S_2,\]
 where $S_1$ is the sum of terms arising from those subintervals of $P$ containing no points of $P_\epsilon$ and $S_2$ is the sum of the remaining terms. Then
 \[S_1 \leq U(P_\epsilon, f) < I + \epsilon/2 \quad \text{and} \quad S_2 \leq NM \|P\| < NM\delta = \epsilon/2,\]
@@ -157,7 +160,7 @@ which is precisely the alternative definition with $A=I$.
 \begin{problemstatement}
 Let $\{a_n\}$ be a sequence of real numbers. For $x \geq 0$, define
 
-\[ A(x) = \sum_{n \leq x} a_n = \sum_{n=1}^{\lfloor x \rfloor} a_n, \]
+\[ A(x) = \sum_{n \leq x} a_n = \sum_{n=1}^{[x]} a_n, \]
 
 where $[x]$ is the greatest integer in $x$ and empty sums are interpreted as zero. Let $f$ have a continuous derivative in the interval $1 \leq x \leq a$. Use Stieltjes integrals to derive the following formula:
 
@@ -171,10 +174,10 @@ where $[x]$ is the greatest integer in $x$ and empty sums are interpreted as zer
 Let $A(x)=\sum_{n\le x}a_n$. Since $A$ is a step function with jumps $\Delta A(n)=a_n$ at integers $n\ge 1$, we have
 \[\sum_{n\le a} a_n f(n)=\int_{1^-}^{a} f\,dA.
 \]
-By integration by parts for Riemann–Stieltjes,
-\[\int_{1}^{a} f\,dA= A(a)f(a)-A(1)f(1)-\int_{1}^{a} A(x) f'(x)\,dx.
+Note that $A(1^-)=0$ (since empty sums are interpreted as zero). By integration by parts for Riemann–Stieltjes integrals, when integrating from a left limit, we have
+\[\int_{1^-}^{a} f\,dA= A(a)f(a)-A(1^-)f(1)-\int_{1}^{a} A(x) f'(x)\,dx = A(a)f(a)-\int_{1}^{a} A(x) f'(x)\,dx,
 \]
-Since $A(1)=a_1$ and the jump at $1$ is included in the left limit, the endpoint contribution is absorbed in the convention of the sum; rearranging yields
+since $A(1^-)=0$. Rearranging yields the desired formula:
 \[\sum_{n\le a} a_n f(n)= -\int_{1}^{a} A(x) f'(x)\,dx + A(a)f(a).\]
 
 
@@ -335,9 +338,11 @@ If $\alpha \neq \infty$ on $[a, b]$, prove that we have
 \noindent\textbf{Strategy:} For (a), use additivity by refining partitions and splitting sums at $c$. For (b) and (c), use the linearity of the Riemann integral and note that the inequalities together imply equality.
 
 \bigskip\noindent\textbf{Solution:}
-(a) Additivity follows by refining partitions and splitting sums at $c$.
+\begin{enumerate}[label=(\alph*)]
+\item Additivity follows by refining partitions and splitting sums at $c$.
 
-(b)–(c) For integrable $f,g$, the Riemann integral is linear: $\int_a^b(f+g)=\int_a^b f+\int_a^b g$. The displayed inequalities together imply equality.
+\item For integrable $f,g$, the Riemann integral is linear: $\int_a^b(f+g)=\int_a^b f+\int_a^b g$. The displayed inequalities together imply equality.
+\end{enumerate}
 
 
 
@@ -677,11 +682,13 @@ A function $f$ of two real variables is defined for each point $(x, y)$ in the u
 \noindent\textbf{Strategy:} For (a), note that the Riemann integral exists only when the two values agree (i.e., when $2y = 1$). For (b), integrate with respect to $y$ for fixed $x$. For (c), use the result from (b) to compute the iterated integral.
 
 \bigskip\noindent\textbf{Solution:}
-(a) For each fixed $y$, $f(\cdot,y)$ equals $1$ on rationals and $2y$ on irrationals; since rationals are measure zero and Riemann integrability fails unless the two values agree, the Riemann integral exists only if $2y=1$. Thus $\int_0^1 f(x,y)\,dx$ does not exist unless $y=\tfrac12$, in which case it equals $1$.
+\begin{enumerate}[label=(\alph*)]
+\item For each fixed $y$, $f(\cdot,y)$ equals $1$ on rationals and $2y$ on irrationals; since rationals are measure zero and Riemann integrability fails unless the two values agree, the Riemann integral exists only if $2y=1$. Thus $\int_0^1 f(x,y)\,dx$ does not exist unless $y=\tfrac12$, in which case it equals $1$.
 
-(b) For fixed $x$, $\int_0^1 f(x,y)\,dy=\int_0^1 2y\,dy=1$ if $x$ is irrational, and $\int_0^1 1\,dy=1$ if $x$ is rational; hence the value is $1$ for all $x$ (independent of $t$).
+\item For fixed $x$, $\int_0^1 f(x,y)\,dy=\int_0^1 2y\,dy=1$ if $x$ is irrational, and $\int_0^1 1\,dy=1$ if $x$ is rational; hence the value is $1$ for all $x$ (independent of $t$).
 
-(c) Then $F(x)\equiv 1$, so $\int_0^1 F(x)\,dx=1$.
+\item Then $F(x)\equiv 1$, so $\int_0^1 F(x)\,dx=1$.
+\end{enumerate}
 
 
 
@@ -704,14 +711,16 @@ where $A(x) = 2^{-1-\lfloor \log x / \log 2 \rfloor}$ and where $[y]$ is the gre
 \noindent\textbf{Strategy:} For (a), note that $f$ is bounded with only jump discontinuities at dyadic points (which form a countable set of measure zero). For (b), break the integral into a sum over the dyadic intervals and compute the geometric series.
 
 \bigskip\noindent\textbf{Solution:}
-(a) $f$ is bounded with only jump discontinuities at the dyadic points $2^{-n}$; the set of discontinuities is countable, hence measure zero. Therefore $f\in R$ and $\int_0^1 f$ exists. Also $f$ is a step function, so its integral exists by definition.
+\begin{enumerate}[label=(\alph*)]
+\item $f$ is bounded with only jump discontinuities at the dyadic points $2^{-n}$; the set of discontinuities is countable, hence measure zero. Therefore $f\in R$ and $\int_0^1 f$ exists. Also $f$ is a step function, so its integral exists by definition.
 
-(b) For $x\in(0,1]$, write $x\in(2^{-m-1},2^{-m}]$, so $A(x)=2^{-m-1}$. Then
+\item For $x\in(0,1]$, write $x\in(2^{-m-1},2^{-m}]$, so $A(x)=2^{-m-1}$. Then
 \begin{align*}
 F(x)=&\int_0^x f(t)\,dt=\sum_{n\ge m+1} \int_{2^{-n-1}}^{2^{-n}} 2^{-n}dt + \int_{2^{-m-1}}^{x} 2^{-m}dt \\
 =&\sum_{n\ge m+1}2^{-n}\cdot 2^{-n-1}+2^{-m}(x-2^{-m-1}),
 \end{align*}
 which simplifies to $F(x)=xA(x)-\tfrac13 A(x)^2$ as stated.
+\end{enumerate}
 
 
 
@@ -817,13 +826,15 @@ Let $I = [0, 1]$ and let $A_1 = I - (\frac{1}{3}, \frac{2}{3})$ be that subset o
 \noindent\textbf{Strategy:} For (a), use the fact that $C$ is closed as an intersection of closed sets and has measure zero since the removed lengths sum to $1$. For (b), use ternary expansions. For (c), construct an injection from binary sequences to $C$. For (d), use the fact that $C$ has measure zero.
 
 \bigskip\noindent\textbf{Solution:}
-(a) $C$ is closed as an intersection of closed sets and totally bounded by construction; it has measure zero since the removed lengths sum to $1$.
+\begin{enumerate}[label=(\alph*)]
+\item $C$ is closed as an intersection of closed sets and totally bounded by construction; it has measure zero since the removed lengths sum to $1$.
 
-(b) Every $x\in C$ has a ternary expansion using only digits $0$ and $2$, yielding $x=\sum a_n 3^{-n}$ with $a_n\in\{0,2\}$. Conversely, such series lie in $C$.
+\item Every $x\in C$ has a ternary expansion using only digits $0$ and $2$, yielding $x=\sum a_n 3^{-n}$ with $a_n\in\{0,2\}$. Conversely, such series lie in $C$.
 
-(c) The map from binary sequences to $C$ given by $\{0,1\}\ni b_n\mapsto \sum (2b_n)3^{-n}$ is injective, so $C$ is uncountable.
+\item The map from binary sequences to $C$ given by $\{0,1\}\ni b_n\mapsto \sum (2b_n)3^{-n}$ is injective, so $C$ is uncountable.
 
-(d) The characteristic function of $C$ is Riemann integrable because $C$ has measure zero; its set of discontinuities is $C$ itself.
+\item The characteristic function of $C$ is Riemann integrable because $C$ has measure zero; its set of discontinuities is $C$ itself.
+\end{enumerate}
 
 
 
@@ -851,11 +862,13 @@ Prove that:
 \noindent\textbf{Strategy:} For (a) and (b), use properties of polynomials and factorials. For (c)-(f), use the assumption $\pi^2 = a/b$ to show that $F(0)$ and $F(1)$ are integers, then use integration by parts and the bound from (a) to show the integral lies strictly between $0$ and $1$ for large $n$, leading to a contradiction.
 
 \bigskip\noindent\textbf{Solution:}
-(a) On $(0,1)$, $0<x(1-x)<1$, so $0<f(x)<1/n!$.
+\begin{enumerate}[label=(\alph*)]
+\item On $(0,1)$, $0<x(1-x)<1$, so $0<f(x)<1/n!$.
 
-(b) $f$ is a polynomial times $1/n!$; its derivatives at $0$ and $1$ are integers by repeated differentiation of $x^n$ and $(1-x)^n$ and evaluating at endpoints.
+\item $f$ is a polynomial times $1/n!$; its derivatives at $0$ and $1$ are integers by repeated differentiation of $x^n$ and $(1-x)^n$ and evaluating at endpoints.
 
-Assuming $\pi^2=a/b$ and defining $F$ as stated, parts (c)–(f) follow by differentiating $F$, using the identity in (d), and integrating by parts to obtain (e). Then (a) implies the integral lies strictly between $0$ and $1$ for large $n$, contradicting the integrality in (c). Hence $\pi^2$ is irrational.
+\item Assuming $\pi^2=a/b$ and defining $F$ as stated, parts (c)–(f) follow by differentiating $F$, using the identity in (d), and integrating by parts to obtain (e). Then (a) implies the integral lies strictly between $0$ and $1$ for large $n$, contradicting the integrality in (c). Hence $\pi^2$ is irrational.
+\end{enumerate}
 
 
 
@@ -963,11 +976,13 @@ where $\lambda$ is a given constant.
 \noindent\textbf{Strategy:} For (a), use continuity of $g$ and $K$ and boundedness of $\varphi$ to show $T(\varphi) \in C[a,b]$. For (b), use the contraction mapping theorem to show that $T$ is a contraction under the given condition on $\lambda$.
 
 \bigskip\noindent\textbf{Solution:}
-(a) Continuity of $g,K$ and boundedness of $\varphi\in C[a,b]$ imply $T(\varphi)\in C[a,b]$ by dominated convergence.
+\begin{enumerate}[label=(\alph*)]
+\item Continuity of $g,K$ and boundedness of $\varphi\in C[a,b]$ imply $T(\varphi)\in C[a,b]$ by dominated convergence.
 
-(b) For $\varphi,\psi\in C[a,b]$,
+\item For $\varphi,\psi\in C[a,b]$,
 \[\|T\varphi-T\psi\|_\infty \le |\lambda|\,\sup_{x\in[a,b]}\int_a^b |K(x,t)|\,|\varphi(t)-\psi(t)|\,dt \le |\lambda|M(b-a)\,\|\varphi-\psi\|_\infty.
 \]
+\end{enumerate}
 If $|\lambda|<\big(M(b-a)\big)^{-1}$, $T$ is a contraction, hence has a unique fixed point solving the integral equation.
 
 
@@ -994,18 +1009,20 @@ for every pair of points $(x, y)$ and $(x, z)$ in $Q$, where $A > 0$. Prove that
 \noindent\textbf{Strategy:} For (a), integrate the differential equation to obtain the integral equation; conversely, differentiate the integral equation. For (b), use the completeness of $C[a-c,a+c]$ and the fact that $S$ is closed. For (c), use the boundedness of $f$. For (d), use the Lipschitz condition to show that $T$ is a contraction.
 
 \bigskip\noindent\textbf{Solution:}
-(a) Integrate $y'=f(x,y)$ to obtain the integral equation; conversely, differentiating the integral equation yields the differential equation and initial condition.
+\begin{enumerate}[label=(\alph*)]
+\item Integrate $y'=f(x,y)$ to obtain the integral equation; conversely, differentiating the integral equation yields the differential equation and initial condition.
 
-(b) If $\varphi_n\to\varphi$ uniformly and each $\varphi_n\in S$, then $|\varphi(x)-b|\le Mc$ for all $x$ by uniform limits, so $S$ is closed; since $C[a-c,a+c]$ is complete, so is $S$.
+\item If $\varphi_n\to\varphi$ uniformly and each $\varphi_n\in S$, then $|\varphi(x)-b|\le Mc$ for all $x$ by uniform limits, so $S$ is closed; since $C[a-c,a+c]$ is complete, so is $S$.
 
-(c) For $\varphi\in S$ and $x\in[a-c,a+c]$,
+\item For $\varphi\in S$ and $x\in[a-c,a+c]$,
 \[|T\varphi(x)-b|=\Big|\int_a^x f(t,\varphi(t))dt\Big|\le M|x-a|\le Mc,
 \]
 so $T(S)\subset S$.
 
-(d) If $|f(x,y)-f(x,z)|\le A|y-z|$ and $h<1/A$, then for $\varphi,\psi\in S$,
+\item If $|f(x,y)-f(x,z)|\le A|y-z|$ and $h<1/A$, then for $\varphi,\psi\in S$,
 \[\|T\varphi-T\psi\|_\infty\le A h\,\|\varphi-\psi\|_\infty,
 \]
+\end{enumerate}
 so $T$ is a contraction. The fixed point gives the unique solution on $(a-c,a+c)$.\qed
 \medskip
 
